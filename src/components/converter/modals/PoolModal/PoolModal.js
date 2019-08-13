@@ -3,14 +3,14 @@
 // TODO DRY
 
 import React, { Component } from 'react'
-import { Button, ButtonGroup, Alert, Form,  Modal, Badge, Card } from "react-bootstrap"
+import { Button, Form,  Modal, Badge } from "react-bootstrap"
 import { inject, observer } from 'mobx-react'
-import { hexToNumberString, toWei, fromWei } from 'web3-utils'
 import findByProps from '../../../../service/findByProps'
-import getPath from '../../../../service/getPath'
 import getWeb3ForRead from '../../../../service/getWeb3ForRead'
-import { ABIConverter, ABISmartToken, BNTToken } from '../../../../config'
-import BigNumber from 'bignumber.js'
+import { ABIConverter, ABISmartToken } from '../../../../config'
+
+import Liquidate from './Liquidate'
+import Fund from './Fund'
 
 import { Typeahead } from 'react-bootstrap-typeahead'
 
@@ -19,15 +19,11 @@ class PoolModal extends Component {
    super(props, context)
     this.state = {
     from:undefined,
-    directionAmount:0,
     ShowModal:false,
     bancorTokensStorageJson:null,
     selectFromOficial:true,
     officialSymbols:undefined,
     unofficialSymbols:undefined,
-    connectorAmount:undefined,
-    BNTAmount:undefined,
-    BNTSendAmount:0,
     selectAction:'Add liquidity'
     }
   }
@@ -59,6 +55,22 @@ class PoolModal extends Component {
     }
   }
 
+  // return converter contract, converter address, connector (ERC20) token address, smart token address and smart token contract
+  getInfoBySymbol = () => {
+    if(this.state.from && this.state.bancorTokensStorageJson){
+      const web3 = getWeb3ForRead(this.props.MobXStorage.web3)
+      const tokenInfo = findByProps(this.state.bancorTokensStorageJson, 'symbol', this.state.from)[0]
+      return [
+        web3.eth.Contract(ABIConverter, tokenInfo.converterAddress),
+        tokenInfo.converterAddress,
+        tokenInfo.tokenAddress,
+        tokenInfo.smartToken,
+        web3.eth.Contract(ABISmartToken, tokenInfo.smartTokenAddress)
+      ]
+    }
+  }
+
+
   // reset states after close modal
   closeModal = () => this.setState({
     to:undefined,
@@ -74,7 +86,6 @@ class PoolModal extends Component {
 
   // TODO move this to a Presentational component
     render(){
-      console.log(this.state.selectAction)
       return(
       <React.Fragment>
       {
@@ -114,6 +125,14 @@ class PoolModal extends Component {
             <option>Remove liquidity</option>
             </Form.Control>
             </Form.Group>
+            <Form.Group>
+            <Form.Check
+            name="selectFromOficial"
+            type="checkbox"
+            label="Show unofficial"
+            onChange={e => this.change(e)}
+            />
+            </Form.Group>
             {
               this.state.selectFromOficial
               ?
@@ -144,9 +163,18 @@ class PoolModal extends Component {
             {
               this.state.selectAction === "Add liquidity"
               ?
-              (<p>Fund</p>)
+              (
+                <Fund
+                from={this.state.from}
+                web3={this.props.MobXStorage.web3}
+                getInfoBySymbol={this.getInfoBySymbol}
+                accounts={this.props.MobXStorage.accounts}
+                />
+              )
               :
-              (<p>LIQUIDATE</p>)
+              (
+                <Liquidate getInfoBySymbol={this.getInfoBySymbol} accounts={this.props.MobXStorage.accounts}/>
+              )
             }
             </React.Fragment>
          )

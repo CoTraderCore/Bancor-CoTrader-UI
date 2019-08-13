@@ -9,6 +9,7 @@ import RelaysPage from "./components/converter/pages/RelaysPage"
 import PoolPage from "./components/converter/pages/PoolPage"
 import AddConverter from "./components/converter/pages/AddConverter"
 import CreateConverter from "./components/converter/pages/CreateConverter/CreateConverter"
+import Footer from "./components/static/Footer"
 
 import getOfficialData from "./service/getOfficialData"
 import getUnofficialData from "./service/getUnofficialData"
@@ -126,6 +127,7 @@ class App extends Component {
            </div>
          )
        }
+       <Footer/>
       </React.Fragment>
     )
   }

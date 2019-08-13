@@ -1,11 +1,33 @@
 import React, { Component } from 'react'
-
+import { hexToNumberString, toWei, fromWei } from 'web3-utils'
+import { ABISmartToken, BNTToken } from '../../../../config'
+import getPath from '../../../../service/getPath'
+import BigNumber from 'bignumber.js'
+import { Button, Alert, Form, Card, ButtonGroup } from "react-bootstrap"
 
 class Fund extends Component {
-  componentDidUpdate(prevProps, prevState) {
+  constructor(props, context) {
+   super(props, context)
+    this.state = {
+    directionAmount:0,
+    connectorAmount:undefined,
+    BNTAmount:undefined,
+    BNTSendAmount:0,
+    ConnectorSendAmount:0
+    }
+  }
+
+  // helper for setState
+  change = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  componentDidUpdate = async (prevProps, prevState) => {
     // Update connctors info
-    if(prevState.from !== this.state.from || prevState.directionAmount !== this.state.directionAmount){
-      if(this.state.from)
+    if(prevProps.from !== this.props.from || prevState.directionAmount !== this.state.directionAmount){
+      if(this.props.from)
         if(this.state.directionAmount > 0){
           const connectorsInfo = await this.calculateConnectorBySmartTokenAmount()
           console.log(connectorsInfo[0], connectorsInfo[1])
@@ -19,20 +41,6 @@ class Fund extends Component {
     }
   }
 
-  // return converter contract, converter address, connector (ERC20) token address, smart token address and smart token contract
-  getInfoBySymbol = () => {
-    if(this.state.from && this.state.bancorTokensStorageJson){
-      const web3 = getWeb3ForRead(this.props.MobXStorage.web3)
-      const tokenInfo = findByProps(this.state.bancorTokensStorageJson, 'symbol', this.state.from)[0]
-      return [
-        web3.eth.Contract(ABIConverter, tokenInfo.converterAddress),
-        tokenInfo.converterAddress,
-        tokenInfo.tokenAddress,
-        tokenInfo.smartToken,
-        web3.eth.Contract(ABISmartToken, tokenInfo.smartTokenAddress)
-      ]
-    }
-  }
 
   // calculateRelayByTokenInput = async () => {
   //   const info = this.getInfoBySymbol()
@@ -47,7 +55,7 @@ class Fund extends Component {
   // return BNT and ERC20 connectors amount calculated by smart token amount
   calculateConnectorBySmartTokenAmount = async () => {
     const amount = toWei(String(this.state.directionAmount))
-    const converterInfo = this.getInfoBySymbol()
+    const converterInfo = this.props.getInfoBySymbol()
     const token = converterInfo[4]
     const converter = converterInfo[0]
     const connectorCount = await converter.methods.connectorTokenCount().call()
@@ -79,35 +87,35 @@ class Fund extends Component {
 
   // TEMPORARY SOLUTION UNTIL ISSUE WITH BATCHREQUEST
   approveBNT = async () => {
-    const tokenInfo = this.getInfoBySymbol()
+    const tokenInfo = this.props.getInfoBySymbol()
     const converterAddress = tokenInfo[1]
     console.log("converterAddress", converterAddress)
 
-    const bnt = this.props.MobXStorage.web3.eth.Contract(ABISmartToken, BNTToken)
+    const bnt = this.props.web3.eth.Contract(ABISmartToken, BNTToken)
     bnt.methods.approve(
     converterAddress,
     this.state.BNTAmount
-    ).send({from: this.props.MobXStorage.accounts[0]})
+    ).send({from: this.props.accounts[0]})
   }
 
   approveConnector = async () => {
-    const tokenInfo = this.getInfoBySymbol()
+    const tokenInfo = this.props.getInfoBySymbol()
     const converterAddress = tokenInfo[1]
     const connectorAddress = tokenInfo[2]
-    const connector = this.props.MobXStorage.web3.eth.Contract(ABISmartToken, connectorAddress)
+    const connector = this.props.web3.eth.Contract(ABISmartToken, connectorAddress)
     connector.methods.approve(
     converterAddress,
     this.state.connectorAmount
-    ).send({from: this.props.MobXStorage.accounts[0]})
+    ).send({from: this.props.accounts[0]})
    }
 
   fund = () => {
     if(this.state.directionAmount > 0){
-      const converter = this.getInfoBySymbol()[0]
-      const info = this.getInfoBySymbol()
+      const converter = this.props.getInfoBySymbol()[0]
+      const info = this.props.getInfoBySymbol()
       const reciver = info[1]
       console.log(reciver)
-      converter.methods.fund(toWei(String(this.state.directionAmount))).send({ from:this.props.MobXStorage.accounts[0] })
+      converter.methods.fund(toWei(String(this.state.directionAmount))).send({ from:this.props.accounts[0] })
     }
     else {
       alert("Please input amount")
@@ -117,14 +125,6 @@ class Fund extends Component {
   render(){
     return(
     <React.Fragment>
-    <Form.Group>
-    <Form.Check
-    name="selectFromOficial"
-    type="checkbox"
-    label="Show unofficial"
-    onChange={e => this.change(e)}
-    />
-    </Form.Group>
     <Form.Control name="directionAmount" placeholder="Enter relay amount to recive" onChange={e => this.change(e)} type="number" min="1"/>
     <br/>
     <Form.Control name="BNTSendAmount" placeholder="Enter BNT amount" onChange={e => this.change(e)} type="number" min="1"/>
@@ -143,7 +143,7 @@ class Fund extends Component {
     }
     <br/>
     {
-      this.state.from && this.props.MobXStorage.web3 && this.state.BNTAmount
+      this.state.from && this.props.web3 && this.state.BNTAmount
       ?
       (
         <Card className="text-center">
