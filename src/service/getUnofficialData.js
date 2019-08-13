@@ -9,6 +9,7 @@ import {
 } from '../config'
 
 import getWeb3ForRead from './getWeb3ForRead'
+import blackList from '../storage/blackList'
 
 const getUnofficialData = async (_web3) => {
    const web3 = getWeb3ForRead(_web3)
@@ -41,10 +42,13 @@ const getUnofficialData = async (_web3) => {
          smartTokenSymbol
        }
 
-       bancorTokensStorageJson.push(relayObj)
-       unofficialSymbols.push(symbol)
-       unofficialSmartTokenSymbols.push(smartTokenSymbol)
-     }
+      // add except black list
+      if(!blackList.includes(unofficialConverters[i])){
+           bancorTokensStorageJson.push(relayObj)
+           unofficialSymbols.push(symbol)
+           unofficialSmartTokenSymbols.push(smartTokenSymbol)
+         }
+       }
 
      return [unofficialSymbols, unofficialSmartTokenSymbols, bancorTokensStorageJson]
    }

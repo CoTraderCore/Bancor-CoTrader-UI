@@ -64,7 +64,7 @@ class PoolModal extends Component {
         web3.eth.Contract(ABIConverter, tokenInfo.converterAddress),
         tokenInfo.converterAddress,
         tokenInfo.tokenAddress,
-        tokenInfo.smartToken,
+        tokenInfo.smartTokenAddress,
         web3.eth.Contract(ABISmartToken, tokenInfo.smartTokenAddress)
       ]
     }
@@ -169,6 +169,7 @@ class PoolModal extends Component {
                 web3={this.props.MobXStorage.web3}
                 getInfoBySymbol={this.getInfoBySymbol}
                 accounts={this.props.MobXStorage.accounts}
+                bancorTokensStorageJson={this.props.MobXStorage.bancorTokensStorageJson}
                 />
               )
               :
