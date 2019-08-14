@@ -80,7 +80,7 @@ class App extends Component {
          this.state.netId && this.state.netId !== netId
          ?
          (
-           <Alert variant="warning">Please switch network to mainnet in Your wallet</Alert>
+           <Alert variant="warning">Please switch network to { netId === 1 ? (<strong>Mainnet</strong>) : (<strong>Ropsten</strong>) } in Your wallet</Alert>
          )
          :
          (

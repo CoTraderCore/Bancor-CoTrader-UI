@@ -44,9 +44,13 @@ class PoolModal extends Component {
   componentDidUpdate = async (prevProps, prevState) => {
     // Update state with tokens data
     if (prevProps.MobXStorage.bancorTokensStorageJson !== this.state.bancorTokensStorageJson) {
-      const officialSymbols = this.props.MobXStorage.officialSymbols
+      let officialSymbols = this.props.MobXStorage.officialSymbols
       const unofficialSymbols = this.props.MobXStorage.unofficialSymbols
       const bancorTokensStorageJson = this.props.MobXStorage.bancorTokensStorageJson
+
+      // delete BNT from pool
+      officialSymbols = officialSymbols.filter(e => e !== 'BNT')
+
       this.setState({
         officialSymbols,
         unofficialSymbols,
