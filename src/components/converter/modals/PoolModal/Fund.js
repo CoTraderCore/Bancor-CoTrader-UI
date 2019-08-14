@@ -23,40 +23,33 @@ class Fund extends Component {
     }
   }
 
-  // helper for setState
-  change = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
-
-  // NEED CORRECT CALL
-  //
-  // componentDidUpdate = async (prevProps, prevState) => {
-  //   // Update direction info
-  //   if(prevProps.from !== this.props.from || prevState.BNTSendAmount !== this.state.BNTSendAmount || prevState.ConnectorSendAmount !== this.state.ConnectorSendAmount){
-  //     if(this.props.from){
-  //       let tokenAmountInfo
-  //       if(prevState.BNTSendAmount !== this.state.BNTSendAmount && this.state.BNTSendAmount > 0){
-  //         tokenAmountInfo = await this.calculateRelayByTokenInput(this.state.BNTSendAmount, true)
-  //         console.log(tokenAmountInfo)
-  //         this.setState({
-  //           BNTSendAmount:tokenAmountInfo[0],
-  //           ConnectorSendAmount:tokenAmountInfo[1]
-  //         })
-  //       }
-  //       else if (prevState.ConnectorSendAmount !== this.state.ConnectorSendAmount && this.state.ConnectorSendAmount > 0) {
-  //         tokenAmountInfo = await this.calculateRelayByTokenInput(this.state.ConnectorSendAmount, false)
-  //         this.setState({
-  //           SmartTokenAmount:tokenAmountInfo[0],
-  //           ConnectorSendAmount:tokenAmountInfo[1]
-  //         })
-  //       }
-  //     }
-  //   }
+  // // helper for setState
+  // change = e => {
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   })
   // }
 
-  // View rate
+  setRelayAndTokens = async (amount, isFromBNT) => {
+    if(amount > 0){
+    const tokenAmountInfo = await this.calculateRelayByTokenInput(amount, true)
+    if(isFromBNT){
+      this.setState({
+        BNTSendAmount:amount,
+        SmartTokenAmount:tokenAmountInfo[0],
+        ConnectorSendAmount:tokenAmountInfo[1]
+      })
+    }
+    else{
+      this.setState({
+        BNTSendAmount:tokenAmountInfo[1],
+        SmartTokenAmount:tokenAmountInfo[0],
+        ConnectorSendAmount:amount
+      })
+    }
+   }
+  }
+
   getRate = async (path, amount) => {
     const web3 = getWeb3ForRead(this.props.web3)
     const bancorNetworkContract = web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
@@ -129,9 +122,9 @@ class Fund extends Component {
     console.log("ConnectorSendAmoun", this.state.ConnectorSendAmount,"SmartTokenAmount", this.state.SmartTokenAmount,"BNTSendAmount", this.state.BNTSendAmount)
     return(
     <React.Fragment>
-    <Form.Control name="ConnectorSendAmount" placeholder="Enter connector amount" onChange={e => this.change(e)} type="number" min="1"/>
+    <Form.Control name="ConnectorSendAmount" placeholder="Enter connector amount" onChange={e => this.setRelayAndTokens(e.target.value, false)} type="number" min="1"/>
     <br/>
-    <Form.Control name="BNTSendAmount" placeholder="Enter BNT amount" onChange={e => this.change(e)} type="number" min="1"/>
+    <Form.Control name="BNTSendAmount" placeholder="Enter BNT amount" onChange={e => this.setRelayAndTokens(e.target.value, true)} type="number" min="1"/>
     <br/>
     {/* Connectors info */}
     {
