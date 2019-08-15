@@ -22,12 +22,6 @@ class Fund extends Component {
     }
   }
 
-  // // helper for setState
-  // change = e => {
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
 
   setRelayAndTokens = async (amount, isFromBNT) => {
   if(this.props.from && amount > 0){
@@ -36,14 +30,14 @@ class Fund extends Component {
   if(isFromBNT){
     this.setState({
       BNTSendAmount:amount,
-      SmartTokenAmount:Number(fromWei(String(tokenAmountInfo[0]))),
-      ConnectorSendAmount:Number(fromWei(String(tokenAmountInfo[1])))
+      SmartTokenAmount:fromWei(String(tokenAmountInfo[0])),
+      ConnectorSendAmount:fromWei(String(tokenAmountInfo[1]))
     })
   }
   else{
     this.setState({
-      BNTSendAmount:Number(fromWei(String(tokenAmountInfo[1]))),
-      SmartTokenAmount:Number(fromWei(String(tokenAmountInfo[0]))),
+      BNTSendAmount:fromWei(String(tokenAmountInfo[1])),
+      SmartTokenAmount:fromWei(String(tokenAmountInfo[0])),
       ConnectorSendAmount:amount
     })
   }
@@ -57,7 +51,7 @@ class Fund extends Component {
  }
 }
 
-  getRate = async (path, amount) => {
+  getRateWithCommision = async (path, amount) => {
     const web3 = getWeb3ForRead(this.props.web3)
     const bancorNetworkContract = web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
 
@@ -69,7 +63,9 @@ class Fund extends Component {
     ).call()
 
     if(amountReturn){
-      amountReturn = hexToNumberString(amountReturn[0]._hex)
+      const returnAmount = new BN(hexToNumberString(amountReturn[0]._hex))
+      const commision = new BN(hexToNumberString(amountReturn[1]._hex))
+      amountReturn = returnAmount.add(commision)
     }else{
       amountReturn = 0
     }
@@ -80,58 +76,61 @@ class Fund extends Component {
   // return smart token amount and second token amount by input BNT or connector
   calculateRelayByTokenInput = async (amount, isFromBNT) => {
     const info = this.props.getInfoBySymbol()
+    // info[2] - token, info[3] - relay
     const path = isFromBNT ? [BNTToken, info[3], info[3]] : [info[2], info[3], info[3]]
-    let relayPart = await this.getRate(path, amount)
-    console.log(relayPart, '_____relayPart')
+    let relayPart = await this.getRateWithCommision(path, amount)
+    console.log("Token:", info[2], "Converter:", info[1], "BNT:", BNTToken)
     relayPart = new BN(relayPart)
-    console.log(relayPart, '_____relayPart BN')
     const fullRelayAmount = relayPart.add(relayPart)
     // Calculate amount of dependent token by relay amount
     const pathSecond = isFromBNT ? [info[3], info[3], info[2]] : [info[3], info[3], BNTToken]
-    const secondToken = await this.getRate(pathSecond, relayPart)
-    console.log(secondToken, '_____secondToken')
+    const secondToken = await this.getRateWithCommision(pathSecond, relayPart)
     return[fullRelayAmount, secondToken]
   }
 
-  // // TEMPORARY SOLUTION UNTIL ISSUE WITH BATCHREQUEST
-  // approveBNT = async () => {
-  //   const tokenInfo = this.props.getInfoBySymbol()
-  //   const converterAddress = tokenInfo[1]
-  //   console.log("converterAddress", converterAddress)
-  //
-  //   const bnt = this.props.web3.eth.Contract(ABISmartToken, BNTToken)
-  //   bnt.methods.approve(
-  //   converterAddress,
-  //   toWei(String(this.state.BNTSendAmount))
-  //   ).send({from: this.props.accounts[0]})
-  // }
-  //
-  // approveConnector = async () => {
-  //   const tokenInfo = this.props.getInfoBySymbol()
-  //   const converterAddress = tokenInfo[1]
-  //   const connectorAddress = tokenInfo[2]
-  //   const connector = this.props.web3.eth.Contract(ABISmartToken, connectorAddress)
-  //   connector.methods.approve(
-  //   converterAddress,
-  //   toWei(String(this.state.ConnectorSendAmount))
-  //   ).send({from: this.props.accounts[0]})
-  //  }
-  //
-  // fund = () => {
-  //   if(this.state.directionAmount > 0){
-  //     const converter = this.props.getInfoBySymbol()[0]
-  //     const info = this.props.getInfoBySymbol()
-  //     const reciver = info[1]
-  //     console.log(reciver)
-  //     converter.methods.fund(toWei(String(this.state.SmartTokenAmount))).send({ from:this.props.accounts[0] })
-  //   }
-  //   else {
-  //     alert("Please input amount")
-  //   }
-  // }
+  // TEMPORARY SOLUTION UNTIL ISSUE WITH BATCHREQUEST
+  approveBNT = async () => {
+    const tokenInfo = this.props.getInfoBySymbol()
+    const converterAddress = tokenInfo[1]
+    console.log("converterAddress", converterAddress)
+
+    const bnt = this.props.web3.eth.Contract(ABISmartToken, BNTToken)
+    bnt.methods.approve(
+    converterAddress,
+    toWei(this.state.BNTSendAmount)
+    ).send({from: this.props.accounts[0]})
+  }
+
+  approveConnector = async () => {
+    const tokenInfo = this.props.getInfoBySymbol()
+    const converterAddress = tokenInfo[1]
+    const connectorAddress = tokenInfo[2]
+    console.log("converterAddress", converterAddress, "connectorAddress", connectorAddress)
+    const connector = this.props.web3.eth.Contract(ABISmartToken, connectorAddress)
+    connector.methods.approve(
+    converterAddress,
+    toWei(this.state.ConnectorSendAmount)
+    ).send({from: this.props.accounts[0]})
+   }
+
+  fund = () => {
+    if(this.state.SmartTokenAmount > 0){
+      const converter = this.props.getInfoBySymbol()[0]
+      const info = this.props.getInfoBySymbol()
+      const reciver = info[1]
+      console.log(reciver)
+      converter.methods.fund(
+      toWei(this.state.SmartTokenAmount))
+      .send({ from:this.props.accounts[0] }
+      )
+    }
+    else {
+      alert("Please input amount")
+    }
+  }
 
   render(){
-    console.log("this.state.BNTSendAmount:", this.state.BNTSendAmount, "this.state.ConnectorSendAmoun:", this.state.ConnectorSendAmoun, "this.state.SmartTokenAmount:", this.state.SmartTokenAmount)
+    console.log(this.state.SmartTokenAmount)
     return(
     <React.Fragment>
     <Form.Control
@@ -140,6 +139,9 @@ class Fund extends Component {
     value={this.state.ConnectorSendAmount > 0 ? this.state.ConnectorSendAmount : 0}
     onChange={e => this.setRelayAndTokens(e.target.value, false)}
     type="number" min="1"/>
+    <Form.Text className="text-muted">
+      Enter connector amount
+    </Form.Text>
     <br/>
 
     <Form.Control
@@ -148,6 +150,9 @@ class Fund extends Component {
     value={this.state.BNTSendAmount > 0 ? this.state.BNTSendAmount : 0}
     onChange={e => this.setRelayAndTokens(e.target.value, true)}
     type="number" min="1"/>
+    <Form.Text className="text-muted">
+      Enter BNT amount
+    </Form.Text>
     <br/>
     {/* Connectors info */}
     {
