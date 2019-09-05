@@ -11,6 +11,9 @@ import StepSix from "./steps/StepSix"
 import StepSeven from "./steps/StepSeven"
 import StepEighth from "./steps/StepEighth"
 
+import Pending from "../../../templates/Spiners/Pending"
+import ConverterSettings from "./ConverterSettings"
+
 const componentList = {
   One: StepOne,
   Two: StepTwo,
@@ -26,8 +29,24 @@ class CreateConverter extends Component {
   constructor(props, context) {
   super(props, context);
   this.state = {
-    step:"One"
+    step:"One",
+    hashLatest:''
     }
+  }
+
+  // check tx status for case is user confirm tx and then close or reload page
+  componentDidMount = () => {
+    // Small delay for correct recive props
+    setTimeout(() => {
+      let pending = window.localStorage.getItem('Pending')
+      pending = JSON.parse(pending)
+
+      if(pending){
+        const hash = window.localStorage.getItem('txLatest')
+        this.setState({ hashLatest:hash })
+        this.props.MobXStorage.checkTxStatus(hash)
+      }
+    }, 1000)
   }
 
   updateRenderStep = () => {
@@ -45,23 +64,44 @@ class CreateConverter extends Component {
         this.props.MobXStorage.web3
         ?
         (
-          <div className="container-fluid">
-          <br />
-          <Alert variant="primary"><small>Attention this application uses local storage for storing parameters. DO NOT delete your browser history until you have completed all steps. <p style={{"color":"red"}}>Please don't do the next step until current transaction not confirmed in Your wallet!</p></small></Alert>
-          <br />
-          <StepComponent updateRenderStep={this.updateRenderStep}/>
-          <br />
+          <React.Fragment>
           {
-            this.props.MobXStorage.pending
+            this.props.MobXStorage.web3
             ?
-            (<Alert variant="info"><small>Transaction pending, please don't close or reload page and don't do next step, until your wallet confirms the transaction!</small></Alert>)
-            :
-            (null)
+            (
+              <div className="container-fluid">
+              <br />
+              <Alert variant="warning"><small>Attention: this application uses local storage for storing parameters. Please <strong style={{"color":"red"}}>do not delete your browser history</strong> before completing all steps. Please <strong style={{"color":"red"}}> do not proceed to the next step</strong> until your current transaction is confirmed in your wallet. Please <strong style={{"color":"red"}}>do not speed up transactions</strong> after confirming them in your wallet.</small></Alert>
+              <br />
+              <StepComponent updateRenderStep={this.updateRenderStep} MobXStorage={this.props.MobXStorage}/>
+              <br />
+              {
+                this.props.MobXStorage.pending
+                ?
+                (
+                  <div>
+                  <div align="center"><small>Transaction pending</small></div>
+                  {<Pending/>}
+                  </div>)
+                :
+                (null)
+              }
+              </div>
+            )
+            :(<p>Please connect to web3</p>)
           }
-          </div>
+          </React.Fragment>
         )
-        :(<p>Please connect to web3</p>)
+        :
+        (
+          <Alert variant="warning">Please connect to web3</Alert>
+        )
       }
+      <ConverterSettings MobXStorage={this.props.MobXStorage}/>
+
+      <div className="container-fluid" align="center">
+      <small><a style={{color: '#3f51b5'}} href="https://drive.google.com/open?id=1y5jJz8B4fpub-skJCun3FmYAMUMVnUUN" target="_blank" rel="noopener noreferrer">Bancor Documentation</a></small>
+      </div>
       </React.Fragment>
     )
   }

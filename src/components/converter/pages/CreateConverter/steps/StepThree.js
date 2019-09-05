@@ -1,7 +1,13 @@
 import { ABIConverter } from '../../../../../config'
-import { Form, Button, Card } from "react-bootstrap"
-import { inject } from 'mobx-react'
+import { Form } from "react-bootstrap"
 import React, { Component } from 'react'
+
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+
+import UserInfo from '../../../../templates/UserInfo'
 
 class StepThree extends Component {
 
@@ -13,15 +19,18 @@ class StepThree extends Component {
 
   if(converterInfo !== null && converterInfo !== "undefined"){
     window.localStorage.setItem('Converter', converterInfo.contractAddress)
-    const converter = web3.eth.Contract(ABIConverter, converterInfo.contractAddress)
+    const converter = new web3.eth.Contract(ABIConverter, converterInfo.contractAddress)
     console.log("PARAMS: ", window.localStorage.getItem('userToken'), 500000, false)
+    const gasPrice = this.props.MobXStorage.GasPrice
 
     converter.methods.addConnector(window.localStorage.getItem('userToken'), 500000, false).send({
       from:accounts[0],
-      gas:1372732
+      gas:1372732,
+      gasPrice
     }).on('transactionHash', (hash) => {
      console.log("addConnector hash ", hash)
-     window.localStorage.setItem('Step', "Four");
+     window.localStorage.setItem('StepNext', "Four")
+     window.localStorage.setItem('txLatest', hash)
      this.props.MobXStorage.setPending(true)
     })
     .on('confirmation', (confirmationNumber, receipt) => {
@@ -32,21 +41,29 @@ class StepThree extends Component {
  }
  }
 
-render() {
-  return(
-    <Card className="text-center">
-    <h3>Step 3</h3>
+ render() {
+   return(
+    <Card>
+    <CardContent>
+    <Typography variant="h4" gutterBottom component="h4">
+    Step 3
+    </Typography>
+    <Typography variant="body1" className={'mb-2'} component="p">
     <strong>Add connector</strong>
-    <strong>This will be executed with these parameters.</strong>
-    <small>Existing ERC20 token address</small>
-    <small>Weight, 500,000 (50%)</small>
-    <small>enableVirtualB-alance - false (can be updated later on if needed)</small>
-    <Form>
-    <Button size="sm" onClick={() => this.addConnector()}>add connector</Button>
+    </Typography>
+    <Typography variant="body1" className={'mb-2'} component="p">
+    This <UserInfo label="Bancor documentation" info="Existing ERC20 token address, Weight 500,000 (50%), enableVirtualB-alance - false (can be updated later on if needed)"/> step will be done
+    </Typography>
+    <Typography className={'mt-2 mb-2'} component="div">
+    <hr/>
+    <Form style={{margin: '10px 0', maxWidth: '350px', width:'100%'}}>
+    <Button variant="contained" color="primary" size="medium" onClick={() => this.addConnector()}>add connector</Button>
     </Form>
-    </Card>
+    </Typography>
+    </CardContent>
+  </Card>
   )
 }
 }
 
-export default inject('MobXStorage')(StepThree)
+export default StepThree

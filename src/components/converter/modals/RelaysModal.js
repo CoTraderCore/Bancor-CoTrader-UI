@@ -3,9 +3,14 @@
 // TODO DRY
 
 import React, { Component } from 'react'
-import { Button, ButtonGroup, Alert, Form,  Modal, Badge } from "react-bootstrap"
+import { ButtonGroup, Alert, Form,  Modal } from "react-bootstrap"
 import { inject, observer } from 'mobx-react'
 import { hexToNumberString, toWei, fromWei } from 'web3-utils'
+import SetMinReturn from './modules/SetMinReturn'
+import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Chip from '@material-ui/core/Chip';
 
 import {
   ABISmartToken,
@@ -19,6 +24,7 @@ import getWeb3ForRead from '../../../service/getWeb3ForRead'
 import getPath from '../../../service/getPath'
 import { Typeahead } from 'react-bootstrap-typeahead'
 import DirectionInfo from './modules/DirectionInfo'
+import FakeButton from '../../templates/FakeButton'
 
 class RelaysModal extends Component {
   constructor(props, context) {
@@ -61,7 +67,9 @@ class RelaysModal extends Component {
   componentDidUpdate(prevProps, prevState){
     // Update rate by onChange
     if(prevState.from !== this.state.from || prevState.to !== this.state.to || prevState.directionAmount !== this.state.directionAmount){
-      this.checkRateAndApprove()
+      if(this.state.directionAmount > 0){
+        this.checkRateAndApprove()
+      }
     }
 
     // Update state with tokens data
@@ -117,7 +125,7 @@ class RelaysModal extends Component {
   // View rate
   getRate = async () => {
     const web3 = getWeb3ForRead(this.props.MobXStorage.web3)
-    const bancorNetworkContract = web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
+    const bancorNetworkContract = new web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
     const { objPropsFrom, objPropsTo, isRelatedDirection } = this.overrideGetDirectionData()
 
     const path = getPath(
@@ -160,7 +168,7 @@ class RelaysModal extends Component {
     if(this.state.from){
       const { sendFrom } = this.overrideGetDirectionData()
 
-      const token = this.props.MobXStorage.web3.eth.Contract(ABISmartToken, sendFrom)
+      const token = new this.props.MobXStorage.web3.eth.Contract(ABISmartToken, sendFrom)
       token.methods.approve(
         reciver,
         this.props.MobXStorage.web3.utils.toWei(String(this.state.directionAmount))
@@ -192,13 +200,13 @@ class RelaysModal extends Component {
   // or COTBNT/COT or vice versa case
   claimAndConvert = () => {
     const web3 = this.props.MobXStorage.web3
-    const bancorNetworkContract = web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
+    const bancorNetworkContract = new web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
     const { objPropsFrom, objPropsTo, isRelatedDirection } = this.overrideGetDirectionData()
     const path = getPath(this.state.from, this.state.to, this.state.bancorTokensStorageJson, objPropsFrom, objPropsTo, isRelatedDirection)
 
     bancorNetworkContract.methods.claimAndConvert(path,
       toWei(this.state.directionAmount),
-      1
+      this.props.MobXStorage.minReturn
     ).send({from: this.props.MobXStorage.accounts[0]})
     this.closeModal()
   }
@@ -209,13 +217,13 @@ class RelaysModal extends Component {
   quickConvert = () => {
     const web3 = this.props.MobXStorage.web3
     const { tokenInfoFrom, objPropsFrom, objPropsTo } = this.overrideGetDirectionData()
-    const converterContract = web3.eth.Contract(ABIConverter, tokenInfoFrom.converterAddress)
+    const converterContract = new web3.eth.Contract(ABIConverter, tokenInfoFrom.converterAddress)
     const path = getPath(this.state.from, this.state.to, this.state.bancorTokensStorageJson, objPropsFrom, objPropsTo)
 
     converterContract.methods.quickConvert(
       path,
       web3.utils.toWei(String(this.state.directionAmount)),
-      1
+      this.props.MobXStorage.minReturn
     ).send({from: this.props.MobXStorage.accounts[0]})
     this.closeModal()
   }
@@ -224,12 +232,12 @@ class RelaysModal extends Component {
   // in case if from === ETH
   convertFromETH = () => {
     const web3 = this.props.MobXStorage.web3
-    const bancorNetworkContract = web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
+    const bancorNetworkContract = new web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
     const { objPropsFrom, objPropsTo } = this.overrideGetDirectionData()
     const path = getPath(this.state.from, this.state.to, this.state.bancorTokensStorageJson, objPropsFrom, objPropsTo)
     const amount = web3.utils.toWei(String(this.state.directionAmount))
 
-    bancorNetworkContract.methods.convert(path, amount, 1)
+    bancorNetworkContract.methods.convert(path, amount, this.props.MobXStorage.minReturn)
     .send({from: this.props.MobXStorage.accounts[0], value:amount })
     this.closeModal()
   }
@@ -285,12 +293,12 @@ class RelaysModal extends Component {
       this.props.MobXStorage.bancorTokensStorageJson
       ?
       (
-        <Button variant="primary" size="sm" onClick={() => this.setState({ ShowModal: true })}>
-        Relays
+        <Button variant="contained" color="primary" onClick={() => this.setState({ ShowModal: true })}>
+          Relays
         </Button>
       )
       :
-      (<Badge variant="primary">loading data...</Badge>)
+      (<Chip label="loading data..." style={{marginBottom: '15px'}} variant="outlined" color="primary"/>)
     }
 
     <Modal
@@ -313,20 +321,18 @@ class RelaysModal extends Component {
         ?
         (
           <React.Fragment>
-          <Form.Group>
-          <Form.Check
-          name="selectFromOficial"
-          type="checkbox"
-          label="Show unofficial"
-          onChange={e => this.change(e)}
+
+
+          <FormControlLabel
+              control={<Checkbox onChange={e => this.change(e)} name="selectFromOficial" color="primary" />}
+              label="Show unofficial"
           />
-          <Form.Check
-          type="checkbox"
-          label="Show relays, hide tokens"
-          onChange={e => this.setState({ useERC20AsSelectFrom: !this.state.useERC20AsSelectFrom })}
-          checked={!this.state.useERC20AsSelectFrom}
+          <FormControlLabel
+              control={<Checkbox
+                onChange={e => this.setState({ useERC20AsSelectFrom: !this.state.useERC20AsSelectFrom })}
+                checked={!this.state.useERC20AsSelectFrom} color="primary"/>}
+                label="Show relays, hide tokens"
           />
-          </Form.Group>
 
           {
             this.state.selectFromOficial
@@ -369,21 +375,16 @@ class RelaysModal extends Component {
         ?
         (
           <React.Fragment>
-          <Form.Group>
-          <Form.Check
-          name="selectToOficial"
-          type="checkbox"
-          label="Show unofficial"
-          onChange={e => this.change(e)}
+          <FormControlLabel
+              control={<Checkbox onChange={e => this.change(e)} name="selectToOficial" color="primary" />}
+              label="Show unofficial"
           />
-          <Form.Check
-          type="checkbox"
-          label="Show relays, hide tokens"
-          onChange={e => this.setState({ useERC20AsSelectTo: !this.state.useERC20AsSelectTo})}
-          checked={!this.state.useERC20AsSelectTo}
+          <FormControlLabel
+              control={<Checkbox
+                onChange={e => this.setState({ useERC20AsSelectTo: !this.state.useERC20AsSelectTo})}
+                checked={!this.state.useERC20AsSelectTo} name="selectFromOficial" color="primary" />}
+                label="Show relays, hide tokens"
           />
-          </Form.Group>
-
           {
             this.state.selectToOficial
             ?
@@ -423,7 +424,7 @@ class RelaysModal extends Component {
         this.state.directionAmount > 0
         ?
         ( <div>
-          <Alert variant="primary">You will receive {this.state.amountReturn} {this.state.reciveSymbol}</Alert>
+          <Alert variant="success">You will receive {this.state.amountReturn} {this.state.reciveSymbol}</Alert>
           {
             /*Buttons*/
             this.props.MobXStorage.web3
@@ -434,22 +435,42 @@ class RelaysModal extends Component {
                 this.state.requireApprove
                 ?
                 (
-                  <Button variant="outline-primary" onClick={() => this.wrapperApprove()}>Approve</Button>
+                  <Button variant="contained" style={{marginRight: '10px'}} color="primary" onClick={() => this.wrapperApprove()}>Approve</Button>
                 )
                 :
                 (null)
               }
-              <Button variant="outline-primary" onClick={() => this.trade()}>Trade</Button>
+              <Button variant="contained" color="primary" onClick={() => this.trade()}>Trade</Button>
               </ButtonGroup>
             )
             :
-            (null)
+            (
+              <ButtonGroup size="sm">
+              {
+                this.state.requireApprove
+                ?
+                (
+                  <FakeButton info="Please connect to web3" buttonName="Approve"/>
+                )
+                :
+                (null)
+              }
+              <FakeButton info="Please connect to web3" buttonName="Trade"/>
+              </ButtonGroup>
+            )
           }
           </div>
         )
         :
         (null)
       }
+      <br/>
+      <SetMinReturn
+      amountReturn={this.state.amountReturn}
+      from={this.state.from}
+      to={this.state.to}
+      directionAmount={this.state.directionAmount}
+      />
       <br/>
       <DirectionInfo
       from={this.state.from}

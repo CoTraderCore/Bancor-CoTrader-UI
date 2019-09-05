@@ -3,18 +3,16 @@ import getWeb3 from "./utils/getWeb3"
 import { inject, observer } from 'mobx-react'
 import { netId } from './config'
 
-import TradePage from "./components/converter/pages/TradePage"
-import SendPage from "./components/converter/pages/SendPage"
-import RelaysPage from "./components/converter/pages/RelaysPage"
-import PoolPage from "./components/converter/pages/PoolPage"
-import AddConverter from "./components/converter/pages/AddConverter"
-import CreateConverter from "./components/converter/pages/CreateConverter/CreateConverter"
 import Footer from "./components/static/Footer"
+import Web3Info from "./components/static/Web3Info"
+import Navbar from './components/static/Navbar';
+import TabsBar from './components/static/TabsBar';
 
 import getOfficialData from "./service/getOfficialData"
 import getUnofficialData from "./service/getUnofficialData"
 
-import { Tabs, Tab, Alert } from "react-bootstrap"
+import { Alert } from "react-bootstrap"
+import Container from '@material-ui/core/Container';
 
 class App extends Component {
   constructor(props, context) {
@@ -22,7 +20,8 @@ class App extends Component {
   this.state = {
     accounts: null,
     isDataLoad:false,
-    netId:undefined
+    netId:undefined,
+    web3:null
     }
   }
 
@@ -30,7 +29,7 @@ class App extends Component {
     // init curent step for create converter
     this.props.MobXStorage.updateStep()
     // load tokens data
-    // make litle delay for correct getweb3() call getWeb3()
+    // make litle delay for correct call getWeb3()
     setTimeout(() => this.initData(), 500)
 
     // get web3 and account
@@ -43,7 +42,8 @@ class App extends Component {
       // Get network ID
       web3.eth.net.getId().then(netId => {
       this.setState({
-        netId
+        netId,
+        web3
       })
       })
 
@@ -60,6 +60,7 @@ class App extends Component {
   }
 
   initData = async () => {
+    this.setState({ isDataLoad:true })
     // init converters data
     const officialData = getOfficialData()
     const unoficialData = await getUnofficialData(null)
@@ -76,58 +77,23 @@ class App extends Component {
   render() {
     return(
       <React.Fragment>
+
+      <Navbar />
+      <Container maxWidth="xl">
+       <Web3Info isDataLoad={this.state.isDataLoad} web3={this.state.web3}/>
        {
          this.state.netId && this.state.netId !== netId
          ?
          (
-           <Alert variant="warning">Please switch network to { netId === 1 ? (<strong>Mainnet</strong>) : (<strong>Ropsten</strong>) } in Your wallet</Alert>
+           <Alert variant="warning">Please switch network to { netId === 1 ? <strong>Mainnet</strong> : <strong>Ropsten</strong>} in Your wallet</Alert>
          )
          :
          (
-           <div className="container-fluid">
-           <Tabs defaultActiveKey="trade" id="create">
-
-           <Tab eventKey="trade" title="Trade">
-           <TradePage/>
-           </Tab>
-
-           <Tab eventKey="send" title="Send">
-           <SendPage/>
-           </Tab>
-
-           <Tab eventKey="pool" title="Pool">
-           <PoolPage/>
-           </Tab>
-
-           <Tab eventKey="relays" title="Relays">
-           <RelaysPage/>
-           </Tab>
-
-           <Tab eventKey="create" title="Create converter">
-           {
-             this.props.MobXStorage.web3
-             ?
-             (<CreateConverter/>)
-             :
-             (<Alert variant="warning">Please connect to web3</Alert>)
-           }
-           </Tab>
-
-           <Tab eventKey="addConverter" title="Add converter">
-           {
-             this.props.MobXStorage.web3
-             ?
-             (<AddConverter />)
-             :
-             (<Alert variant="warning">Please connect to web3</Alert>)
-           }
-           </Tab>
-
-           </Tabs>
-           </div>
+           <TabsBar />
          )
        }
        <Footer/>
+       </Container>
       </React.Fragment>
     )
   }

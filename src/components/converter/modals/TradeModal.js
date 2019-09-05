@@ -3,7 +3,13 @@
 // TODO DRY
 
 import React, { Component } from 'react'
-import { Button, ButtonGroup, Alert, Form,  Modal, Badge } from "react-bootstrap"
+import { ButtonGroup, Alert, Form,  Modal } from "react-bootstrap"
+
+import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Chip from '@material-ui/core/Chip';
+
 import { inject, observer } from 'mobx-react'
 import { hexToNumberString, toWei, fromWei } from 'web3-utils'
 import {
@@ -17,7 +23,10 @@ import getWeb3ForRead from '../../../service/getWeb3ForRead'
 import findByProps from '../../../service/findByProps'
 import getPath from '../../../service/getPath'
 import { Typeahead } from 'react-bootstrap-typeahead'
+import UserTokensList from './modules/UserTokensList'
 import DirectionInfo from './modules/DirectionInfo'
+import SetMinReturn from './modules/SetMinReturn'
+import FakeButton from '../../templates/FakeButton'
 
 class TradeModal extends Component {
   constructor(props, context) {
@@ -57,8 +66,10 @@ class TradeModal extends Component {
   componentDidUpdate(prevProps, prevState){
     // Update rate by onChange
     if(prevState.from !== this.state.from || prevState.to !== this.state.to || prevState.directionAmount !== this.state.directionAmount){
-      this.getRate()
-      this.checkRequireApprove()
+      if(this.state.directionAmount > 0){
+        this.getRate()
+        this.checkRequireApprove()
+      }
     }
 
     // Update state with tokens data
@@ -79,7 +90,7 @@ class TradeModal extends Component {
     if(this.state.from && this.state.to && this.state.directionAmount > 0){
     if(this.state.from !== this.state.to){
       const web3 = getWeb3ForRead(this.props.MobXStorage.web3)
-      const bancorNetworkContract = web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
+      const bancorNetworkContract = new web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
       const path = getPath(this.state.from, this.state.to, this.state.bancorTokensStorageJson)
 
       let amountReturn = await bancorNetworkContract.methods.getReturnByPath(
@@ -114,7 +125,7 @@ class TradeModal extends Component {
   approve = () => {
     if(this.state.from){
       const tokenInfoFrom = findByProps(this.state.bancorTokensStorageJson, "symbol", this.state.from)[0]
-      const token = this.props.MobXStorage.web3.eth.Contract(ABISmartToken, tokenInfoFrom.tokenAddress)
+      const token = new this.props.MobXStorage.web3.eth.Contract(ABISmartToken, tokenInfoFrom.tokenAddress)
       token.methods.approve(
         BancorNetwork,
         this.props.MobXStorage.web3.utils.toWei(String(this.state.directionAmount))
@@ -144,12 +155,12 @@ class TradeModal extends Component {
   // for ERC20 to ERC20
   claimAndConvert = () => {
     const web3 = this.props.MobXStorage.web3
-    const bancorNetworkContract = web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
+    const bancorNetworkContract = new web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
     const path = getPath(this.state.from, this.state.to, this.state.bancorTokensStorageJson)
 
     bancorNetworkContract.methods.claimAndConvert(path,
       toWei(this.state.directionAmount),
-      1
+      this.props.MobXStorage.minReturn
     ).send({from: this.props.MobXStorage.accounts[0]})
     this.closeModal()
   }
@@ -160,11 +171,11 @@ class TradeModal extends Component {
     const tokenInfoFrom = findByProps(this.state.bancorTokensStorageJson, this.state.from)[0]
     const path = getPath(this.state.from, this.state.to, this.state.bancorTokensStorageJson)
 
-    const converterContract = web3.eth.Contract(ABIConverter, tokenInfoFrom.converterAddress)
+    const converterContract = new web3.eth.Contract(ABIConverter, tokenInfoFrom.converterAddress)
     converterContract.methods.quickConvert(
       path,
       web3.utils.toWei(String(this.state.directionAmount)),
-      1
+      this.props.MobXStorage.minReturn
     ).send({from: this.props.MobXStorage.accounts[0]})
     this.closeModal()
   }
@@ -172,7 +183,7 @@ class TradeModal extends Component {
   // in case if from === ETH
   convertFromETH = () => {
     const web3 = this.props.MobXStorage.web3
-    const bancorNetworkContract = web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
+    const bancorNetworkContract = new web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
     const path = getPath(this.state.from, this.state.to, this.state.bancorTokensStorageJson)
     const amount = web3.utils.toWei(String(this.state.directionAmount))
 
@@ -228,12 +239,13 @@ class TradeModal extends Component {
       this.props.MobXStorage.bancorTokensStorageJson
       ?
       (
-        <Button variant="primary" size="sm" onClick={() => this.setState({ ShowModal: true })}>
+      <Button variant="contained" color="primary" onClick={() => this.setState({ ShowModal: true })}>
         Trade
-        </Button>
+      </Button>
+
       )
       :
-      (<Badge variant="primary">loading data...</Badge>)
+      (<Chip label="loading data..." style={{marginBottom: '15px'}} variant="outlined" color="primary"/>)
     }
     <Modal
       size="lg"
@@ -255,14 +267,13 @@ class TradeModal extends Component {
         ?
         (
           <React.Fragment>
-          <Form.Group>
-          <Form.Check
-          name="selectFromOficial"
-          type="checkbox"
-          label="Show unofficial"
-          onChange={e => this.change(e)}
+
+
+          <FormControlLabel
+              control={<Checkbox onChange={e => this.change(e)} name="selectFromOficial" color="primary" />}
+              label="Show unofficial"
           />
-          </Form.Group>
+
 
           {
             this.state.selectFromOficial
@@ -296,7 +307,6 @@ class TradeModal extends Component {
       }
       </React.Fragment>
 
-      <br/>
 
       {/*select to*/}
       <React.Fragment>
@@ -305,14 +315,12 @@ class TradeModal extends Component {
         ?
         (
           <React.Fragment>
-          <Form.Group>
-          <Form.Check
-          name="selectToOficial"
-          type="checkbox"
-          label="Show unofficial"
-          onChange={e => this.change(e)}
+
+          <FormControlLabel
+              control={<Checkbox onChange={e => this.change(e)} name="selectToOficial" color="primary" />}
+              label="Show unofficial"
           />
-          </Form.Group>
+
 
           {
             this.state.selectToOficial
@@ -353,33 +361,55 @@ class TradeModal extends Component {
         this.state.directionAmount > 0
         ?
         ( <div>
-          <Alert variant="primary">You will receive {this.state.amountReturn} {this.state.reciveSymbol}</Alert>
+          <Alert variant="success">You will receive {this.state.amountReturn} {this.state.reciveSymbol}</Alert>
           <br/>
           {
             this.props.MobXStorage.web3
             ?
             (
+              /*If connect to web3 */
               <ButtonGroup size="sm">
               {
                 this.state.requireApprove
                 ?
                 (
-                  <Button variant="outline-primary" onClick={() => this.wrapperApprove()}>Approve</Button>
+                  <Button variant="contained" style={{marginRight: '10px'}} color="primary" onClick={() => this.wrapperApprove()}>Approve</Button>
                 )
                 :
                 (null)
               }
-              <Button variant="outline-primary" onClick={() => this.trade()}>Trade</Button>
+              <Button variant="contained" color="primary" onClick={() => this.trade()}>Trade</Button>
               </ButtonGroup>
             )
             :
-            (null)
+            (
+              /*If NO connect to web3 */
+              <ButtonGroup size="sm">
+              {
+                this.state.requireApprove
+                ?
+                (
+                  <FakeButton info="Please connect to web3" buttonName="Approve"/>
+                )
+                :
+                (null)
+              }
+              <FakeButton info="Please connect to web3" buttonName="Trade"/>
+              </ButtonGroup>
+            )
           }
           </div>
         )
         :
         (null)
       }
+      <br/>
+      <SetMinReturn
+      amountReturn={this.state.amountReturn}
+      from={this.state.from}
+      to={this.state.to}
+      directionAmount={this.state.directionAmount}
+      />
       <br/>
       <DirectionInfo
       from={this.state.from}
@@ -390,7 +420,15 @@ class TradeModal extends Component {
       accounts={this.props.MobXStorage.accounts}
       useERC20AsSelectFrom={true}
       useERC20AsSelectTo={true}
+      amountReturn={this.state.amountReturn}
       />
+      {
+        this.props.MobXStorage.accounts
+        ?
+        (<UserTokensList address={this.props.MobXStorage.accounts[0]}/>)
+        :
+        (null)
+      }
       </Modal.Body>
     </Modal>
     </React.Fragment>

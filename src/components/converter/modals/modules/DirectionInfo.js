@@ -1,182 +1,269 @@
 import React, { Component } from 'react'
-import { Card, Badge } from "react-bootstrap"
-
-import {
-  hexToNumberString,
-  //toWei,
-  fromWei
-} from 'web3-utils'
-
+import { hexToNumberString, fromWei, toWei } from 'web3-utils'
+import { Alert } from "react-bootstrap"
 import {
   ABISmartToken,
   EtherscanLink,
-  //ABIBancorFormula,
-  //BancorFormula,
-  //ABIConverter
+  ABIBancorNetwork,
+  BancorNetwork,
 } from '../../../../config'
-
 import getDirectionData from '../../../../service/getDirectionData'
-//import findByProps from '../../../../service/findByProps'
+import getPath from '../../../../service/getPath'
+import getWeb3ForRead from '../../../../service/getWeb3ForRead'
+import Pending from '../../../templates/Spiners/Pending'
+import Paper from '@material-ui/core/Paper'
+import Typography from '@material-ui/core/Typography'
+import Chip from '@material-ui/core/Chip'
 
 class DirectionInfo extends Component {
   constructor(props, context) {
    super(props, context)
     this.state = {
-    sendFrom:undefined,
-    sendTo:undefined,
-    userBalanceFrom:undefined,
-    balanceOfTo:undefined,
-    saleReturnFrom:undefined,
-    saleReturnTo:undefined
+      sendFrom:undefined,
+      sendTo:undefined,
+      userBalanceFrom:0,
+      balanceOfTo:0,
+      amountReturnFrom:0,
+      amountReturnTo:0,
+      amountReturnFromTo:0,
+      totalTradeValue:0,
+      oneFromInUSD:0,
+      slippage:0,
+      loadData:false,
+      fromToTinyRate:0
   }
   }
 
   componentDidUpdate(prevProps, prevState){
     // Update rate by onChange
-    if(prevProps.from !== this.props.from || prevProps.to !== this.props.to || prevProps.directionAmount !== this.props.directionAmount){
+    if(prevProps.from !== this.props.from || prevProps.to !== this.props.to || prevProps.directionAmount !== this.props.directionAmount || prevProps.amountReturn !== this.props.amountReturn){
       this.setTokensData()
     }
   }
 
-  // calculateSaleReturn = async (web3, tokenSymbol, objProps, sellAmount) => {
-  //   // get tokens info object by token symbol
-  //   const tokenInfo = findByProps(this.props.bancorTokensStorageJson, objProps, tokenSymbol)[0]
-  //   // create contracts instance
-  //   const bancorFormula = web3.eth.Contract(ABIBancorFormula, BancorFormula)
-  //   const token = web3.eth.Contract(ABISmartToken, tokenInfo.tokenAddress)
-  //   const converter = web3.eth.Contract(ABIConverter, tokenInfo.converterAddress)
-  //   // variables for parameters
-  //   let totalSupply = await token.methods.totalSupply().call()
-  //   totalSupply = hexToNumberString(totalSupply._hex)
-  //   let connectorBalance = await converter.methods.getConnectorBalance(tokenInfo.tokenAddress).call()
-  //   connectorBalance = hexToNumberString(connectorBalance._hex)
-  //   const connectorStruct = await converter.methods.connectors(tokenInfo.tokenAddress).call()
-  //   const connectorWeight = connectorStruct.weight
-  //   // formula.calculateSaleReturn(tokenSupply, connectorBalance, connector.weight, _sellAmount)
-  //   let result = await bancorFormula.methods.calculateSaleReturn(totalSupply, connectorBalance, connectorWeight, sellAmount).call()
-  //   result = hexToNumberString(result._hex)
-  //   return result
-  //
-  // }
-
-  getUserBalance = async (web3, sendFrom, sendTo) => {
+  // get user balance
+  getTokensBalance = async (sendFrom, sendTo, web3) => {
     let userBalanceFrom
     let token
     let tokenTo
     let balanceOfTo
+
     if(this.props.from !== "ETH"){
-      token = web3.eth.Contract(ABISmartToken, sendFrom)
+      token = new web3.eth.Contract(ABISmartToken, sendFrom)
       userBalanceFrom = await token.methods.balanceOf(this.props.accounts[0]).call()
       userBalanceFrom = fromWei(hexToNumberString(userBalanceFrom._hex))
-      tokenTo = web3.eth.Contract(ABISmartToken, sendTo)
+    }else{
+      userBalanceFrom = await web3.eth.getBalance((this.props.accounts[0]))
+      userBalanceFrom = fromWei(String(parseFloat(userBalanceFrom).toFixed()))
+    }
+
+    if(this.props.to !== "ETH"){
+      tokenTo = new web3.eth.Contract(ABISmartToken, sendTo)
       balanceOfTo = await tokenTo.methods.balanceOf(this.props.accounts[0]).call()
       balanceOfTo = fromWei(hexToNumberString(balanceOfTo._hex))
     }else{
-      userBalanceFrom = await web3.eth.getBalance((this.props.accounts[0]))
-      userBalanceFrom = fromWei(String(userBalanceFrom))
+      balanceOfTo = await web3.eth.getBalance((this.props.accounts[0]))
+      balanceOfTo = fromWei(String(parseFloat(balanceOfTo).toFixed()))
     }
 
     return { userBalanceFrom, balanceOfTo }
   }
 
+// return rate from Bancor network
+getReturnByPath = async (path, amount, web3) => {
+  const bancorNetwork = new web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
+  let amountReturn = await bancorNetwork.methods.getReturnByPath(
+    path,
+    toWei(String(parseFloat(amount).toFixed(6)))
+  ).call()
 
-  // calculateCurent = async (web3, objProps, tokenSymbol, amount) => {
-  //   console.log("amount", amount)
-  //   // get tokens info object by token symbol
-  //   const tokenInfo = findByProps(this.props.bancorTokensStorageJson, objProps, tokenSymbol)[0]
-  //
-  //   const token = web3.eth.Contract(ABISmartToken, tokenInfo.tokenAddress)
-  //   const smartToken = web3.eth.Contract(ABISmartToken, tokenInfo.smartTokenAddress)
-  //   const converter = web3.eth.Contract(ABIConverter, tokenInfo.converterAddress)
-  //
-  //   let smartTokenTotalSupply = await smartToken.methods.totalSupply().call()
-  //   smartTokenTotalSupply = hexToNumberString(smartTokenTotalSupply._hex)
-  //   console.log("smartTokenTotalSupply", smartTokenTotalSupply)
-  //
-  //   const smartTokenTotalValue = fromWei(String(smartTokenTotalSupply)) * amount
-  //   console.log(smartTokenTotalValue)
-  //
-  //   let connectorBalance = await converter.methods.getConnectorBalance(tokenInfo.tokenAddress).call()
-  //   connectorBalance = hexToNumberString(connectorBalance._hex)
-  //   connectorBalance = fromWei(String(connectorBalance))
-  //
-  //   console.log("connectorBalance", connectorBalance)
-  //
-  //   const CW = connectorBalance / smartTokenTotalValue
-  //
-  //   console.log("CW", CW)
-  // }
-
-  // set state addreses to and from and user balance from
-  setTokensData = async () => {
-    if(this.props.to && this.props.from && this.props.web3 && this.props.accounts){
-      const web3 = this.props.web3
-      const {
-        sendFrom,
-        sendTo,
-        //objPropsFrom,
-        //objPropsTo
-        } = getDirectionData(
-        this.props.from,
-        this.props.to,
-        this.props.bancorTokensStorageJson,
-        this.props.useERC20AsSelectFrom,
-        this.props.useERC20AsSelectTo
-      )
-
-      const { userBalanceFrom, balanceOfTo } = await this.getUserBalance(web3, sendFrom, sendTo)
-      let saleReturnFrom
-      let saleReturnTo
-
-      // if (this.props.amountReturn){
-      //   this.calculateCurent(web3, objPropsFrom, this.props.from, this.props.amountReturn)
-      // }
-      // if(this.props.directionAmount > 0){
-      //   saleReturnFrom = await this.calculateSaleReturn(web3, this.props.from, objPropsFrom, toWei(String(this.props.directionAmount)))
-      //   saleReturnTo = await this.calculateSaleReturn(web3, this.props.to, objPropsTo, toWei(String(this.props.directionAmount)))
-      // }
-
-
-      this.setState({ sendFrom, sendTo, userBalanceFrom, balanceOfTo, saleReturnFrom, saleReturnTo })
-    }
+  if(amountReturn){
+    amountReturn = Number(fromWei(hexToNumberString(amountReturn[0]._hex)))
+  }else{
+    amountReturn = 0
   }
+
+  return amountReturn
+}
+
+// return rate in DAI (USD) total trade value, slippage, ect
+getRateInfo = async (objPropsFrom, objPropsTo, directionAmount, amountReturn, web3) => {
+  const pathFrom = getPath(this.props.from, "DAI", this.props.bancorTokensStorageJson, objPropsFrom)
+  const pathTo = getPath(this.props.to, "DAI", this.props.bancorTokensStorageJson, objPropsTo)
+  const pathFromTo = getPath(this.props.from, this.props.to, this.props.bancorTokensStorageJson, objPropsFrom, objPropsTo)
+
+  // get rate for from oneFromInUSD in DAI
+  const amountReturnFrom = await this.getReturnByPath(pathFrom, directionAmount, web3)
+  // get rate for from/to oneFromInUSD
+  const amountReturnFromTo = await this.getReturnByPath(pathFromTo, directionAmount, web3)
+  // get rate in DAI for from 1 token
+  const oneFromInUSD = await this.getReturnByPath(pathFrom, 1, web3)
+
+  const totalTradeValue = await this.getReturnByPath(pathFrom, directionAmount, web3)
+
+  // calculate tiny 
+  let fromToTinyRate = await this.getReturnByPath(pathFromTo, 0.00001, web3)
+  fromToTinyRate = fromToTinyRate * (1 / 0.00001)
+
+  const slippage = await this.calculateSlippage(pathFromTo, directionAmount, web3)
+
+  // get values wich dependce of this.props.amountReturn
+  let amountReturnTo
+  if(amountReturn > 0){
+    // get rate in DAI for to converted
+    amountReturnTo = await this.getReturnByPath(pathTo, amountReturn, web3)
+  }
+
+  return {
+    amountReturnFrom,
+    amountReturnTo,
+    amountReturnFromTo,
+    totalTradeValue,
+    oneFromInUSD,
+    slippage,
+    fromToTinyRate
+   }
+}
+
+
+calculateSlippage = async (pathFromTo, directionAmount, web3) => {
+  const tinyDiv = directionAmount < 0.001 ? 10 : 1000
+  // formula
+  // tinyTrade = useroneFromInUSDFromAmount  / tinyDiv
+  const tinyTrade = Number(directionAmount) / tinyDiv
+  // tinyTradeRate = tinyTrade / userOuputAmountFromTinyTrade
+  const outputAmountFromTinyTrade = await this.getReturnByPath(pathFromTo, tinyTrade, web3)
+  const tinyTradeRate = tinyTrade / outputAmountFromTinyTrade
+  // realTradeRate = useroneFromInUSDFromAmount / userOuputAmountFromRealTrade
+  const ouputAmountFromRealTrade = await this.getReturnByPath(pathFromTo, directionAmount, web3)
+  const realTradeRate = Number(directionAmount) / ouputAmountFromRealTrade
+  // slippage% = (1 - realTradeRate / tinyTradeRate) * 100
+  let slippage = (1 - realTradeRate / tinyTradeRate) * 100
+  slippage = Math.abs(parseFloat(slippage).toFixed(6))
+
+  return slippage
+}
+
+
+
+// update states
+setTokensData = async () => {
+  if(this.props.to && this.props.from && this.props.from !== this.props.to && this.props.directionAmount > 0 && this.props.amountReturn > 0){
+    this.setState({ loadData:true })
+    const { objPropsFrom, objPropsTo, sendFrom, sendTo } = getDirectionData(
+      this.props.from,
+      this.props.to,
+      this.props.bancorTokensStorageJson,
+      this.props.useERC20AsSelectFrom,
+      this.props.useERC20AsSelectTo
+    )
+    const web3 = getWeb3ForRead(this.props.web3)
+    const { userBalanceFrom, balanceOfTo } = this.props.accounts ? await this.getTokensBalance(sendFrom, sendTo, web3) : { userBalanceFrcom:0, balanceOfTo:0 }
+    const {
+      amountReturnFrom,
+      amountReturnTo,
+      amountReturnFromTo,
+      totalTradeValue,
+      oneFromInUSD,
+      slippage,
+      fromToTinyRate
+    } = await this.getRateInfo(objPropsFrom, objPropsTo, this.props.directionAmount, this.props.amountReturn, web3)
+
+    this.setState({
+      sendFrom,
+      sendTo,
+      userBalanceFrom,
+      balanceOfTo,
+      amountReturnFrom,
+      amountReturnTo,
+      amountReturnFromTo,
+      totalTradeValue,
+      oneFromInUSD,
+      slippage,
+      fromToTinyRate,
+      loadData:false
+     })
+  }
+}
 
   render(){
    return(
     <React.Fragment>
     {
-      /*Token info*/
-      this.state.sendTo && this.state.sendFrom && this.props.directionAmount > 0
+      this.state.loadData
+      ?
+      (<Pending/>)
+      :
+      (null)
+    }
+
+    {
+      this.state.sendTo && this.state.sendFrom && this.props.directionAmount > 0 && this.props.from !== this.props.to
       ?
       (
-      <Card className="text-center">
-      <Card.Text><Badge variant="primary">Additional info</Badge></Card.Text>
-      <Badge variant="Light">
-      Etherscan: { <a href={EtherscanLink + "token/" + this.state.sendTo} target="_blank" rel="noopener noreferrer"> {this.props.to}</a> }
-      </Badge>
-      <Badge variant="Light">
-      Your balance of {this.props.from} {this.state.userBalanceFrom}
-      </Badge>
-      <Badge variant="Light">
-      Your balance of {this.props.to}: &nbsp; {this.state.balanceOfTo}
-      </Badge>
+      <React.Fragment>
       {
-        this.state.saleReturnFrom && this.state.saleReturnTo
+        this.props.accounts && this.props.directionAmount > Number(this.state.userBalanceFrom)
+        ?
+        (
+          <Alert variant="danger">You don't have enough {this.props.from}</Alert>
+        )
+        :
+        (null)
+      }
+
+      <Paper style={{padding: '15px'}}>
+      <Chip label="Additional info" style={{marginBottom: '15px'}} variant="outlined" color="primary"/>
+        <Typography component="div">
+          <small>Etherscan:
+          <strong>{ <a style={{color: '#3f51b5'}} href={EtherscanLink + "token/" + this.state.sendTo} target="_blank" rel="noopener noreferrer"> {this.props.to}</a> }</strong>,
+          <strong>{ <a style={{color: '#3f51b5'}} href={EtherscanLink + "token/" + this.state.sendFrom} target="_blank" rel="noopener noreferrer"> {this.props.from}</a> }</strong>
+          </small>
+        </Typography>
+
+        {
+        this.props.accounts
         ?
         (
           <React.Fragment>
-          <Badge variant="Light">
-          <p style={{color:"red"}}>Sale return {this.props.from}: {this.state.saleReturnFrom } </p>
-          </Badge>
-          <Badge variant="Light">
-          <p style={{color:"red"}}> Sale return {this.props.to}: {this.state.saleReturnTo } </p>
-          </Badge>
+          <Typography component="div">
+          <small>Your balance of {this.props.from}: <strong style={{color: '#3f51b5'}}>{parseFloat(this.state.userBalanceFrom).toFixed(6)}</strong></small>
+          </Typography>
+          <Typography component="div">
+          <small>Your balance of {this.props.to}: <strong style={{color: '#3f51b5'}}>{parseFloat(this.state.balanceOfTo).toFixed(6)}</strong></small>
+          </Typography>
           </React.Fragment>
         )
         :
         (null)
       }
-      </Card>
+
+       <Typography component="div">
+        <small>USD/{this.props.from}: <strong style={{color: '#3f51b5'}}>${parseFloat(this.state.oneFromInUSD).toFixed(6)}</strong></small>
+       </Typography>
+
+       <Typography component="div">
+        <small>Slippage: <strong style={{color: '#3f51b5'}}>{this.state.slippage} %</strong></small>
+       </Typography>
+
+       <Typography component="div">
+         <small>Trade value: <strong style={{color: '#3f51b5'}}>${parseFloat(this.state.totalTradeValue).toFixed(6)}</strong></small>
+       </Typography>
+
+        <Typography component="div">
+          <small>USD/{this.props.to} avg pay rate: <strong style={{color: '#3f51b5'}}>${this.state.amountReturnTo}</strong></small>
+        </Typography>
+
+        <Typography component="div">
+          <small>{this.props.to}/{this.props.from} avg pay rate: <strong style={{color: '#3f51b5'}}>{parseFloat(this.state.amountReturnFromTo).toFixed(6)} {this.props.to}</strong></small>
+        </Typography>
+
+        <Typography component="div">
+          <small>{this.props.to}/{this.props.from} before trade: <strong style={{color: '#3f51b5'}}>{this.state.fromToTinyRate}</strong></small>
+        </Typography>
+
+      </Paper>
+      </React.Fragment>
       )
       :
       (null)

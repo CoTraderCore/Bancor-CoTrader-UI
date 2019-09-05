@@ -5,7 +5,7 @@ export const ConvertersRegistryList = "0x7bdb720af9c0da53744aa007984031ceca528ad
 export const BancorNetwork = "0xeee90e509a639e95e3bb502b17a0eed6e014bfc0"
 export const BancorETH = "0xc0829421C1d260BD3cB3E0F06cfE2D52db2cE315"
 export const EtherscanLink = "https://etherscan.io/"
-export const BancorFormula = "0xffd2de852b694f88656e91d9defa6b425c454742"
+export const gasPrice = 5000000000 // 4 gwei
 export const netId = 1
 
 
@@ -16,7 +16,7 @@ export const netId = 1
 // export const BancorNetwork = "0x39Dd546F2DA1f6bb0fEa7A086cE04A519fCB6A1A"
 // export const BancorETH = "0xd43391b8fa168dcb34517877334672bcc3343ca1"
 // export const EtherscanLink = "https://ropsten.etherscan.io/"
-// export const BancorFormula = "0x46E3343AAEAE74d24F94A6BCE98841b3a43088F0"
+// export const gasPrice = 5000000000 // 4 gwei
 // export const netId = 3
 
 export const ConvertersRegistryListABI = [
@@ -2639,123 +2639,240 @@ export const ABIBancorNetwork = [
 	}
 ]
 
-export const ABIBancorFormula = [
+export const ERC20Bytes32ABI = [
 	{
-		"constant": true,
+		"constant": false,
 		"inputs": [
 			{
-				"name": "_supply",
-				"type": "uint256"
+				"name": "_spender",
+				"type": "address"
 			},
 			{
-				"name": "_connectorBalance",
-				"type": "uint256"
-			},
-			{
-				"name": "_connectorWeight",
-				"type": "uint32"
-			},
-			{
-				"name": "_depositAmount",
+				"name": "_value",
 				"type": "uint256"
 			}
 		],
-		"name": "calculatePurchaseReturn",
+		"name": "approve",
 		"outputs": [
 			{
 				"name": "",
-				"type": "uint256"
+				"type": "bool"
 			}
 		],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
+		"constant": false,
 		"inputs": [
 			{
-				"name": "_supply",
-				"type": "uint256"
+				"name": "_to",
+				"type": "address"
 			},
 			{
-				"name": "_connectorBalance",
-				"type": "uint256"
-			},
-			{
-				"name": "_connectorWeight",
-				"type": "uint32"
-			},
-			{
-				"name": "_sellAmount",
+				"name": "_value",
 				"type": "uint256"
 			}
 		],
-		"name": "calculateSaleReturn",
+		"name": "transfer",
 		"outputs": [
 			{
 				"name": "",
-				"type": "uint256"
+				"type": "bool"
 			}
 		],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "version",
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
 		"outputs": [
 			{
 				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_name",
 				"type": "string"
+			},
+			{
+				"name": "_symbol",
+				"type": "bytes32"
+			},
+			{
+				"name": "_decimals",
+				"type": "uint8"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_fromConnectorBalance",
-				"type": "uint256"
-			},
-			{
-				"name": "_fromConnectorWeight",
-				"type": "uint32"
-			},
-			{
-				"name": "_toConnectorBalance",
-				"type": "uint256"
-			},
-			{
-				"name": "_toConnectorWeight",
-				"type": "uint32"
-			},
-			{
-				"name": "_amount",
-				"type": "uint256"
-			}
-		],
-		"name": "calculateCrossConnectorReturn",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"name": "_spender",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_who",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ]
 

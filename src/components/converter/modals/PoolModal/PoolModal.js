@@ -3,16 +3,22 @@
 // TODO DRY
 
 import React, { Component } from 'react'
-import { Button, Form,  Modal, Badge } from "react-bootstrap"
+import { Form,  Modal } from "react-bootstrap"
 import { inject, observer } from 'mobx-react'
 import findByProps from '../../../../service/findByProps'
 import getWeb3ForRead from '../../../../service/getWeb3ForRead'
 import { ABIConverter, ABISmartToken } from '../../../../config'
+import { hexToNumberString } from 'web3-utils'
 
 import Liquidate from './Liquidate'
 import Fund from './Fund'
 
 import { Typeahead } from 'react-bootstrap-typeahead'
+
+import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 class PoolModal extends Component {
   constructor(props, context) {
@@ -59,6 +65,13 @@ class PoolModal extends Component {
     }
   }
 
+  getTokenBalance = async (web3, tokenAddress, user) => {
+    const tokenContract = new web3.eth.Contract(ABISmartToken, tokenAddress)
+    let tokenBalance = await tokenContract.methods.balanceOf(user).call()
+    tokenBalance = hexToNumberString(tokenBalance._hex)
+    return tokenBalance
+  }
+
   // return converter contract, converter address, connector (ERC20) token address, smart token address and smart token contract
   getInfoBySymbol = () => {
     if(this.state.from && this.state.bancorTokensStorageJson){
@@ -96,12 +109,12 @@ class PoolModal extends Component {
         this.props.MobXStorage.bancorTokensStorageJson
         ?
         (
-          <Button variant="primary" size="sm" onClick={() => this.setState({ ShowModal: true })}>
+          <Button variant="contained" color="primary" onClick={() => this.setState({ ShowModal: true })}>
           Pool
           </Button>
         )
         :
-        (<Badge variant="primary">loading data...</Badge>)
+        (<Chip label="loading data..." style={{marginBottom: '15px'}} variant="outlined" color="primary"/>)
       }
 
       <Modal
@@ -122,6 +135,7 @@ class PoolModal extends Component {
           ?
           (
             <React.Fragment>
+
             <Form.Group>
             <Form.Label>Action</Form.Label>
             <Form.Control as="select" size="sm" name="selectAction" onChange={e => this.change(e)}>
@@ -129,14 +143,11 @@ class PoolModal extends Component {
             <option>Remove liquidity</option>
             </Form.Control>
             </Form.Group>
-            <Form.Group>
-            <Form.Check
-            name="selectFromOficial"
-            type="checkbox"
-            label="Show unofficial"
-            onChange={e => this.change(e)}
+
+            <FormControlLabel
+                control={<Checkbox onChange={e => this.change(e)} name="selectFromOficial" color="primary" />}
+                label="Show unofficial"
             />
-            </Form.Group>
             {
               this.state.selectFromOficial
               ?
@@ -162,7 +173,6 @@ class PoolModal extends Component {
                 />
               )
             }
-
             <br/>
             {
               this.state.selectAction === "Add liquidity"
@@ -174,20 +184,27 @@ class PoolModal extends Component {
                 getInfoBySymbol={this.getInfoBySymbol}
                 accounts={this.props.MobXStorage.accounts}
                 bancorTokensStorageJson={this.props.MobXStorage.bancorTokensStorageJson}
+                getTokenBalance={this.getTokenBalance}
                 />
               )
               :
               (
-                <Liquidate getInfoBySymbol={this.getInfoBySymbol} accounts={this.props.MobXStorage.accounts}/>
+                <Liquidate
+                from={this.state.from}
+                getInfoBySymbol={this.getInfoBySymbol}
+                web3={this.props.MobXStorage.web3}
+                accounts={this.props.MobXStorage.accounts}
+                getTokenBalance={this.getTokenBalance}
+                />
               )
             }
             </React.Fragment>
-         )
+          )
 
-         :(<p>Loading data</p>)
-       }
-       </React.Fragment>
-       </Modal.Body>
+       :(<p>Loading data</p>)
+     }
+        </React.Fragment>
+        </Modal.Body>
       </Modal>
       </React.Fragment>
       )
