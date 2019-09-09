@@ -23,7 +23,7 @@ import getWeb3ForRead from '../../../service/getWeb3ForRead'
 import findByProps from '../../../service/findByProps'
 import getPath from '../../../service/getPath'
 import { Typeahead } from 'react-bootstrap-typeahead'
-import UserTokensList from './modules/UserTokensList'
+import UserTokensList from './modules/UserTokensList/UserTokensList'
 import DirectionInfo from './modules/DirectionInfo'
 import SetMinReturn from './modules/SetMinReturn'
 import FakeButton from '../../templates/FakeButton'
@@ -425,7 +425,8 @@ class TradeModal extends Component {
       {
         this.props.MobXStorage.accounts
         ?
-        (<UserTokensList address={this.props.MobXStorage.accounts[0]}/>)
+        (
+          <UserTokensList address={this.props.MobXStorage.accounts[0]}/>)
         :
         (null)
       }

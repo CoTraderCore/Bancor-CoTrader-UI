@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { netId } from '../../../../config'
+import { netId } from '../../../../../config'
+import SelectModal from './SelectModal'
+
 
 class UserTokensList extends Component {
   state = {
-    tokensList:null
+    tokensList:null,
+    Show:false
   }
 
   componentWillMount() {
@@ -28,17 +31,7 @@ class UserTokensList extends Component {
 
   render() {
     return (
-      <React.Fragment>
-      {
-        this.state.tokensList
-        ?
-        (
-          this.state.tokensList.map((item, key) => <p key={key}>{item.symbol} {item.amount}</p>)
-        )
-        :
-        (null)
-      }
-      </React.Fragment>
+      <SelectModal tokensList={this.state.tokensList}/>
     )
   }
 
