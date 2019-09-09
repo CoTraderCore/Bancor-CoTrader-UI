@@ -12,6 +12,7 @@ class SelectModal extends Component {
   componentDidUpdate(prevProps, prevState) {
     if(prevProps.tokensList !== this.props.tokensList){
       this.setState({ listCurrent:this.props.tokensList, listOriginal:this.props.tokensList })
+      console.log(this.props.tokensList)
     }
   }
 

@@ -71,7 +71,9 @@ class App extends Component {
     this.props.MobXStorage.initUnofficialSymbols(unoficialData[0])
     this.props.MobXStorage.initUnofficialSmartTokenSymbols(unoficialData[1])
 
-    this.props.MobXStorage.initBancorStorage(officialData[2], unoficialData[2])
+    this.props.MobXStorage.initBancorStorage(
+      officialData[2].map(v => ({...v, official: true})),
+      unoficialData[2].map(v => ({...v, official: false})))
   }
 
   render() {
