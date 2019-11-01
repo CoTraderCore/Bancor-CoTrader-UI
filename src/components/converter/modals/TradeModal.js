@@ -66,6 +66,10 @@ class TradeModal extends Component {
     }
   }
 
+  componentDidMount() {
+    console.log("props:", this.props)
+  }
+
   componentDidUpdate(prevProps, prevState){
     // Update rate by onChange
     if(prevState.from !== this.state.from || prevState.to !== this.state.to || prevState.directionAmount !== this.state.directionAmount){
@@ -235,6 +239,7 @@ class TradeModal extends Component {
 
 // TODO move this to a Presentational component
   render(){
+    console.log(this.props)
     return(
     <React.Fragment>
     {

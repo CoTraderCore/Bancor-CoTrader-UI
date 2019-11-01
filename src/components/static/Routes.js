@@ -20,14 +20,21 @@ export default function Routes() {
 
   return (
    <Switch>
-     <Route exact path="/" component={(props) => <HomePage {...props} />} />
-     <Route path="/trade" component={(props) => <TradePage {...props} />} />
-     <Route path="/send" component={(props) => <SendPage {...props} />} />
-     <Route path="/pool" component={(props) => <PoolPage {...props} />} />
-     <Route path="/stable-pool" component={(props) => <StablePoolPage {...props} />} />
-     <Route path="/relay" component={(props) => <RelaysPage {...props} />} />
-     <Route path="/create-converter" component={(props) => <CreateConverter {...props} />} />
-     <Route path="/converter-settings" component={(props) => <ConverterSettingsPage{...props} />} />
+     <Route exact path="/" component={HomePage} />
+     <Route path="/trade" component={TradePage} />
+     <Route path="/send" component={SendPage} />
+     <Route path="/pool" component={PoolPage} />
+     <Route path="/stable-pool" component={StablePoolPage} />
+     <Route path="/relay" component={RelaysPage} />
+     <Route path="/create-converter" component={CreateConverter} />
+     <Route path="/converter-settings" component={ConverterSettingsPage} />
+
+     {/* with params */}
+     {/*
+       // Not worknig
+       <Route path="/trade-popup" component={(props) => <TradePage {...props} popupShow=true/>} />
+     */}
+     <Route path="/trade-popup/:popup" component={TradePage} />
     </Switch>
   );
 }

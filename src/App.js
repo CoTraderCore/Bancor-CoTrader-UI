@@ -178,10 +178,11 @@ class App extends Component {
          )
          :
          (
-           <Routes />
+           null
          )
        }
 
+       <Routes />
        <Footer/>
        </Container>
        </MuiThemeProvider>
