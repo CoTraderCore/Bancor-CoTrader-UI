@@ -34,7 +34,7 @@ export default function Routes() {
        // Not worknig
        <Route path="/trade-popup" component={(props) => <TradePage {...props} popupShow=true/>} />
      */}
-     <Route path="/trade-popup/:popup" component={TradePage} />
+     <Route path="/trade-popup/:token/:amount" render={props => <TradePage {...props} />} />
     </Switch>
   );
 }

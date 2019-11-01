@@ -8,7 +8,7 @@ import pageStyles from '../../../css/pageStyles'
 
 const useStyles = pageStyles
 
-function TradePage() {
+function TradePage(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}><ArrowRight className={classes.icon} /></span>;
   return (
@@ -37,7 +37,7 @@ function TradePage() {
       {bull} More updates coming soon.
     </Typography>
         <Typography className={classes.modal} component="div">
-          <TradeModal/>
+          <TradeModal {...props}/>
         </Typography>
       </CardContent>
     </Card>

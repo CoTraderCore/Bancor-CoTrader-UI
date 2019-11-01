@@ -67,7 +67,12 @@ class TradeModal extends Component {
   }
 
   componentDidMount() {
-    console.log("props:", this.props)
+    if(this.props.match.params.token && this.props.match.params.amount)
+    this.setState({
+      ShowModal:true,
+      to:String(this.props.match.params.token).toUpperCase(),
+      //directionAmount:this.props.match.params.amount
+    })
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -239,7 +244,7 @@ class TradeModal extends Component {
 
 // TODO move this to a Presentational component
   render(){
-    console.log(this.props)
+    console.log(this.state.reciveSymbol)
     return(
     <React.Fragment>
     {
@@ -341,6 +346,7 @@ class TradeModal extends Component {
                   options={this.state.officialSymbols}
                   onChange={(s) => this.setState({to: s[0]})}
                   placeholder="Choose a symbol to"
+                  defaultInputValue={this.state.to}
               />
             )
             :
