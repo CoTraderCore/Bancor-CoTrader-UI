@@ -73,7 +73,7 @@ class TradeModal extends Component {
   // View rate
   // can be calculated by input from and to
   getRate = async (isViceVersa=false) => {
-    if(this.props.MobXStorage.from && this.props.MobXStorage.to){
+    if(this.props.MobXStorage.from && this.props.MobXStorage.to && this.props.MobXStorage.from !== this.props.MobXStorage.to){
 
     const web3 = getWeb3ForRead(this.props.MobXStorage.web3)
 
@@ -85,8 +85,7 @@ class TradeModal extends Component {
       amountSend = await toWeiByDecimals(path[0], this.state.recieveAmount, web3)
     }
 
-    if(amountSend > 0)
-    if(this.props.MobXStorage.from !== this.props.MobXStorage.to){
+    if(amountSend > 0){
       const { amountReturn, fee } = await getRateByPath(path, amountSend, web3)
       console.log("Call", "amount:", amountReturn)
       this.setState({
