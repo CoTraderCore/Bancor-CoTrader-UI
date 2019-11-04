@@ -18,7 +18,7 @@ import {
 
 import {
   toWeiByDecimals,
-  //fromWeiByDecimals 
+  //fromWeiByDecimals
 } from '../../../service/weiByDecimals'
 
 import getDirectionData from '../../../service/getDirectionData'
@@ -29,7 +29,7 @@ import getBancorGasLimit from '../../../service/getBancorGasLimit'
 import findByProps from '../../../service/findByProps'
 import MMBatchManual from '../../static/MMBatchManual'
 
-import SelectSymbols from './modules/SelectSymbols'
+import SelectSymbolsModal from './modules/SelectSymbolsModal'
 //import { Typeahead } from 'react-bootstrap-typeahead'
 import DirectionInfo from './modules/DirectionInfo'
 import FakeButton from '../../templates/FakeButton'
@@ -251,8 +251,8 @@ class RelaysModal extends Component {
       </Modal.Header>
       <Modal.Body>
 
-      <SelectSymbols symbolDirection="from" useSmartTokenSymbols={true}/>
-      <SelectSymbols symbolDirection="to" useSmartTokenSymbols={true}/>
+      <SelectSymbolsModal symbolDirection="from" useSmartTokenSymbols={true}/>
+      <SelectSymbolsModal symbolDirection="to" useSmartTokenSymbols={true}/>
 
       <br/>
       <Form.Control name="directionAmount" placeholder={`Enter ${this.props.MobXStorage.from ? this.props.MobXStorage.from : 'token'} amount`} onChange={e => this.setState({directionAmount:e.target.value})} type="number" min="1"/>

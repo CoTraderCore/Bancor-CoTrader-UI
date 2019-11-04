@@ -5,7 +5,7 @@
 import React, { Component } from 'react'
 import { Alert, Form,  Modal } from "react-bootstrap"
 import { inject, observer } from 'mobx-react'
-import SelectSymbols from './modules/SelectSymbols'
+import SelectSymbolsModal from './modules/SelectSymbolsModal'
 
 import {
   ABISmartToken,
@@ -15,7 +15,7 @@ import {
 
 import {
   toWeiByDecimals,
-  //fromWeiByDecimals 
+  //fromWeiByDecimals
 } from '../../../service/weiByDecimals'
 
 import findByProps from '../../../service/findByProps'
@@ -201,8 +201,8 @@ class TradeModal extends Component {
       <Modal.Body>
 
       {/* select */}
-      <SelectSymbols symbolDirection="from" useSmartTokenSymbols={false}/>
-      <SelectSymbols symbolDirection="to" useSmartTokenSymbols={false}/>
+      <SelectSymbolsModal symbolDirection="from" useSmartTokenSymbols={false}/>
+      <SelectSymbolsModal symbolDirection="to" useSmartTokenSymbols={false}/>
 
       <br/>
       <Form.Control

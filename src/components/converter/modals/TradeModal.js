@@ -10,7 +10,7 @@ import findByProps from '../../../service/findByProps'
 import getPath from '../../../service/getPath'
 import getRateByPath from '../../../service/getRateByPath'
 import getBancorGasLimit from '../../../service/getBancorGasLimit'
-import SelectSymbols from './modules/SelectSymbols'
+import SelectSymbolsModal from './modules/SelectSymbolsModal'
 
 import {
   ABISmartToken,
@@ -27,7 +27,7 @@ import {
 import DirectionInfo from './modules/DirectionInfo'
 import SetMinReturn from './modules/SetMinReturn'
 import FakeButton from '../../templates/FakeButton'
-import { Alert, Form,  Modal } from "react-bootstrap"
+import { Alert, Form,  Modal, InputGroup } from "react-bootstrap"
 import Button from '@material-ui/core/Button'
 import Chip from '@material-ui/core/Chip'
 import MMBatchManual from '../../static/MMBatchManual'
@@ -38,6 +38,7 @@ class TradeModal extends Component {
    super(props, context)
     this.state = {
     directionAmount:0,
+    recieveAmount:0,
     amountReturn:0,
     ShowModal:false,
     bancorNetworkContract: null,
@@ -51,9 +52,17 @@ class TradeModal extends Component {
 
   componentDidUpdate(prevProps, prevState){
     // Update rate by onChange
-    if(prevProps.MobXStorage.from !== this.state.from || prevProps.MobXStorage.to !== this.state.to || prevState.directionAmount !== this.state.directionAmount){
+    if
+    (
+      prevProps.MobXStorage.from !== this.state.from ||
+      prevProps.MobXStorage.to !== this.state.to ||
+      prevState.directionAmount !== this.state.directionAmount ||
+      prevState.recieveAmount !== this.state.recieveAmount
+    )
+    {
       this.getRate()
-
+      // for bug prevProps !== this.props
+      // https://github.com/developit/linkstate/issues/17
       this.setState({
         to: this.props.MobXStorage.to,
         from: this.props.MobXStorage.from
@@ -62,20 +71,30 @@ class TradeModal extends Component {
   }
 
   // View rate
-  getRate = async () => {
-    if(this.props.MobXStorage.from && this.props.MobXStorage.to && this.state.directionAmount > 0){
-    if(this.props.MobXStorage.from !== this.props.MobXStorage.to){
-      const web3 = getWeb3ForRead(this.props.MobXStorage.web3)
-      const path = getPath(this.props.MobXStorage.from, this.props.MobXStorage.to, this.props.MobXStorage.bancorTokensStorageJson)
-      const amountSend = await toWeiByDecimals(path[0], this.state.directionAmount, web3)
-      const { amountReturn, fee } = await getRateByPath(path, amountSend, web3)
+  // can be calculated by input from and to
+  getRate = async (isViceVersa=false) => {
+    if(this.props.MobXStorage.from && this.props.MobXStorage.to){
 
+    const web3 = getWeb3ForRead(this.props.MobXStorage.web3)
+
+    let path = getPath(this.props.MobXStorage.from, this.props.MobXStorage.to, this.props.MobXStorage.bancorTokensStorageJson)
+    let amountSend = await toWeiByDecimals(path[0], this.state.directionAmount, web3)
+
+    if(isViceVersa){
+      path = getPath(this.props.MobXStorage.to, this.props.MobXStorage.from, this.props.MobXStorage.bancorTokensStorageJson)
+      amountSend = await toWeiByDecimals(path[0], this.state.recieveAmount, web3)
+    }
+
+    if(amountSend > 0)
+    if(this.props.MobXStorage.from !== this.props.MobXStorage.to){
+      const { amountReturn, fee } = await getRateByPath(path, amountSend, web3)
+      console.log("Call", "amount:", amountReturn)
       this.setState({
         amountReturn,
         fee
       })
+     }
     }
-  }
   }
 
   // Batch requset for case when from === ERC20
@@ -219,16 +238,35 @@ class TradeModal extends Component {
       </Modal.Header>
       <Modal.Body>
 
-      {/*select symbols*/}
-      <SelectSymbols symbolDirection="from" useSmartTokenSymbols={false}/>
-      <SelectSymbols symbolDirection="to" useSmartTokenSymbols={false}/>
-
+      {/*select from*/}
+      <Form.Text className="text-muted">
+      Pay with
+      </Form.Text>
+      <InputGroup>
+        <InputGroup.Prepend>
+        <SelectSymbolsModal symbolDirection="from" useSmartTokenSymbols={false}/>
+        </InputGroup.Prepend>
+        <Form.Control
+        name="directionAmount"
+        placeholder={`Enter ${this.props.MobXStorage.from ? this.props.MobXStorage.from : 'token'} amount`}
+        onChange={e => this.setState({ directionAmount:e.target.value })}
+        type="number" min="1"/>
+      </InputGroup>
       <br/>
-      <Form.Control
-      name="directionAmount"
-      placeholder={`Enter ${this.props.MobXStorage.from ? this.props.MobXStorage.from : 'token'} amount`}
-      onChange={e => this.setState({ directionAmount:e.target.value })}
-      type="number" min="1"/>
+      {/*select to*/}
+      <Form.Text className="text-muted">
+      Recieve
+      </Form.Text>
+      <InputGroup>
+        <InputGroup.Prepend>
+        <SelectSymbolsModal symbolDirection="to" useSmartTokenSymbols={false}/>
+        </InputGroup.Prepend>
+        <Form.Control
+        name="recieveAmount"
+        placeholder={`Enter ${this.props.MobXStorage.to ? this.props.MobXStorage.to : 'token'} amount`}
+        onChange={e => this.setState({ recieveAmount:e.target.value })}
+        type="number" min="1"/>
+      </InputGroup>
       <br/>
       {
         this.state.directionAmount > 0

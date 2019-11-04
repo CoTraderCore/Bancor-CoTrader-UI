@@ -13,11 +13,13 @@
 import React, { Component } from 'react'
 import { Typeahead } from 'react-bootstrap-typeahead'
 import { inject, observer } from 'mobx-react'
-
+import { Modal } from "react-bootstrap"
+import Button from '@material-ui/core/Button'
+import Chip from '@material-ui/core/Chip'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 
-class SelectSymbols extends Component {
+class SelectSymbolsModal extends Component {
   constructor(props, context) {
    super(props, context)
     this.state = {
@@ -53,6 +55,8 @@ class SelectSymbols extends Component {
 
   updateMobxSelect = (value) => {
     this.props.MobXStorage.updateSymbolSelector(this.props.symbolDirection, value)
+    this.setState({ from: value })
+    this.closeModal()
   }
 
 
@@ -61,11 +65,41 @@ class SelectSymbols extends Component {
     this.setState({ useERC20AsSelect: !this.state.useERC20AsSelect })
   }
 
+  // reset states after close modal
+  closeModal = () => this.setState({
+    ShowModal:false
+  })
+
 
   render() {
     return (
       <React.Fragment>
       {
+        this.props.MobXStorage.bancorTokensStorageJson
+        ?
+        (
+        <Button style={{width: "98px"}} variant="contained" color="primary" onClick={() => this.setState({ ShowModal: true })}>
+          {this.state.from ? this.state.from : this.props.symbolDirection}
+        </Button>
+
+        )
+        :
+        (<Chip label="loading data..." style={{marginBottom: '15px'}} variant="outlined" color="primary"/>)
+      }
+      <Modal
+        size="lg"
+        show={this.state.ShowModal}
+        onHide={() => this.closeModal()}
+        aria-labelledby="example-modal-sizes-title-lg"
+        bgcolor="modal"
+        >
+        <Modal.Header closeButton>
+        <Modal.Title id="example-modal-sizes-title-lg">
+        <small>Trade ETH or tokens</small>
+        </Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{height: "152px"}}>
+       {
         this.state.officialSymbols
         ?
         (
@@ -99,7 +133,7 @@ class SelectSymbols extends Component {
                   id="officialTokens"
                   options={this.state.useERC20AsSelect ? this.state.officialSymbols :this.state.officialSmartTokenSymbols}
                   onChange={(s) => this.updateMobxSelect(s[0])}
-                  placeholder={`Choose a symbol for ${this.props.to ?'send' :'recieve'}`}
+                  placeholder="Choose a symbol"
               />
             )
             :
@@ -110,7 +144,7 @@ class SelectSymbols extends Component {
                   id="unofficialTokens"
                   options={this.state.useERC20AsSelect ? this.state.unofficialSymbols : this.state.unofficialSmartTokenSymbols}
                   onChange={(s) => this.updateMobxSelect(s[0])}
-                  placeholder={`Choose a symbol for ${this.props.to ?'send' :'recieve'}`}
+                  placeholder="Choose a symbol"
               />
             )
           }
@@ -119,10 +153,12 @@ class SelectSymbols extends Component {
         :
         (null)
       }
+      </Modal.Body>
+      </Modal>
       </React.Fragment>
     )
   }
 
 }
 
-export default inject('MobXStorage')(observer(SelectSymbols))
+export default inject('MobXStorage')(observer(SelectSymbolsModal))
