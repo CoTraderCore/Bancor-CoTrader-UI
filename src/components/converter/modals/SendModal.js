@@ -125,7 +125,6 @@ class TradeModal extends Component {
     batch.add(web3.eth.sendTransaction.request(approve, () => console.log("Approve")))
     batch.add(web3.eth.sendTransaction.request(trade, () => console.log("Trade")))
     batch.execute()
-    this.closeModal()
   }
 
   // For ETH to ERC20
@@ -138,7 +137,6 @@ class TradeModal extends Component {
 
     bancorNetworkContract.methods.convertFor(path, amount, this.props.MobXStorage.minReturn, this.state.receiverAddress)
     .send({from: this.props.MobXStorage.accounts[0], gasPrice, value:amount })
-    this.closeModal()
   }
 
   // trade ERC20 and ETH

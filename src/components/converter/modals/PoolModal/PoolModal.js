@@ -46,9 +46,11 @@ class PoolModal extends Component {
     }
   }
 
-  componentDidUpdate = async (prevProps, prevState) => {
-    // Update state with tokens data
-    if (prevProps.MobXStorage.bancorTokensStorageJson !== this.state.bancorTokensStorageJson) {
+  unmounted = false
+  componentDidMount(){
+    this.unmounted = false
+    // delay for corerct recieve props
+    setTimeout(() => {
       let officialSymbols = this.props.MobXStorage.officialSymbols
       const unofficialSymbols = this.props.MobXStorage.unofficialSymbols
       const bancorTokensStorageJson = this.props.MobXStorage.bancorTokensStorageJson
@@ -56,12 +58,17 @@ class PoolModal extends Component {
       // delete BNT from pool
       officialSymbols = officialSymbols.filter(e => e !== 'BNT')
 
+      if(!this.unmounted)
       this.setState({
         officialSymbols,
         unofficialSymbols,
         bancorTokensStorageJson
       })
-    }
+    }, 2000)// Update state with tokens data
+  }
+
+  componentWillUnmount() {
+    this.unmounted = true
   }
 
   getTokenBalance = async (web3, tokenAddress, user) => {
@@ -172,7 +179,7 @@ class PoolModal extends Component {
                 </React.Fragment>
               )
 
-           :(<p>Loading data</p>)
+           :(<Chip label="update states..." style={{marginBottom: '15px'}} variant="outlined" color="primary"/>)
          }
           </div>
         )

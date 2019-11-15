@@ -125,7 +125,6 @@ class TradeModal extends Component {
     batch.add(web3.eth.sendTransaction.request(approve, () => console.log("Approve")))
     batch.add(web3.eth.sendTransaction.request(trade, () => console.log("Trade")))
     batch.execute()
-    this.closeModal()
   }
 
   // in case if from === BNT and to !== ETH
@@ -142,7 +141,6 @@ class TradeModal extends Component {
       amountSend,
       this.props.MobXStorage.minReturn
     ).send({from: this.props.MobXStorage.accounts[0], gasPrice})
-    this.closeModal()
   }
 
   // in case if from === ETH
@@ -155,7 +153,6 @@ class TradeModal extends Component {
 
     bancorNetworkContract.methods.convert(path, amount, this.props.MobXStorage.minReturn)
     .send({from: this.props.MobXStorage.accounts[0], gasPrice, value:amount })
-    this.closeModal()
   }
 
   // trade
