@@ -19,6 +19,9 @@ function SendPage() {
         <Typography className={classes.title} gutterBottom component="h2">
           Trade and send via Bancor
         </Typography>
+        <Typography className={classes.modal} component="div">
+          <SendModal/>
+        </Typography>
         <Typography variant="body1" className={'mb-2'} component="p">
           {bull} This page allows trade and send to any ETH address.
           </Typography>
@@ -28,15 +31,8 @@ function SendPage() {
           <Typography variant="body1" className={'mb-2'} component="p">
           {bull} More updates coming soon.
         </Typography>
-        <Typography className={classes.modal} component="div">
-          <SendModal/>
-        </Typography>
+
       </CardContent>
-      {/*<CardActions className={classes.footer}>
-        <Typography className={classes.footertext} color="textSecondary">
-          DEX is free trade. Let freedom ring. This is a free, open source, unrestricted portal into the <a href="http://Bancor.network" rel="noopener noreferrer" target="_blank">Bancor.network</a>, made by <a href="https://about.cotrader.com/" rel="noopener noreferrer" target="_blank">CoTrader</a>
-        </Typography>
-      </CardActions>*/}
     </Card>
     </React.Fragment>
   )
