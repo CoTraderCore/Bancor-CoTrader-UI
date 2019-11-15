@@ -18,6 +18,9 @@ function PoolPage() {
           <Typography className={classes.title} gutterBottom>
             Bancor liquidity pools
           </Typography>
+          <Typography className={classes.modal} component="div">
+            <PoolModal/>
+          </Typography>
           <Typography variant="body1" className={'mb-2'} component="p">
             {bull} To earn from all trades, add liquidity to pools.
           </Typography>
@@ -44,9 +47,6 @@ function PoolPage() {
           </Typography>
           <Typography variant="body1" className={'mb-2'} component="p">
             {bull} More updates coming soon.
-          </Typography>
-          <Typography className={classes.modal} component="div">
-            <PoolModal/>
           </Typography>
         </CardContent>
       </Card>
