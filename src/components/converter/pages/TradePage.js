@@ -14,31 +14,33 @@ function TradePage() {
   return (
     <React.Fragment>
     <Card className={classes.card}>
-      <CardContent>
+      <CardContent center>
         <Typography className={classes.title} gutterBottom component="h2">
           Trade via Bancor
         </Typography>
         <Typography variant="body1" className={'mb-2'} component="p">
           {bull} This dapp allows you to add and trade tokens in the Bancor Network.
           </Typography>
-          <Typography variant="body1" className={'mb-2'} component="p">
-          {bull} Our default lists include both Bancor official and CoTrader verified tokens.
-          </Typography>
-          <Typography variant="body1" className={'mb-2'} component="p">
-          {bull} You can add a new token in the "add converter" tab.
-          </Typography>
-          <Typography variant="body1" className={'mb-2'} component="p">
-          {bull} You can ask us to verify the token in "Chat & Support" below.
-        </Typography>
-        <Typography variant="body1" className={'mb-2'} component="p">
-        {bull} Please be careful when choosing unverified tokens.
-      </Typography>
-      <Typography variant="body1" className={'mb-2'} component="p">
-      {bull} More updates coming soon.
-    </Typography>
+
         <Typography className={classes.modal} component="div">
           <TradeModal/>
         </Typography>
+
+        <Typography variant="body1" className={'mb-2'} component="p">
+        {bull} Our default lists include both Bancor official and CoTrader verified tokens.
+        </Typography>
+        <Typography variant="body1" className={'mb-2'} component="p">
+        {bull} You can add a new token in the "add converter" tab.
+        </Typography>
+        <Typography variant="body1" className={'mb-2'} component="p">
+        {bull} You can ask us to verify the token in "Chat & Support" below.
+      </Typography>
+      <Typography variant="body1" className={'mb-2'} component="p">
+      {bull} Please be careful when choosing unverified tokens.
+    </Typography>
+    <Typography variant="body1" className={'mb-2'} component="p">
+    {bull} More updates coming soon.
+  </Typography>
       </CardContent>
     </Card>
     </React.Fragment>

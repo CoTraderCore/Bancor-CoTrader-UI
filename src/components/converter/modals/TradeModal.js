@@ -11,6 +11,7 @@ import getPath from '../../../service/getPath'
 import getRateByPath from '../../../service/getRateByPath'
 import getBancorGasLimit from '../../../service/getBancorGasLimit'
 import SelectSymbols from './modules/SelectSymbols'
+import { isMobile } from 'react-device-detect'
 
 import {
   ABISmartToken,
@@ -27,7 +28,7 @@ import {
 import DirectionInfo from './modules/DirectionInfo'
 import SetMinReturn from './modules/SetMinReturn'
 import FakeButton from '../../templates/FakeButton'
-import { Alert, Form,  Modal } from "react-bootstrap"
+import { Alert, Form } from "react-bootstrap"
 import Button from '@material-ui/core/Button'
 import Chip from '@material-ui/core/Chip'
 import MMBatchManual from '../../static/MMBatchManual'
@@ -39,7 +40,6 @@ class TradeModal extends Component {
     this.state = {
     directionAmount:0,
     amountReturn:0,
-    ShowModal:false,
     bancorNetworkContract: null,
     web3:null,
     fee:0,
@@ -178,16 +178,6 @@ class TradeModal extends Component {
   }
   }
 
-  // reset states after close modal
-  closeModal = () => this.setState({
-    to:undefined,
-    from:undefined,
-    directionAmount:0,
-    amountReturn:0,
-    ShowModal:false
-  })
-
-
 
 // TODO move this to a Presentational component
   render(){
@@ -197,90 +187,74 @@ class TradeModal extends Component {
       this.props.MobXStorage.bancorTokensStorageJson
       ?
       (
-      <Button variant="contained" color="primary" onClick={() => this.setState({ ShowModal: true })}>
-        Trade
-      </Button>
+        <div style={!isMobile ? {align:"left", width: "550px"}: null}>
+
+        {/*select symbols*/}
+        <SelectSymbols symbolDirection="from" useSmartTokenSymbols={false}/>
+        <SelectSymbols symbolDirection="to" useSmartTokenSymbols={false}/>
+
+        <br/>
+        <Form.Control
+        name="directionAmount"
+        placeholder={`Enter ${this.props.MobXStorage.from ? this.props.MobXStorage.from : 'token'} amount`}
+        onChange={e => this.setState({ directionAmount:e.target.value })}
+        type="number" min="1"/>
+        <br/>
+        {
+          this.state.directionAmount > 0
+          ?
+          ( <div>
+            <Alert variant="success">You will receive {this.state.amountReturn} {this.props.MobXStorage.to}</Alert>
+            <br/>
+            {
+              this.props.MobXStorage.web3
+              ?
+              (
+                /*If connect to web3 */
+                <React.Fragment>
+                <Button variant="contained" color="primary" onClick={() => this.trade()}>Trade</Button>
+                <hr/>
+                <MMBatchManual/>
+                <hr/>
+                </React.Fragment>
+              )
+              :
+              (
+                /*If NO connect to web3 */
+                <FakeButton info="Please connect to web3" buttonName="Trade"/>
+              )
+            }
+            </div>
+          )
+          :
+          (null)
+        }
+        <br/>
+        <SetMinReturn
+        amountReturn={this.state.amountReturn}
+        from={this.props.MobXStorage.from}
+        to={this.props.MobXStorage.to}
+        directionAmount={this.state.directionAmount}
+        />
+        <br/>
+        <DirectionInfo
+        from={this.props.MobXStorage.from}
+        to={this.props.MobXStorage.to}
+        directionAmount={this.state.directionAmount}
+        bancorTokensStorageJson={this.props.MobXStorage.bancorTokensStorageJson}
+        web3={this.props.MobXStorage.web3}
+        accounts={this.props.MobXStorage.accounts}
+        useERC20AsSelectFrom={true}
+        useERC20AsSelectTo={true}
+        amountReturn={this.state.amountReturn}
+        fee={this.state.fee}
+        />
+        </div>
 
       )
       :
       (<Chip label="loading data..." style={{marginBottom: '15px'}} variant="outlined" color="primary"/>)
     }
-    <Modal
-      size="lg"
-      show={this.state.ShowModal}
-      onHide={() => this.closeModal()}
-      aria-labelledby="example-modal-sizes-title-lg"
-      bgcolor="modal"
-      >
-      <Modal.Header closeButton>
-      <Modal.Title id="example-modal-sizes-title-lg">
-      <small>Trade ETH or tokens</small>
-      </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-
-      {/*select symbols*/}
-      <SelectSymbols symbolDirection="from" useSmartTokenSymbols={false}/>
-      <SelectSymbols symbolDirection="to" useSmartTokenSymbols={false}/>
-
-      <br/>
-      <Form.Control
-      name="directionAmount"
-      placeholder={`Enter ${this.props.MobXStorage.from ? this.props.MobXStorage.from : 'token'} amount`}
-      onChange={e => this.setState({ directionAmount:e.target.value })}
-      type="number" min="1"/>
-      <br/>
-      {
-        this.state.directionAmount > 0
-        ?
-        ( <div>
-          <Alert variant="success">You will receive {this.state.amountReturn} {this.props.MobXStorage.to}</Alert>
-          <br/>
-          {
-            this.props.MobXStorage.web3
-            ?
-            (
-              /*If connect to web3 */
-              <React.Fragment>
-              <Button variant="contained" color="primary" onClick={() => this.trade()}>Trade</Button>
-              <hr/>
-              <MMBatchManual/>
-              <hr/>
-              </React.Fragment>
-            )
-            :
-            (
-              /*If NO connect to web3 */
-              <FakeButton info="Please connect to web3" buttonName="Trade"/>
-            )
-          }
-          </div>
-        )
-        :
-        (null)
-      }
-      <br/>
-      <SetMinReturn
-      amountReturn={this.state.amountReturn}
-      from={this.props.MobXStorage.from}
-      to={this.props.MobXStorage.to}
-      directionAmount={this.state.directionAmount}
-      />
-      <br/>
-      <DirectionInfo
-      from={this.props.MobXStorage.from}
-      to={this.props.MobXStorage.to}
-      directionAmount={this.state.directionAmount}
-      bancorTokensStorageJson={this.props.MobXStorage.bancorTokensStorageJson}
-      web3={this.props.MobXStorage.web3}
-      accounts={this.props.MobXStorage.accounts}
-      useERC20AsSelectFrom={true}
-      useERC20AsSelectTo={true}
-      amountReturn={this.state.amountReturn}
-      fee={this.state.fee}
-      />
-      </Modal.Body>
-    </Modal>
     </React.Fragment>
     )
   }
