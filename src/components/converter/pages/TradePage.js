@@ -18,14 +18,12 @@ function TradePage() {
         <Typography className={classes.title} gutterBottom component="h2">
           Trade via Bancor
         </Typography>
-        <Typography variant="body1" className={'mb-2'} component="p">
-          {bull} This dapp allows you to add and trade tokens in the Bancor Network.
-          </Typography>
-
         <Typography className={classes.modal} component="div">
           <TradeModal/>
         </Typography>
-
+        <Typography variant="body1" className={'mb-2'} component="p">
+          {bull} This dapp allows you to add and trade tokens in the Bancor Network.
+          </Typography>
         <Typography variant="body1" className={'mb-2'} component="p">
         {bull} Our default lists include both Bancor official and CoTrader verified tokens.
         </Typography>
