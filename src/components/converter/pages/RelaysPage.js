@@ -18,6 +18,9 @@ function RelaysPage() {
           <Typography className={classes.title} gutterBottom>
             Bancor relay tokens
           </Typography>
+          <Typography className={classes.modal} component="div">
+            <RelaysModal />
+          </Typography>
           <Typography variant="body1" className={'mb-2'} component="p">
             {bull} To earn from all trades, buy relay tokens.
           </Typography>
@@ -32,9 +35,6 @@ function RelaysPage() {
           </Typography>
           <Typography variant="body1" className={'mb-2'} component="p">
             {bull} More updates coming soon.
-          </Typography>
-          <Typography className={classes.modal} component="div">
-            <RelaysModal />
           </Typography>
         </CardContent>
       </Card>
