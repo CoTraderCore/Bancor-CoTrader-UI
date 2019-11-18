@@ -15,7 +15,7 @@ function TradePage(props) {
   return (
     <React.Fragment>
     <Card className={classes.card}>
-      <CardContent center="true">
+      <CardContent>
         <Typography className={classes.modal} component="div">
           <TabBar location={props.location.pathname}/>
         </Typography>
