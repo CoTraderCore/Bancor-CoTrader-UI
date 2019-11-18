@@ -13,7 +13,8 @@ import {
   ABISmartToken,
   ABIConverter,
   ABIBancorNetwork,
-  BancorNetwork
+  BancorNetwork,
+  netId
 } from '../../../config'
 
 import {
@@ -260,18 +261,25 @@ class RelaysModal extends Component {
           directionAmount={this.state.directionAmount}
           />
           <br/>
-          <DirectionInfo
-          from={this.props.MobXStorage.from}
-          to={this.props.MobXStorage.to}
-          directionAmount={this.state.directionAmount}
-          bancorTokensStorageJson={this.props.MobXStorage.bancorTokensStorageJson}
-          web3={this.props.MobXStorage.web3}
-          accounts={this.props.MobXStorage.accounts}
-          useERC20AsSelectFrom={this.props.MobXStorage.useERC20AsSelectFrom}
-          useERC20AsSelectTo={this.props.MobXStorage.useERC20AsSelectTo}
-          amountReturn={this.state.amountReturn}
-          fee={this.state.fee}
-          />
+          {
+            netId === 1
+            ?
+            (
+              <DirectionInfo
+              from={this.props.MobXStorage.from}
+              to={this.props.MobXStorage.to}
+              directionAmount={this.state.directionAmount}
+              bancorTokensStorageJson={this.props.MobXStorage.bancorTokensStorageJson}
+              web3={this.props.MobXStorage.web3}
+              accounts={this.props.MobXStorage.accounts}
+              useERC20AsSelectFrom={this.props.MobXStorage.useERC20AsSelectFrom}
+              useERC20AsSelectTo={this.props.MobXStorage.useERC20AsSelectTo}
+              amountReturn={this.state.amountReturn}
+              fee={this.state.fee}
+              />
+            )
+            :(null)
+          }
           </div>
       )
       :
