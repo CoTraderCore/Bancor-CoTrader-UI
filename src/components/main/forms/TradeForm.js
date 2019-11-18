@@ -1,10 +1,15 @@
-// THIS COMPONENT CONVERT ONLY ETH AND ERC20 AND THEN SEND TO ANY ETH ADDRESS
+// THIS COMPONENT CONVERT ONLY ETH AND ERC20 TO msg.sender
 // TODO refactoring (Presentational and Container)
 // TODO DRY
 
 import React, { Component } from 'react'
-import { Alert, Form } from "react-bootstrap"
+
 import { inject, observer } from 'mobx-react'
+import getWeb3ForRead from '../../../service/getWeb3ForRead'
+import findByProps from '../../../service/findByProps'
+import getPath from '../../../service/getPath'
+import getRateByPath from '../../../service/getRateByPath'
+import getBancorGasLimit from '../../../service/getBancorGasLimit'
 import SelectSymbols from './modules/SelectSymbols'
 import { isMobile } from 'react-device-detect'
 
@@ -12,6 +17,7 @@ import {
   ABISmartToken,
   ABIBancorNetwork,
   BancorNetwork,
+  ABIConverter,
   netId
 } from '../../../config'
 
@@ -20,22 +26,16 @@ import {
   //fromWeiByDecimals
 } from '../../../service/weiByDecimals'
 
-import findByProps from '../../../service/findByProps'
-import getWeb3ForRead from '../../../service/getWeb3ForRead'
-import getPath from '../../../service/getPath'
-import getRateByPath from '../../../service/getRateByPath'
-import getBancorGasLimit from '../../../service/getBancorGasLimit'
+import DirectionInfo from './modules/DirectionInfo'
+import SetMinReturn from './modules/SetMinReturn'
+import FakeButton from '../../templates/FakeButton'
+import { Alert, Form } from "react-bootstrap"
+import Button from '@material-ui/core/Button'
+import Chip from '@material-ui/core/Chip'
 import MMBatchManual from '../../static/MMBatchManual'
 
-import DirectionInfo from './modules/DirectionInfo'
-import FakeButton from '../../templates/FakeButton'
-import SetMinReturn from './modules/SetMinReturn'
-import Button from '@material-ui/core/Button';
-import Chip from '@material-ui/core/Chip';
 
-
-
-class TradeModal extends Component {
+class TradeForm extends Component {
   constructor(props, context) {
    super(props, context)
     this.state = {
@@ -43,11 +43,12 @@ class TradeModal extends Component {
     amountReturn:0,
     bancorNetworkContract: null,
     web3:null,
-    receiverAddress: null,
+    fee:0,
     to:'',
     from:''
     }
   }
+
 
   componentDidUpdate(prevProps, prevState){
     // Update rate by onChange
@@ -63,10 +64,10 @@ class TradeModal extends Component {
 
   // View rate
   getRate = async () => {
-    if(this.props.MobXStorage.from  && this.props.MobXStorage.to && this.state.directionAmount > 0){
-    if(this.props.MobXStorage.from  !== this.props.MobXStorage.to){
+    if(this.props.MobXStorage.from && this.props.MobXStorage.to && this.state.directionAmount > 0){
+    if(this.props.MobXStorage.from !== this.props.MobXStorage.to){
       const web3 = getWeb3ForRead(this.props.MobXStorage.web3)
-      const path = getPath(this.props.MobXStorage.from , this.props.MobXStorage.to, this.props.MobXStorage.bancorTokensStorageJson)
+      const path = getPath(this.props.MobXStorage.from, this.props.MobXStorage.to, this.props.MobXStorage.bancorTokensStorageJson)
       const amountSend = await toWeiByDecimals(path[0], this.state.directionAmount, web3)
       const { amountReturn, fee } = await getRateByPath(path, amountSend, web3)
 
@@ -79,15 +80,15 @@ class TradeModal extends Component {
   }
 
   // Batch requset for case when from === ERC20
-  approveAndTradeFor = async () => {
+  approveAndTrade = async () => {
     const web3 = this.props.MobXStorage.web3
-    const tokenInfoFrom = findByProps(this.props.MobXStorage.bancorTokensStorageJson, "symbol", this.props.MobXStorage.from )[0]
+    const tokenInfoFrom = findByProps(this.props.MobXStorage.bancorTokensStorageJson, "symbol", this.props.MobXStorage.from)[0]
     const token = new web3.eth.Contract(ABISmartToken, tokenInfoFrom.tokenAddress)
     const bancorNetworkContract = new web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
     const gasPrice = await getBancorGasLimit()
     const amountSend = await toWeiByDecimals(tokenInfoFrom.tokenAddress, this.state.directionAmount, web3)
-    let batch = new web3.BatchRequest()
 
+    let batch = new web3.BatchRequest()
     // approve tx
     const approveData = token.methods.approve(
     BancorNetwork,
@@ -107,11 +108,10 @@ class TradeModal extends Component {
     }
 
     // trade tx
-    const path = getPath(this.props.MobXStorage.from , this.props.MobXStorage.to, this.props.MobXStorage.bancorTokensStorageJson)
-    const tradeData = bancorNetworkContract.methods.claimAndConvertFor(path,
+    const path = getPath(this.props.MobXStorage.from, this.props.MobXStorage.to, this.props.MobXStorage.bancorTokensStorageJson)
+    const tradeData = bancorNetworkContract.methods.claimAndConvert(path,
       amountSend,
-      this.props.MobXStorage.minReturn,
-      this.state.receiverAddress
+      this.props.MobXStorage.minReturn
     ).encodeABI({from: this.props.MobXStorage.accounts[0]})
 
     const trade = {
@@ -128,34 +128,51 @@ class TradeModal extends Component {
     batch.execute()
   }
 
-  // For ETH to ERC20
-  convertFor = async () => {
+  // in case if from === BNT and to !== ETH
+  quickConvert = async () => {
+    const web3 = this.props.MobXStorage.web3
+    const tokenInfoFrom = findByProps(this.props.MobXStorage.bancorTokensStorageJson, "symbol", this.props.MobXStorage.from)[0]
+    const path = getPath(this.props.MobXStorage.from, this.props.MobXStorage.to, this.props.MobXStorage.bancorTokensStorageJson)
+    const gasPrice = await getBancorGasLimit()
+    const converterContract = new web3.eth.Contract(ABIConverter, tokenInfoFrom.converterAddress)
+    const amountSend = await toWeiByDecimals(tokenInfoFrom.tokenAddress, this.state.directionAmount, web3)
+
+    converterContract.methods.quickConvert(
+      path,
+      amountSend,
+      this.props.MobXStorage.minReturn
+    ).send({from: this.props.MobXStorage.accounts[0], gasPrice})
+  }
+
+  // in case if from === ETH
+  convertFromETH = async () => {
     const web3 = this.props.MobXStorage.web3
     const bancorNetworkContract = new web3.eth.Contract(ABIBancorNetwork, BancorNetwork)
-    const path = getPath(this.props.MobXStorage.from , this.props.MobXStorage.to, this.props.MobXStorage.bancorTokensStorageJson)
+    const path = getPath(this.props.MobXStorage.from, this.props.MobXStorage.to, this.props.MobXStorage.bancorTokensStorageJson)
     const amount = await toWeiByDecimals(path[0], this.state.directionAmount, web3)
     const gasPrice = await getBancorGasLimit()
 
-    bancorNetworkContract.methods.convertFor(path, amount, this.props.MobXStorage.minReturn, this.state.receiverAddress)
+    bancorNetworkContract.methods.convert(path, amount, this.props.MobXStorage.minReturn)
     .send({from: this.props.MobXStorage.accounts[0], gasPrice, value:amount })
   }
 
-  // trade ERC20 and ETH
+  // trade
   trade = () => {
-  const web3 = this.props.MobXStorage.web3
-  if(web3.utils.isAddress(this.state.receiverAddress)){
-  if(this.props.MobXStorage.to && this.props.MobXStorage.from  && this.state.directionAmount > 0){
-    if(this.props.MobXStorage.from  === "ETH"){
-      this.convertFor()
-    }else{
-      this.approveAndTradeFor()
+  if(this.props.MobXStorage.to && this.props.MobXStorage.from && this.state.directionAmount > 0){
+    if(this.props.MobXStorage.to !== this.props.MobXStorage.from){
+      if(this.props.MobXStorage.from === "ETH"){
+        this.convertFromETH()
+      }
+      else if(this.props.MobXStorage.from === "BNT"){
+        this.quickConvert()
+      }
+      else{
+        this.approveAndTrade()
+      }
     }
   }
   else{
     alert('Not correct input data')
-  }
-  }else{
-    alert('Not correct reciever address')
   }
   }
 
@@ -169,21 +186,17 @@ class TradeModal extends Component {
       ?
       (
         <div style={!isMobile ? {align:"left", width: "550px"}: null}>
-        {/* select */}
+
+        {/*select symbols*/}
         <SelectSymbols symbolDirection="from" useSmartTokenSymbols={false}/>
         <SelectSymbols symbolDirection="to" useSmartTokenSymbols={false}/>
 
         <br/>
         <Form.Control
         name="directionAmount"
-        placeholder={`Enter ${this.props.MobXStorage.from  ? this.props.MobXStorage.from  : 'token'} amount`}
+        placeholder={`Enter ${this.props.MobXStorage.from ? this.props.MobXStorage.from : 'token'} amount`}
         onChange={e => this.setState({ directionAmount:e.target.value })}
         type="number" min="1"/>
-        <br/>
-        <Form.Control
-        name="receiverAddress"
-        placeholder="Enter receiver address"
-        onChange={e => this.setState({ receiverAddress:e.target.value })}/>
         <br/>
         {
           this.state.directionAmount > 0
@@ -217,7 +230,7 @@ class TradeModal extends Component {
         <br/>
         <SetMinReturn
         amountReturn={this.state.amountReturn}
-        from={this.props.MobXStorage.from }
+        from={this.props.MobXStorage.from}
         to={this.props.MobXStorage.to}
         directionAmount={this.state.directionAmount}
         />
@@ -227,7 +240,7 @@ class TradeModal extends Component {
           ?
           (
             <DirectionInfo
-            from={this.props.MobXStorage.from }
+            from={this.props.MobXStorage.from}
             to={this.props.MobXStorage.to}
             directionAmount={this.state.directionAmount}
             bancorTokensStorageJson={this.props.MobXStorage.bancorTokensStorageJson}
@@ -242,6 +255,7 @@ class TradeModal extends Component {
           :(null)
         }
         </div>
+
       )
       :
       (<Chip label="loading data..." style={{marginBottom: '15px'}} variant="outlined" color="primary"/>)
@@ -251,4 +265,4 @@ class TradeModal extends Component {
   }
 }
 
-export default inject('MobXStorage')(observer(TradeModal))
+export default inject('MobXStorage')(observer(TradeForm))

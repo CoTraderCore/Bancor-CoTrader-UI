@@ -1,15 +1,15 @@
 import React from 'react'
-import RelaysModal from '../modals/RelaysModal'
+import PoolForm from '../forms/PoolForm/PoolForm'
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import { ArrowRight } from '@material-ui/icons';
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import { ArrowRight } from '@material-ui/icons'
 import pageStyles from '../../../css/pageStyles'
 import TabBar from '../../static/TabBar'
 
 const useStyles = pageStyles
 
-function RelaysPage(props) {
+function PoolPage(props) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}><ArrowRight className={classes.icon} /></span>;
   return (
@@ -20,22 +20,34 @@ function RelaysPage(props) {
             <TabBar location={props.location.pathname}/>
           </Typography>
           <Typography className={classes.title} gutterBottom>
-            Bancor relay tokens
+            Bancor liquidity pools
           </Typography>
           <Typography className={classes.modal} component="div">
-            <RelaysModal />
+            <PoolForm/>
           </Typography>
           <Typography variant="body1" className={'mb-2'} component="p">
-            {bull} To earn from all trades, buy relay tokens.
+            {bull} To earn from all trades, add liquidity to pools.
           </Typography>
           <Typography variant="body1" className={'mb-2'} component="p">
-            {bull} For example, to earn from every trade of DAI, buy the DAIBNT relay.
+            {bull} When you do this, you'll receive “relay tokens”.
+          </Typography>
+          <Typography variant="body1" className={'mb-2'} component="p">
+            {bull} For example, to earn from every trade of DAI, you can deposit both:
+          </Typography>
+          <Typography variant="body1" className={'mb-2'} component="p">
+            {bull} BNT and DAI.
+          </Typography>
+          <Typography variant="body1" className={'mb-2'} component="p">
+            {bull} You'll receive a relay token called DAIBNT for the DAI pool.
+          </Typography>
+          <Typography variant="body1" className={'mb-2'} component="p">
+            {bull} To get the deposit back, just return the DAIBNT.
           </Typography>
           <Typography variant="body1" className={'mb-2'} component="p">
             {bull} When DAI is traded, a % of the conversion buys DAIBNT relay tokens.  This increases the price of DAIBNT.
           </Typography>
           <Typography variant="body1" className={'mb-2'} component="p">
-            {bull} You can pay less for relay tokens by avoiding slippage. To do this, use the pool tab to get relay tokens, instead of buying them directly, here. The downside is you need to keep funds held in pools.
+            {bull} Relay tokens like DAIBNT are also speculative assets. They can be bought and sold separately in the "Relays" tab without depositing in pools. However, that incurs slippage.
           </Typography>
           <Typography variant="body1" className={'mb-2'} component="p">
             {bull} More updates coming soon.
@@ -45,4 +57,4 @@ function RelaysPage(props) {
     </React.Fragment>
   )
 }
-export default RelaysPage
+export default PoolPage

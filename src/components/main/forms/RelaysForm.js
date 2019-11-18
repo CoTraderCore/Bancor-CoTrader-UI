@@ -36,7 +36,7 @@ import DirectionInfo from './modules/DirectionInfo'
 import FakeButton from '../../templates/FakeButton'
 
 
-class RelaysModal extends Component {
+class RelaysForm extends Component {
   constructor(props, context) {
    super(props, context)
     this.state = {
@@ -290,4 +290,4 @@ class RelaysModal extends Component {
   }
 }
 
-export default inject('MobXStorage')(observer(RelaysModal))
+export default inject('MobXStorage')(observer(RelaysForm))

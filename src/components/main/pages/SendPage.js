@@ -1,5 +1,5 @@
 import React from 'react'
-import SendModal from '../modals/SendModal'
+import SendForm from '../forms/SendForm'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -24,7 +24,7 @@ function SendPage(props) {
           Trade and send via Bancor
         </Typography>
         <Typography className={classes.modal} component="div">
-          <SendModal/>
+          <SendForm/>
         </Typography>
         <Typography variant="body1" className={'mb-2'} component="p">
           {bull} This page allows trade and send to any ETH address.

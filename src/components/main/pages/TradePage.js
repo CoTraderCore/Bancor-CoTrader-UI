@@ -1,5 +1,5 @@
 import React from 'react'
-import TradeModal from '../modals/TradeModal'
+import TradeForm from '../forms/TradeForm'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -23,7 +23,7 @@ function TradePage(props) {
           Trade via Bancor
         </Typography>
         <Typography className={classes.modal} component="div">
-          <TradeModal/>
+          <TradeForm/>
         </Typography>
         <Typography variant="body1" className={'mb-2'} component="p">
           {bull} This page allows you to add and trade tokens in the Bancor Network.

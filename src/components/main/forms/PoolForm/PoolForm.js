@@ -19,7 +19,7 @@ import Chip from '@material-ui/core/Chip';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-class PoolModal extends Component {
+class PoolForm extends Component {
   constructor(props, context) {
    super(props, context)
     this.state = {
@@ -192,4 +192,4 @@ class PoolModal extends Component {
     }
 }
 
-export default inject('MobXStorage')(observer(PoolModal))
+export default inject('MobXStorage')(observer(PoolForm))
