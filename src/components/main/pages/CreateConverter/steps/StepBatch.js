@@ -19,11 +19,19 @@ class StepBatch extends Component {
  constructor(props, context) {
   super(props, context);
    this.state = {
-   fee:1000
+    converterAddress:'',
+    fee:1000
    }
  }
 
- // helper
+ componentDidMount = async () => {
+   const web3 = this.props.MobXStorage.web3
+   const converterHash = window.localStorage.getItem('txConverter')
+   const converterInfo = await web3.eth.getTransactionReceipt(converterHash)
+   this.setState({ converterAddress:converterInfo.contractAddress })
+ }
+
+ // helper for create batch request
  getTxObject = (from, to, data, gasPrice, gas) => {
    return {
      from,
@@ -46,16 +54,25 @@ class StepBatch extends Component {
    const smartTokenAddress = smartTokenInfo.contractAddress
    const converterAddress = converterInfo.contractAddress
 
-  if(converterInfo && smartTokenInfo){
+   // Check if converter and smart token deployed and stored in local storage
+   if(converterInfo && smartTokenInfo){
+     const connectorTokenAddress = window.localStorage.getItem('userToken')
      const connectorType = window.localStorage.getItem('connectorType')
+
      let bancorConncectorAddress
      if(connectorType === "USDB" || connectorType === "BNT")
         bancorConncectorAddress = connectorType === "USDB" ? USDBToken : BNTToken
+
      const bancorConnectorContract = new web3.eth.Contract(ABISmartToken,  bancorConncectorAddress)
-     let issueBalance = await bancorConnectorContract.methods.balanceOf(converterAddress).call()
+     const BNTConnectorBalance = await bancorConnectorContract.methods.balanceOf(converterAddress).call()
+     const сonnectorToken = new web3.eth.Contract(ABISmartToken, connectorTokenAddress)
+     const connectorBalance = await сonnectorToken.methods.balanceOf(converterAddress).call()
 
-     if(fromWei(String(issueBalance)) > 0){
+     console.log(connectorTokenAddress)
 
+     // check if user makes deposit
+     if(fromWei(String(BNTConnectorBalance)) > 0 && fromWei(String(connectorBalance)) > 0){
+        // Do Batch request
         const gasPrice = this.props.MobXStorage.GasPrice
         const gas = 1872732
 
@@ -73,12 +90,12 @@ class StepBatch extends Component {
         console.log("PARAMS step 4: ", this.state.fee)
 
         // get data for tx 3
-        const issueBalanceDouble = issueBalance.mul(2)
+        const issueBalance = BNTConnectorBalance.mul(2)
 
         // issue tx 3 (step 5)
-        const issueData = smartToken.methods.issue(this.props.MobXStorage.accounts[0], issueBalanceDouble)
+        const issueData = smartToken.methods.issue(this.props.MobXStorage.accounts[0], issueBalance)
         .encodeABI({from: this.props.MobXStorage.accounts[0]})
-        console.log("PARAMS step 5:", this.props.MobXStorage.accounts[0], issueBalanceDouble)
+        console.log("PARAMS step 5:", this.props.MobXStorage.accounts[0], issueBalance)
 
         // transferOwnership tx 4 (step 6)
         const transferOwnershipData = smartToken.methods.transferOwnership(converterAddress)
@@ -130,11 +147,11 @@ class StepBatch extends Component {
     Batch step
     </Typography>
     <Typography variant="body1" className={'mb-2'} component="p">
-    <strong>Batch steps</strong>
+    <strong>converterAddress: {this.state.converterAddress}</strong>
     </Typography>
     <Typography className={'mt-2 mb-2'} component="div">
     <hr/>
-    <Button variant="contained" color="primary" size="medium" onClick={() => this.execudeBatch()}>add reserve</Button>
+    <Button variant="contained" color="primary" size="medium" onClick={() => this.execudeBatch()}>Execude batch request</Button>
     </Typography>
     </CardContent>
   </Card>
