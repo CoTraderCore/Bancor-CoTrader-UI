@@ -15,7 +15,7 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Pending from "../../../../templates/Spiners/Pending"
 import { Form } from "react-bootstrap"
-
+import UserInfo from '../../../../templates/UserInfo'
 
 
 class StepBatch extends Component {
@@ -195,14 +195,19 @@ class StepBatch extends Component {
         <Typography variant="h4" gutterBottom component="h4">
         Step 3 of 3
         </Typography>
-        <Form style={{margin: '10px 0', maxWidth: '350px', width:'100%'}}>
+
+        <Typography variant="body1" className={'mb-2'} component="p">
+          <strong>Initial token price and settup converter and smart token</strong>
+        </Typography>
+
+        <Form style={{margin: '10px 0', maxWidth: '350px', width:'100%',  marginLeft: "auto", marginRight: "auto"}}>
+        <br/>
         <Form.Label>What starting { this.state.connectorType } price do you want for your token?</Form.Label>
+        <Form.Control onChange={e => this.setState({ BNTAmount:e.target.value })} type="number" placeholder={`Enter ${this.state.connectorType} amount for 1 ${this.state.tokenSymbol}`}/>
         <br/>
-        <Form.Control onChange={e => this.setState({ BNTAmount:e.target.value })} type="number" placeholder={`Enter ${this.state.connectorType} rate for 1 ${this.state.tokenSymbol}`}/>
-        <Form.Label>What USD amount of BNT do you want to put in the reserves?</Form.Label>
-        <br/>
-        <Form.Control onChange={e => this.setState({ totalERCAmount:e.target.value })} type="number" placeholder={`Enter total ${this.state.tokenSymbol} amount you want send`}/>
-        <Button variant="contained" color="primary" size="medium" onClick={() => this.execudeBatch()}>Calculate</Button>
+        <Form.Label>What {this.state.tokenSymbol} amount do you want to put in the reserves?</Form.Label>
+        <Form.Control onChange={e => this.setState({ totalERCAmount:e.target.value })} type="number" placeholder={`Enter total ${this.state.tokenSymbol} amount`}/>
+        <Button variant="contained" color="primary" size="medium" onClick={() => this.calculateRate()}>Calculate</Button>
         </Form>
         {
           this.state.totalBNTAmount > 0
@@ -210,7 +215,7 @@ class StepBatch extends Component {
           (
             <>
             <Typography variant="body1" className={'mb-2'} component="p">
-            Please transfer {this.state.totalBNTAmount} of {this.state.connectorType} and {this.state.totalERCAmount} of {this.state.tokenSymbol} here:
+            Please transfer {this.state.totalBNTAmount} {this.state.connectorType} and {this.state.totalERCAmount} {this.state.tokenSymbol} here:
             </Typography>
 
             <Typography variant="body1" className={'mb-2'} component="p">
@@ -219,6 +224,10 @@ class StepBatch extends Component {
 
             <Typography variant="body1" className={'mb-2'} component="p">
             After deposit please confirm all transactions in your wallet in order, and don't reject tranasactions.
+            </Typography>
+
+            <Typography variant="body1" className={'mb-2'} component="p">
+            This <UserInfo label="Bancor documentation" info={`Add connector, issue relay, set conversion fee (0.1% by default), ​transfer ownership of relay to converter, ​ accept token ownership by converter​`}/> steps will be done
             </Typography>
 
             <Typography className={'mt-2 mb-2'} component="div">
