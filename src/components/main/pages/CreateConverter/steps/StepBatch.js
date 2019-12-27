@@ -13,22 +13,56 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
+import Pending from "../../../../templates/Spiners/Pending"
+import { Form } from "react-bootstrap"
+
 
 
 class StepBatch extends Component {
  constructor(props, context) {
   super(props, context);
    this.state = {
-    converterAddress:'',
+    converterAddress:undefined,
+    connectorType: undefined,
+    tokenSymbol: undefined,
+    BNTAmount:0,
+    totalERCAmount:0,
+    totalBNTAmount:0,
     fee:1000
    }
  }
 
  componentDidMount = async () => {
-   const web3 = this.props.MobXStorage.web3
-   const converterHash = window.localStorage.getItem('txConverter')
-   const converterInfo = await web3.eth.getTransactionReceipt(converterHash)
-   this.setState({ converterAddress:converterInfo.contractAddress })
+   let converterAddress = await this.getConverterAddress()
+   const connectorType = window.localStorage.getItem('connectorType')
+   const tokenSymbol = window.localStorage.getItem('tokenSymbol')
+   this.setState({ connectorType, tokenSymbol })
+
+   if(converterAddress){
+     this.setState({ converterAddress })
+   }
+   else{
+     let timerId = setInterval(async () => {
+       converterAddress = await this.getConverterAddress()
+       if(converterAddress){
+         this.setState({ converterAddress })
+         clearInterval(timerId)
+       }
+     }, 5000);
+   }
+ }
+
+ getConverterAddress = async () => {
+   let converterAddress
+   try{
+     const web3 = this.props.MobXStorage.web3
+     const converterHash = window.localStorage.getItem('txConverter')
+     const converterInfo = await web3.eth.getTransactionReceipt(converterHash)
+     converterAddress = converterInfo.contractAddress
+   }catch(e){
+     console.log("Can't get converter address")
+   }
+   return converterAddress
  }
 
  // helper for create batch request
@@ -41,6 +75,11 @@ class StepBatch extends Component {
      gasPrice,
      gas,
    }
+ }
+
+ calculateRate = () => {
+   const totalBNTAmount = this.state.totalERCAmount * this.state.BNTAmount
+   this.setState({ totalBNTAmount })
  }
 
  execudeBatch = async () => {
@@ -126,7 +165,12 @@ class StepBatch extends Component {
         batch.add(web3.eth.sendTransaction.request(txThree, () => console.log("tx 3")))
         batch.add(web3.eth.sendTransaction.request(txFour, () => console.log("tx 4")))
         batch.add(web3.eth.sendTransaction.request(txFive, () => console.log("tx 5")))
-        batch.add(web3.eth.sendTransaction.request(txSix, () => console.log("tx 6")))
+        batch.add(web3.eth.sendTransaction.request(txSix, () => {
+          console.log("tx 6")
+          alert("Congratulations after confirming all transactions, your token will appear in the list!")
+          window.localStorage.clear()
+          window.location.reload()
+        }))
         batch.execute()
    }
    else{
@@ -143,16 +187,61 @@ class StepBatch extends Component {
    return(
     <Card style={{backgroundColor:'rgba(255,255,255,0.1)'}}>
     <CardContent>
-    <Typography variant="h4" gutterBottom component="h4">
-    Batch step
-    </Typography>
-    <Typography variant="body1" className={'mb-2'} component="p">
-    <strong>converterAddress: {this.state.converterAddress}</strong>
-    </Typography>
-    <Typography className={'mt-2 mb-2'} component="div">
-    <hr/>
-    <Button variant="contained" color="primary" size="medium" onClick={() => this.execudeBatch()}>Execude batch request</Button>
-    </Typography>
+    {
+      this.state.converterAddress
+      ?
+      (
+        <>
+        <Typography variant="h4" gutterBottom component="h4">
+        Step 3 of 3
+        </Typography>
+        <Form style={{margin: '10px 0', maxWidth: '350px', width:'100%'}}>
+        <Form.Label>What starting { this.state.connectorType } price do you want for your token?</Form.Label>
+        <br/>
+        <Form.Control onChange={e => this.setState({ BNTAmount:e.target.value })} type="number" placeholder={`Enter ${this.state.connectorType} rate for 1 ${this.state.tokenSymbol}`}/>
+        <Form.Label>What USD amount of BNT do you want to put in the reserves?</Form.Label>
+        <br/>
+        <Form.Control onChange={e => this.setState({ totalERCAmount:e.target.value })} type="number" placeholder={`Enter total ${this.state.tokenSymbol} amount you want send`}/>
+        <Button variant="contained" color="primary" size="medium" onClick={() => this.execudeBatch()}>Calculate</Button>
+        </Form>
+        {
+          this.state.totalBNTAmount > 0
+          ?
+          (
+            <>
+            <Typography variant="body1" className={'mb-2'} component="p">
+            Please transfer {this.state.totalBNTAmount} of {this.state.connectorType} and {this.state.totalERCAmount} of {this.state.tokenSymbol} here:
+            </Typography>
+
+            <Typography variant="body1" className={'mb-2'} component="p">
+            <strong>{this.state.converterAddress}</strong>
+            </Typography>
+
+            <Typography variant="body1" className={'mb-2'} component="p">
+            After deposit please confirm all transactions in your wallet in order, and don't reject tranasactions.
+            </Typography>
+
+            <Typography className={'mt-2 mb-2'} component="div">
+            <hr/>
+            <Button variant="contained" color="primary" size="medium" onClick={() => this.execudeBatch()}>Execude batch request</Button>
+            </Typography>
+            </>
+          )
+          :null
+        }
+        </>
+      )
+      :
+      (
+        <>
+        <Typography variant="body1" className={'mb-2'} component="p">
+        Converter not deployed yet, please wait
+        </Typography>
+        <Pending/>
+        </>
+      )
+    }
+
     </CardContent>
   </Card>
   )

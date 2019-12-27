@@ -65,9 +65,10 @@ class StepTwo extends Component {
      this.props.MobXStorage.setPending(true)
      window.localStorage.setItem('StepNext', "Three")
      window.localStorage.setItem('txLatest', hash)
+     this.props.MobXStorage.txFinish()
     })
     .on('confirmation', (confirmationNumber, receipt) => {
-      this.props.MobXStorage.txFinish()
+      //this.props.MobXStorage.txFinish()
     })
   }
   else{
@@ -81,7 +82,7 @@ render() {
     <Card style={{backgroundColor:'rgba(255,255,255,0.1)'}}>
       <CardContent>
         <Typography variant="h4" gutterBottom component="h4">
-          Step 2
+          Step 2 of 3 
         </Typography>
         <Typography variant="body1" className={'mb-2'} component="p">
         <strong>Create Converter</strong>
