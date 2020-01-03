@@ -16,8 +16,8 @@ import Fund from './Fund'
 import { Typeahead } from 'react-bootstrap-typeahead'
 
 import Chip from '@material-ui/core/Chip';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 class PoolForm extends Component {
   constructor(props, context) {
@@ -135,11 +135,8 @@ class PoolForm extends Component {
                 <option>Remove liquidity</option>
                 </Form.Control>
                 </Form.Group>
-
-                <FormControlLabel
-                    control={<Checkbox onChange={e => this.change(e)} name="selectFromOficial" className="custom_check" color="primary" />}
-                    label="Show unofficial"
-                />
+                {/* Not used for now */}
+                {/* <FormControlLabel control={<Checkbox onChange={e => this.change(e)} name="selectFromOficial" className="custom_check" color="primary" />} label="Show unofficial"/> */}
                 {
                   this.state.selectFromOficial
                   ?

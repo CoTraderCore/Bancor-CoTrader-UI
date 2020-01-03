@@ -75,11 +75,8 @@ class SelectSymbols extends Component {
         ?
         (
           <React.Fragment>
-          <FormControlLabel
-              control={<Checkbox onChange={e => this.setState({ selectFromOficial: !this.state.selectFromOficial })}
-              name="selectFromOficial" className="custom_check" color="primary" />}
-              label="Show unofficial"
-          />
+          {/* Not used for now*/}
+          {/* <FormControlLabel control={<Checkbox onChange={e => this.setState({ selectFromOficial: !this.state.selectFromOficial })} name="selectFromOficial" className="custom_check" color="primary" />} label="Show unofficial"/> */}
           {
             this.props.useSmartTokenSymbols
             ?
@@ -94,6 +91,7 @@ class SelectSymbols extends Component {
             :
             (null)
           }
+          <br/>
           {
             this.state.selectFromOficial
             ?
