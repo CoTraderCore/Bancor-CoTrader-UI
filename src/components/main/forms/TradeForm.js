@@ -94,16 +94,13 @@ class TradeForm extends Component {
     amountSend
     ).encodeABI({from: this.props.MobXStorage.accounts[0]})
 
-    // approve gas should be more than in trade
-    const approveGasPrice = Number(gasPrice) + 2000000000
-
     const approve = {
       "from": this.props.MobXStorage.accounts[0],
       "to": tokenInfoFrom.tokenAddress,
       "value": "0x0",
       "data": approveData,
-      "gasPrice": web3.eth.utils.toHex(approveGasPrice),
-      "gas": web3.eth.utils.toHex(1872732),
+      "gasPrice": web3.eth.utils.toHex(gasPrice),
+      "gas": web3.eth.utils.toHex(85000),
     }
 
     // trade tx
@@ -119,7 +116,7 @@ class TradeForm extends Component {
       "value": "0x0",
       "data": tradeData,
       "gasPrice": web3.eth.utils.toHex(gasPrice),
-      "gas": web3.eth.utils.toHex(1872732),
+      "gas": web3.eth.utils.toHex(85000),
     }
 
     batch.add(web3.eth.sendTransaction.request(approve, () => console.log("Approve")))
@@ -140,7 +137,7 @@ class TradeForm extends Component {
       path,
       amountSend,
       this.props.MobXStorage.minReturn
-    ).send({from: this.props.MobXStorage.accounts[0], gas:1872732, gasPrice})
+    ).send({from: this.props.MobXStorage.accounts[0], gas:85000, gasPrice})
   }
 
   // in case if from === ETH
@@ -152,7 +149,7 @@ class TradeForm extends Component {
     const gasPrice = await getBancorGasLimit()
 
     bancorNetworkContract.methods.convert(path, amount, this.props.MobXStorage.minReturn)
-    .send({from: this.props.MobXStorage.accounts[0], gas:1872732, gasPrice, value:amount })
+    .send({from: this.props.MobXStorage.accounts[0], gas:85000, gasPrice, value:amount })
   }
 
   // trade
