@@ -1,4 +1,5 @@
-const officialTokens = [{
+const officialTokens = [
+{
 "tokenAddress": "0x83cee9e086A77e492eE0bB93C2B0437aD6fdECCc",
 "symbol": "MNTP",
 "smartTokenSymbol": "MNTPBNT",
@@ -12,11 +13,11 @@ const officialTokens = [{
 "smartTokenSupply": "36402697982751582400392",
 "connectorBancorReserve": "34745306144893160711509",
 "connectorOriginalReserve": "43865936412464191487179",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "57301876629447217761",
+"smartTokeninUSD": "6910278730294938411262",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x5102791cA02FC3595398400BFE0e33d7B6C82267",
@@ -32,16 +33,16 @@ const officialTokens = [{
 "smartTokenSupply": "206372803522796976262000",
 "connectorBancorReserve": "21748547613851101578963",
 "connectorOriginalReserve": "64006705481499510055641054",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "35927112915502542656",
+"smartTokeninUSD": "4465634735953711054384",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-"symbol": "DAI(USDB)2",
-"smartTokenSymbol": "DAIUSDB2",
+"symbol": "DAI(USDB)",
+"smartTokenSymbol": "DAIUSDB",
 "converterAddress": "0x06f7Bf937Dec0C413a2E0464Bb300C4d464bb891",
 "smartTokenAddress": "0xcb913ED43e43cc7Cec1D77243bA381615101E7E4",
 "owner": "0xf66cdB456dA006a56B393F08FceC377c6C1af28a",
@@ -52,11 +53,11 @@ const officialTokens = [{
 "smartTokenSupply": "21885433089069212911332",
 "connectorBancorReserve": "130068470835906955434129",
 "connectorOriginalReserve": "129767015681054759628718",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "128489946606001472139",
+"smartTokeninUSD": "14096574346870606543609",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.15"
+"conversionFee": "0.15",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xbf2179859fc6D5BEE9Bf9158632Dc51678a4100e",
@@ -72,11 +73,11 @@ const officialTokens = [{
 "smartTokenSupply": "171710353301259888789431",
 "connectorBancorReserve": "99481050972190803242126",
 "connectorOriginalReserve": "402953144147107916959392",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "162722517656988220392",
+"smartTokeninUSD": "17109600253222759007780",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xe8A1Df958bE379045E2B46a31A98B93A2eCDfDeD",
@@ -92,11 +93,11 @@ const officialTokens = [{
 "smartTokenSupply": "10099998023675550955",
 "connectorBancorReserve": "19475155663339907720",
 "connectorOriginalReserve": "153033166800151200378",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "32261038638132290",
+"smartTokeninUSD": "4227955641035226430",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xdB25f211AB05b1c97D595516F45794528a807ad8",
@@ -112,16 +113,16 @@ const officialTokens = [{
 "smartTokenSupply": "125004174030988422601249",
 "connectorBancorReserve": "167667528098074556754845",
 "connectorOriginalReserve": "3321709",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "271914377723499390294",
+"smartTokeninUSD": "25241504037308851519465",
 "tokenDecimals": 2,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x02F2D4a04E6E01aCE88bD2Cd632875543b2eF577",
-"symbol": "PKG2",
-"smartTokenSymbol": "PKGBNT2",
+"symbol": "PKG",
+"smartTokenSymbol": "PKGBNT",
 "converterAddress": "0x0dA9706F366C915D3769F7Ae9737Ef77c7741715",
 "smartTokenAddress": "0xE729024679C29c2660E05727ECAfd3D8792b8111",
 "owner": "0x8cd103c2164D04D071F4014Ac7b3Aa42D8FA596C",
@@ -132,11 +133,11 @@ const officialTokens = [{
 "smartTokenSupply": "84960000000000000000",
 "connectorBancorReserve": "42480000000000000000",
 "connectorOriginalReserve": "1428571428571428600000000",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "70368879847299440",
+"smartTokeninUSD": "9221629067528274210",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xEF2463099360a085f1f10b076Ed72Ef625497a06",
@@ -152,11 +153,11 @@ const officialTokens = [{
 "smartTokenSupply": "59354374541390473687332",
 "connectorBancorReserve": "2116607192828093145",
 "connectorOriginalReserve": "5056049469443635969013",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "3506215776564584",
+"smartTokeninUSD": "459525515499900318",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x6710c63432A2De02954fc0f851db07146a6c0312",
@@ -172,11 +173,11 @@ const officialTokens = [{
 "smartTokenSupply": "63696996629749892917000",
 "connectorBancorReserve": "15898916221305534928650",
 "connectorOriginalReserve": "6493747983289001082361218",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "26283532876245739644",
+"smartTokeninUSD": "3312858497308112717002",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x47bc01597798DCD7506DCCA36ac4302fc93a8cFb",
@@ -192,11 +193,11 @@ const officialTokens = [{
 "smartTokenSupply": "49884000000000000000000",
 "connectorBancorReserve": "16922045181724057922122",
 "connectorOriginalReserve": "1104139223465081",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "27161004667009121285",
+"smartTokeninUSD": "3419087573896624526224",
 "tokenDecimals": 8,
-"converterVersion": "0",
-"conversionFee": "3"
+"conversionFee": "3",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
@@ -212,11 +213,11 @@ const officialTokens = [{
 "smartTokenSupply": "201971628131820320000",
 "connectorBancorReserve": "103868449920578161215",
 "connectorOriginalReserve": "56935295914849951069",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "768739024470482309",
+"smartTokeninUSD": "100634487693438545401",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x9214eC02CB71CbA0ADA6896b8dA260736a67ab10",
@@ -232,31 +233,11 @@ const officialTokens = [{
 "smartTokenSupply": "200105963365873433892592",
 "connectorBancorReserve": "41279627441513332939932",
 "connectorOriginalReserve": "325475586296028226917614",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "68021664292687297578",
+"smartTokeninUSD": "8082274196410279907716",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0xfb725BaB323927cFB20FB82BA9A1975F7D24705b",
-"symbol": "JOY",
-"smartTokenSymbol": "JOYBNT",
-"converterAddress": "0x14609CCa8A69c734f7bA6DCA3F723c4FBBeB6B43",
-"smartTokenAddress": "0xEF449de92EE1D812607d5b42c71C02a9E508cA10",
-"owner": "0x8CaE32C636385A14b4E0A0e68a760FaCfabBCd9c",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "39557385045115499687000",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x6888a16eA9792c15A4DCF2f6C623D055c8eDe792",
@@ -272,11 +253,11 @@ const officialTokens = [{
 "smartTokenSupply": "843791556439145685",
 "connectorBancorReserve": "164533620302227975",
 "connectorOriginalReserve": "193565294273960445900",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "272554360238790",
+"smartTokeninUSD": "35721217491626103",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xF1290473E210b2108A85237fbCd7b6eb42Cc654F",
@@ -292,31 +273,11 @@ const officialTokens = [{
 "smartTokenSupply": "10441937378913891703728",
 "connectorBancorReserve": "25819461404696427259464",
 "connectorOriginalReserve": "3299865105954542244050",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "42672380393223542297",
+"smartTokeninUSD": "5253151511212859689178",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0"
-},
-{
-"tokenAddress": "0xC011A72400E58ecD99Ee497CF89E3775d4bd732F",
-"symbol": "SNX(USDB)",
-"smartTokenSymbol": "SNXUSDB",
-"converterAddress": "0x1E51663135c46bD1f7031Df20fb93C0172114aBc",
-"smartTokenAddress": "0x415351dBB151bE20a6Ee062297Eb0405bC353c31",
-"owner": "0x43963E218DCdb78D8c23F74824f1298F2d748395",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "USDB",
-"smartTokenSupply": "0",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.15"
+"conversionFee": "0",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x9B70740e708a083C6fF38Df52297020f5DfAa5EE",
@@ -332,11 +293,11 @@ const officialTokens = [{
 "smartTokenSupply": "50593762501367796886000",
 "connectorBancorReserve": "1681394768020051959911",
 "connectorOriginalReserve": "1967929321032403",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "2784676768149359260",
+"smartTokeninUSD": "363429492895674313824",
 "tokenDecimals": 10,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x4Fabb145d64652a948d72533023f6E7A623C7C53",
@@ -352,11 +313,11 @@ const officialTokens = [{
 "smartTokenSupply": "202000000000000000000",
 "connectorBancorReserve": "101000000000000000000",
 "connectorOriginalReserve": "102209406500000000000",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "747615757901700437",
+"smartTokeninUSD": "97872399861923983218",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1001"
+"conversionFee": "0.1001",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x5c872500c00565505F3624AB435c222E558E9ff8",
@@ -372,11 +333,11 @@ const officialTokens = [{
 "smartTokenSupply": "3341171459463972814037",
 "connectorBancorReserve": "1744810619887765772841",
 "connectorOriginalReserve": "19111266149434352004848739",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "2878113088391130506",
+"smartTokeninUSD": "375570982750643815957",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.5"
+"conversionFee": "0.5",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x68d57c9a1C35f63E2c83eE8e49A64e9d70528D25",
@@ -392,11 +353,11 @@ const officialTokens = [{
 "smartTokenSupply": "108351630383790308194306",
 "connectorBancorReserve": "20401621346725001490062",
 "connectorOriginalReserve": "987712379364743086324398",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "33707873943436640506",
+"smartTokeninUSD": "4203189177580293900663",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xdd974D5C2e2928deA5F71b9825b8b646686BD200",
@@ -412,51 +373,11 @@ const officialTokens = [{
 "smartTokenSupply": "124030357618839771288620",
 "connectorBancorReserve": "123181595251439602049571",
 "connectorOriginalReserve": "134826145808605045811088",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "200888492114689262102",
+"smartTokeninUSD": "20186398745746911141757",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x3abdfF32F76b42E7635bdb7e425f0231A5F3aB17",
-"symbol": "CJT",
-"smartTokenSymbol": "CJTBNT",
-"converterAddress": "0x2596AadA3c9290293433AdCB3359C9A04112Eb16",
-"smartTokenAddress": "0x43419570444B365F6f18fDEc7fe844798F120706",
-"owner": "0x50249160741773B1FED5Aca6C7608D8ef6B50c64",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "0",
-"connectorBancorReserve": "16533916033654250008",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x0719046cF7F82f9322479538b69a89C26A70a5bC",
-"symbol": "RB",
-"smartTokenSymbol": "RBBNT",
-"converterAddress": "0x26d77A6366c0192d90C482237FEc3042c4E46c80",
-"smartTokenAddress": "0x610C79736c170E7CADDa081A337B16eDe82b6aEC",
-"owner": "0x4045bED6BAe9dCc69Ce9e6b24FC2C5665457C70d",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "0",
-"connectorBancorReserve": "134177813322871857955",
-"connectorOriginalReserve": "51588638338702740159629",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xCf8f9555D55CE45a3A33a81D6eF99a2a2E71Dee2",
@@ -472,31 +393,11 @@ const officialTokens = [{
 "smartTokenSupply": "2620000000000000000",
 "connectorBancorReserve": "13100000000000000000",
 "connectorOriginalReserve": "1285007654427192733820",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "97395753869778038",
+"smartTokeninUSD": "12762896830019372865",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x48DF4E0296f908CEAb0428A5182D19B31fC037d6",
-"symbol": "FRV",
-"smartTokenSymbol": "FRVBNT",
-"converterAddress": "0x2723a5AF933fF0a3522A301015544be366E6Ee31",
-"smartTokenAddress": "0xb2b788530B383Be0933B0d3275CEAD29B332522e",
-"owner": "0xC7A965dCec421B8423De2d7b26EB83AAC8070aCC",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "40918000000000000000000",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 8,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x98Bde3a768401260E7025FaF9947ef1b81295519",
@@ -512,11 +413,11 @@ const officialTokens = [{
 "smartTokenSupply": "29046000000000000000000",
 "connectorBancorReserve": "7339898432799223261451",
 "connectorOriginalReserve": "20361552599006957919190",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "12147334979850324776",
+"smartTokeninUSD": "1563278486836902611092",
 "tokenDecimals": 18,
-"converterVersion": "13",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "13"
 },
 {
 "tokenAddress": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
@@ -532,16 +433,16 @@ const officialTokens = [{
 "smartTokenSupply": "57600000000000000000000",
 "connectorBancorReserve": "59726087871724275323570",
 "connectorOriginalReserve": "177747056",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "97797606392923167634",
+"smartTokeninUSD": "11163766219229595600064",
 "tokenDecimals": 8,
-"converterVersion": "0",
-"conversionFee": "0.5"
+"conversionFee": "0.5",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0xC011A72400E58ecD99Ee497CF89E3775d4bd732F",
-"symbol": "SNX(USDB)2",
-"smartTokenSymbol": "SNXUSDB2",
+"symbol": "SNX(USDB)",
+"smartTokenSymbol": "SNXUSDB",
 "converterAddress": "0x296089F31af0648C1B0eFE1234527F85CDbC071C",
 "smartTokenAddress": "0xdf4971E3F52f5828C72A0512d560F54bFB2B2692",
 "owner": "0xB024Fbc56AE323a05B5b6156C0FCC5001Fa5Ac9e",
@@ -555,8 +456,8 @@ const officialTokens = [{
 "smartTokenInETH": null,
 "smartTokeninUSD": null,
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.2"
+"conversionFee": "0.2",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xEa6d4D7B36C00B3611dE0B0e1982B12E9e736c66",
@@ -572,11 +473,11 @@ const officialTokens = [{
 "smartTokenSupply": "5439337895951637000",
 "connectorBancorReserve": "5226233911934720890",
 "connectorOriginalReserve": "26067332779696732190",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "8657391209776011",
+"smartTokeninUSD": "1134631001886802332",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
@@ -592,11 +493,11 @@ const officialTokens = [{
 "smartTokenSupply": "204000000000000000000",
 "connectorBancorReserve": "95437188616969555872",
 "connectorOriginalReserve": "240808584519905338",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "706635438922285016",
+"smartTokeninUSD": "92513291411643171601",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1001"
+"conversionFee": "0.1001",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x47Ec6AF8E27C98e41d1Df7fb8219408541463022",
@@ -612,11 +513,11 @@ const officialTokens = [{
 "smartTokenSupply": "131770000000000000000000",
 "connectorBancorReserve": "3045621400699861655914",
 "connectorOriginalReserve": "10726766697755915195733405",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "5048235418732918536",
+"smartTokeninUSD": "656605892258968520756",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0"
+"conversionFee": "0",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x607F4C5BB672230e8672085532f7e901544a7375",
@@ -632,11 +533,11 @@ const officialTokens = [{
 "smartTokenSupply": "202000000000000000000",
 "connectorBancorReserve": "101000000000000000000",
 "connectorOriginalReserve": "257980000000",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "747616502490697060",
+"smartTokeninUSD": "97872497227827306215",
 "tokenDecimals": 9,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x9AF839687F6C94542ac5ece2e317dAAE355493A1",
@@ -652,11 +553,11 @@ const officialTokens = [{
 "smartTokenSupply": "86471446339348483",
 "connectorBancorReserve": "688001088428492822",
 "connectorOriginalReserve": "6320971156311400336",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "1139692201512331",
+"smartTokeninUSD": "149368880019415796",
 "tokenDecimals": 18,
-"converterVersion": "19",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "19"
 },
 {
 "tokenAddress": "0xf04a8ac553FceDB5BA99A64799155826C136b0Be",
@@ -672,15 +573,15 @@ const officialTokens = [{
 "smartTokenSupply": "57648000099205463245685",
 "connectorBancorReserve": "40412071623843414831000",
 "connectorOriginalReserve": "1272656219733342855458561",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "66599434252620159059",
+"smartTokeninUSD": "7928770726899711818475",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
-"tokenAddress": "0x358D12436080a01A16f711014610F8a4c2C2d233",
-"symbol": "PXS",
+"tokenAddress": "0xA15C7Ebe1f07CaF6bFF097D8a589fb8AC49Ae5B3",
+"symbol": "NPXS",
 "smartTokenSymbol": "NPXSBNT",
 "converterAddress": "0x2d56D1904bb750675c0A55Ca7339f971F48d9DdA",
 "smartTokenAddress": "0x5a4deB5704C1891dF3575d3EecF9471DA7F61Fa4",
@@ -692,11 +593,11 @@ const officialTokens = [{
 "smartTokenSupply": "284964831678810937764018",
 "connectorBancorReserve": "237930888921525056",
 "connectorOriginalReserve": "1088840655573164753",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "394138902937484",
+"smartTokeninUSD": "51656186562643252",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x41AB1b6fcbB2fA9DCEd81aCbdeC13Ea6315F2Bf2",
@@ -710,13 +611,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "83240231056456764704435",
-"connectorBancorReserve": "85082640095993039832835",
-"connectorOriginalReserve": "19188820057098500004607889",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "85369957624197870673979",
+"connectorOriginalReserve": "19124649146943808429346783",
+"smartTokenInETH": "139890123485935685240",
+"smartTokeninUSD": "15128610006260097040995",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x780116D91E5592E58a3b3c76A351571b39abCEc6",
@@ -732,11 +633,11 @@ const officialTokens = [{
 "smartTokenSupply": "108338000000000000000000",
 "connectorBancorReserve": "16971387435442614943039",
 "connectorOriginalReserve": "819478312629433308658",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "28052664491566567267",
+"smartTokeninUSD": "3526756825348845980845",
 "tokenDecimals": 15,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xFc2C4D8f95002C14eD0a7aA65102Cac9e5953b5E",
@@ -752,11 +653,11 @@ const officialTokens = [{
 "smartTokenSupply": "10427164931536240884475",
 "connectorBancorReserve": "15565668158739824810988",
 "connectorOriginalReserve": "31076445671321887200802",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "25733713480029631964",
+"smartTokeninUSD": "3246157394098989041559",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xFB1e5F5e984C28Ad7E228CDaA1F8A0919BB6a09B",
@@ -772,31 +673,11 @@ const officialTokens = [{
 "smartTokenSupply": "2038257172457514256133",
 "connectorBancorReserve": "3037580398411498622",
 "connectorOriginalReserve": "185735116848603572740609",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "5031831648774755",
+"smartTokeninUSD": "659471588914754685",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x46ae264Bf6d9Dc6Dd84c31064551f961c67a755c",
-"symbol": "HTX",
-"smartTokenSymbol": "HTXBNT",
-"converterAddress": "0x33125b811f65836D776138f491DC0Be1937f7EE8",
-"smartTokenAddress": "0x4C169F2b143C261EE8D18D8DBd6a3F5dE757E874",
-"owner": "0xA436d3121295Cf6A24dc76A9756c89740CE3d916",
-"isOfficial": 0,
-"isCoTraderVerified": 1,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "16010000000000000000000",
-"connectorBancorReserve": "89338538023410512249",
-"connectorOriginalReserve": "125994298503035629273056",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x1b22C32cD936cB97C28C5690a0695a82Abf688e6",
@@ -812,36 +693,16 @@ const officialTokens = [{
 "smartTokenSupply": "7078004831622465983737",
 "connectorBancorReserve": "2867540206696828535556",
 "connectorOriginalReserve": "75909362850392930172461",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "4748415850745903904",
+"smartTokeninUSD": "617887902657758655826",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0xbF5496122CF1bB778E0cBE5eaB936f2BE5fC0940",
-"symbol": "FUNDZ",
-"smartTokenSymbol": "FUNDZBNT",
-"converterAddress": "0x38EF8fd7cFD46d615ebF7788Bc7225906B58406f",
-"smartTokenAddress": "0xC47657b54E945E1d8b8b550749732a057C0DdeB4",
-"owner": "0xC7A965dCec421B8423De2d7b26EB83AAC8070aCC",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "43328000000000000000000",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-"symbol": "USDT(USDB)2",
-"smartTokenSymbol": "USDTUSDB2",
+"symbol": "USDT(USDB)",
+"smartTokenSymbol": "USDTUSDB",
 "converterAddress": "0x39e5AAE547752c1239b4738e75cDF705c25adeA6",
 "smartTokenAddress": "0xF2ff22976B973d6bcC17a7dC93B719162ADA2045",
 "owner": "0xF29C685f9f11A0634EA5bEc83fb2c47e2101FC31",
@@ -852,11 +713,11 @@ const officialTokens = [{
 "smartTokenSupply": "329247635062984144958",
 "connectorBancorReserve": "1253221436597811447720",
 "connectorOriginalReserve": "1234813465",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "8771632251656083965",
+"smartTokeninUSD": "1134544896229440242224",
 "tokenDecimals": 6,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xb056c38f6b7Dc4064367403E26424CD2c60655e1",
@@ -872,11 +733,11 @@ const officialTokens = [{
 "smartTokenSupply": "70352000000000000000000",
 "connectorBancorReserve": "31939115165481032286056",
 "connectorOriginalReserve": "3300801575038285520449773",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "52692742370237754017",
+"smartTokeninUSD": "6395526450596411309992",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x0000000000085d4780B73119b644AE5ecd22b376",
@@ -892,11 +753,11 @@ const officialTokens = [{
 "smartTokenSupply": "220000000000000000000",
 "connectorBancorReserve": "992264953347667980329",
 "connectorOriginalReserve": "987810392017751313976",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "7028454299904096443",
+"smartTokeninUSD": "911452853214629045439",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.15"
+"conversionFee": "0.15",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xc12d099be31567add4e4e4d0D45691C3F58f5663",
@@ -912,11 +773,11 @@ const officialTokens = [{
 "smartTokenSupply": "108912489530614453884081",
 "connectorBancorReserve": "7537826418651833298608",
 "connectorOriginalReserve": "636696747998183970979055",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "12474584973449746379",
+"smartTokeninUSD": "1604612322626417556003",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x340D2bdE5Eb28c1eed91B2f790723E3B160613B7",
@@ -932,11 +793,11 @@ const officialTokens = [{
 "smartTokenSupply": "71320003054626879440024",
 "connectorBancorReserve": "20910207238882477098390",
 "connectorOriginalReserve": "5331678926300296559618602",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "34545926005785800527",
+"smartTokeninUSD": "4302493619246805276839",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xB8c77482e45F1F44dE1745F52C74426C631bDD52",
@@ -952,11 +813,11 @@ const officialTokens = [{
 "smartTokenSupply": "46965681043738332887796",
 "connectorBancorReserve": "155834684055384986944593",
 "connectorOriginalReserve": "2524018853143342478527",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "253099515182533001448",
+"smartTokeninUSD": "23978950875121068946049",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x6810e776880C02933D47DB1b9fc05908e5386b96",
@@ -972,11 +833,11 @@ const officialTokens = [{
 "smartTokenSupply": "206661803298417239390833",
 "connectorBancorReserve": "112186422822571455646656",
 "connectorOriginalReserve": "2220265666534887955051",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "183210874434733550161",
+"smartTokeninUSD": "18795913400930991909743",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x1234567461d3f8Db7496581774Bd869C83D51c93",
@@ -992,11 +853,11 @@ const officialTokens = [{
 "smartTokenSupply": "31175082725497144318695",
 "connectorBancorReserve": "1756391595569078634433",
 "connectorOriginalReserve": "6169656294627893169453325",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "2908856420001427835",
+"smartTokeninUSD": "379565146347369101543",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x89303500a7Abfb178B274FD89F2469C264951e1f",
@@ -1012,11 +873,11 @@ const officialTokens = [{
 "smartTokenSupply": "15928000000000000000000",
 "connectorBancorReserve": "5818045226132971986448",
 "connectorOriginalReserve": "1391209841891",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "9630581628371160172",
+"smartTokeninUSD": "1244046267494195158293",
 "tokenDecimals": 8,
-"converterVersion": "0",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0xBC86727E770de68B1060C91f6BB6945c73e10388",
@@ -1032,11 +893,11 @@ const officialTokens = [{
 "smartTokenSupply": "60944000000000000000000",
 "connectorBancorReserve": "20147057062606040464426",
 "connectorOriginalReserve": "7458431421885147319866566",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "33288359959019190576",
+"smartTokeninUSD": "4153388995599276492254",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x27f610BF36ecA0939093343ac28b1534a721DBB4",
@@ -1052,11 +913,11 @@ const officialTokens = [{
 "smartTokenSupply": "41528000000000000000000",
 "connectorBancorReserve": "13039827565501633687594",
 "connectorOriginalReserve": "546918942586844114823687",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "21564857540384003585",
+"smartTokeninUSD": "2736914142655959486346",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x1dEa979ae76f26071870F824088dA78979eb91C8",
@@ -1072,11 +933,11 @@ const officialTokens = [{
 "smartTokenSupply": "61014000000000000000000",
 "connectorBancorReserve": "10167486033471078334858",
 "connectorOriginalReserve": "29147278344955065849841305",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "16820838784867833044",
+"smartTokeninUSD": "2149783489767207218679",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x1d462414fe14cf489c7A21CaC78509f4bF8CD7c0",
@@ -1092,11 +953,11 @@ const officialTokens = [{
 "smartTokenSupply": "46908000000000000000000",
 "connectorBancorReserve": "23104616139636361884404",
 "connectorOriginalReserve": "300032664931",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "38160644778852513284",
+"smartTokeninUSD": "4728086465525245898248",
 "tokenDecimals": 6,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x9Cb2f26A23b8d89973F08c957C4d7cdf75CD341c",
@@ -1112,11 +973,11 @@ const officialTokens = [{
 "smartTokenSupply": "9128620000000000000000",
 "connectorBancorReserve": "4480034586692427821646",
 "connectorOriginalReserve": "63994028331",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "27209583392144990740",
+"smartTokeninUSD": "3424960721463636120577",
 "tokenDecimals": 6,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x0f7F961648aE6Db43C75663aC7E5414Eb79b5704",
@@ -1132,11 +993,11 @@ const officialTokens = [{
 "smartTokenSupply": "1000000000000000000",
 "connectorBancorReserve": "500000000000000000",
 "connectorOriginalReserve": "7664907478266446710",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "828263390920754",
+"smartTokeninUSD": "108552847213157818",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x9a794Dc1939F1d78fa48613b89B8f9d0A20dA00E",
@@ -1152,11 +1013,11 @@ const officialTokens = [{
 "smartTokenSupply": "134636000000000000000000",
 "connectorBancorReserve": "25153448147049091565797",
 "connectorOriginalReserve": "1131828133036498915514308",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "41533737610659515893",
+"smartTokeninUSD": "5121275920743345381697",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x222eFe83d8cC48e422419d65Cf82D410A276499B",
@@ -1172,11 +1033,11 @@ const officialTokens = [{
 "smartTokenSupply": "106750000000000000000000",
 "connectorBancorReserve": "6310215941192957460155",
 "connectorOriginalReserve": "2527063798",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "10444612374566615529",
+"smartTokeninUSD": "1347562412076942335310",
 "tokenDecimals": 4,
-"converterVersion": "0",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0xEDD7c94FD7B4971b916d15067Bc454b9E1bAD980",
@@ -1192,11 +1053,11 @@ const officialTokens = [{
 "smartTokenSupply": "65793476247114683541980",
 "connectorBancorReserve": "22536618644011136076496",
 "connectorOriginalReserve": "2644020564885939120769978",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "37225210491809053969",
+"smartTokeninUSD": "4618372604536915984135",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x3d1BA9be9f66B8ee101911bC36D3fB562eaC2244",
@@ -1212,11 +1073,11 @@ const officialTokens = [{
 "smartTokenSupply": "504655900375461168485042",
 "connectorBancorReserve": "40931976756186704017447",
 "connectorOriginalReserve": "1109636231096179181677226",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "67451779877668267505",
+"smartTokeninUSD": "8020837744568272504999",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x8A9C67fee641579dEbA04928c4BC45F66e26343A",
@@ -1232,11 +1093,11 @@ const officialTokens = [{
 "smartTokenSupply": "502571486425346682000",
 "connectorBancorReserve": "52231677783577451706",
 "connectorOriginalReserve": "12171780605542262270170",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "387570594990491929",
+"smartTokeninUSD": "50765567618606613519",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xBB1fA4FdEB3459733bF67EbC6f893003fA976a82",
@@ -1252,11 +1113,11 @@ const officialTokens = [{
 "smartTokenSupply": "60788607817909658170964",
 "connectorBancorReserve": "3593954682674649074676",
 "connectorOriginalReserve": "405497431064753840480580612",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "5950747075512268576",
+"smartTokeninUSD": "772943760700187950290",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x814e0908b12A99FeCf5BC101bB5d0b8B5cDf7d26",
@@ -1270,13 +1131,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "109156000000000000000000",
-"connectorBancorReserve": "88925814314850776139760",
-"connectorOriginalReserve": "2528056909521309860189718",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "88502438394789700216616",
+"connectorOriginalReserve": "2540174909521309860189718",
+"smartTokenInETH": "144965658257121033859",
+"smartTokeninUSD": "15578686348436477889904",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x6c37Bf4f042712C978A73e3fd56D1F5738dD7C43",
@@ -1292,36 +1153,16 @@ const officialTokens = [{
 "smartTokenSupply": "264803607105403721778704",
 "connectorBancorReserve": "41871891003344277908772",
 "connectorOriginalReserve": "1602429871277222596808117",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "67687102718337713470",
+"smartTokeninUSD": "8046218409373289194865",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "2"
-},
-{
-"tokenAddress": "0x1460a58096d80a50a2F1f956DDA497611Fa4f165",
-"symbol": "CHX",
-"smartTokenSymbol": "CHXBNT",
-"converterAddress": "0x69e37aBA9B520a204Bb0BAEBD76B0ac1a2390B37",
-"smartTokenAddress": "0x5a9790C2D029e4406f3D820d51774E4E3eFaC8cD",
-"owner": "0x0d5844CE39fE8A2EFDAda0b37808CE8BD5fAD020",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "43898000000000000000000",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "2",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x0cB20b77AdBe5cD58fCeCc4F4069D04b327862e5",
-"symbol": "MGT2",
-"smartTokenSymbol": "MGTBNT2",
+"symbol": "MGT",
+"smartTokenSymbol": "MGTBNT",
 "converterAddress": "0x6aD9C98E25D8E8292514ef108043278eeC34a27b",
 "smartTokenAddress": "0x6F60D44A0d6fB95E037A099F8642f949c959a363",
 "owner": "0x62D1A07747452E9594CBf3F2fF2c661d8ab827c1",
@@ -1332,11 +1173,11 @@ const officialTokens = [{
 "smartTokenSupply": "49999999880532610000",
 "connectorBancorReserve": "24999999940266305395",
 "connectorOriginalReserve": "250000000",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "41413039671149435",
+"smartTokeninUSD": "5427291714264506726",
 "tokenDecimals": 8,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x4a57E687b9126435a9B19E4A802113e266AdeBde",
@@ -1352,11 +1193,11 @@ const officialTokens = [{
 "smartTokenSupply": "86433972738643270651103",
 "connectorBancorReserve": "43567469967204228077385",
 "connectorOriginalReserve": "5350482334015107926946473",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "71842184027344317319",
+"smartTokeninUSD": "8491675616872139818729",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0"
+"conversionFee": "0",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0xa3d58c4E56fedCae3a7c43A725aeE9A71F0ece4e",
@@ -1372,11 +1213,11 @@ const officialTokens = [{
 "smartTokenSupply": "21585340000000000000000",
 "connectorBancorReserve": "10329415790933378165370",
 "connectorOriginalReserve": "26854499548989628899624",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "50586621767106182553",
+"smartTokeninUSD": "6158090842718880984069",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.15"
+"conversionFee": "0.15",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x9a0242b7a33DAcbe40eDb927834F96eB39f8fBCB",
@@ -1392,11 +1233,11 @@ const officialTokens = [{
 "smartTokenSupply": "202046220630904754208",
 "connectorBancorReserve": "133301054162078780857",
 "connectorOriginalReserve": "878871570689273487739710",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "220813015525327878",
+"smartTokeninUSD": "28930286791392773002",
 "tokenDecimals": 18,
-"converterVersion": "13",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "13"
 },
 {
 "tokenAddress": "0x7B0C06043468469967DBA22d1AF33d77d44056c8",
@@ -1412,11 +1253,11 @@ const officialTokens = [{
 "smartTokenSupply": "43483512176839408076150",
 "connectorBancorReserve": "46660783174186238571397",
 "connectorOriginalReserve": "825148205",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "76836268068677383726",
+"smartTokeninUSD": "9020434416633522264123",
 "tokenDecimals": 4,
-"converterVersion": "0",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x4954Db6391F4feB5468b6B943D4935353596aEC9",
@@ -1432,11 +1273,11 @@ const officialTokens = [{
 "smartTokenSupply": "27670980496331738485824",
 "connectorBancorReserve": "24841351554814668431594",
 "connectorOriginalReserve": "5597944708341076719403",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "41060962339696819591",
+"smartTokeninUSD": "5066394106339988619080",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0"
+"conversionFee": "0",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0xc20464e0C373486d2B3335576e83a218b1618A5E",
@@ -1452,31 +1293,11 @@ const officialTokens = [{
 "smartTokenSupply": "46114000000000000000000",
 "connectorBancorReserve": "23889096251418670768224",
 "connectorOriginalReserve": "17901369276109444597827401",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "39452381170673148062",
+"smartTokeninUSD": "4879107510407746849015",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x3363D570f6DF3c74d486BB8785d3EbFB9E2347D3",
-"symbol": "HEDG",
-"smartTokenSymbol": "HEDGBNT",
-"converterAddress": "0x729a4E8626c8300Fe5a7D1824373C32B54ECE814",
-"smartTokenAddress": "0x91Ee9A99e4c93a7E50C8f7c359885fdF340e9515",
-"owner": "0x9254F1f3441ebDf8e5667b2C766EA88C7D34f3BD",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "18300067437321188317318",
-"connectorBancorReserve": "5681260313491133648479",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x4AaC461C86aBfA71e9d00d9a2cde8d74E4E1aeEa",
@@ -1492,16 +1313,16 @@ const officialTokens = [{
 "smartTokenSupply": "19043238037220905337917",
 "connectorBancorReserve": "2270964358621250515654",
 "connectorOriginalReserve": "168671569900224995267204",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "3760821115424776407",
+"smartTokeninUSD": "490104971473818202155",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F",
-"symbol": "SNX(USDB)2",
-"smartTokenSymbol": "SNXUSDB2",
+"symbol": "SNX(USDB)",
+"smartTokenSymbol": "SNXUSDB",
 "converterAddress": "0x73B9081946021Dc6B9cE3E335A11A6A5BB2879fE",
 "smartTokenAddress": "0x28271853E950bE371B050F3f93aA0146225bF374",
 "owner": "0xB024Fbc56AE323a05B5b6156C0FCC5001Fa5Ac9e",
@@ -1512,11 +1333,11 @@ const officialTokens = [{
 "smartTokenSupply": "251113747823637200000",
 "connectorBancorReserve": "134365559616201456488",
 "connectorOriginalReserve": "112779025287338956774",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "990963575407968863",
+"smartTokeninUSD": "129681975445819117013",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.3"
+"conversionFee": "0.3",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x9a005c9a89BD72a4Bd27721E7a09A3c11D2b03C4",
@@ -1532,31 +1353,11 @@ const officialTokens = [{
 "smartTokenSupply": "44415992034203828335986",
 "connectorBancorReserve": "1427334975824763380784",
 "connectorOriginalReserve": "13437695459445539772963078",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "2363987184601679414",
+"smartTokeninUSD": "308720984914319271063",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x61d40B844ea5B68c9C504FCcdB05B68c2D7aE965",
-"symbol": "GOLD",
-"smartTokenSymbol": "GOLDBNT",
-"converterAddress": "0x74393Aa85c03aA18E488F34414DD9406E1Bdd3B2",
-"smartTokenAddress": "0xb4961fa7358eFA9b3a9F8e03C82c596b429cF453",
-"owner": "0x76a1E5FcC8176E76b9210B8dBC484258f8745200",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "90023221844618382490799",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x818Fc6C2Ec5986bc6E2CBf00939d90556aB12ce5",
@@ -1572,31 +1373,11 @@ const officialTokens = [{
 "smartTokenSupply": "136342316702823314050",
 "connectorBancorReserve": "153508132966352054045",
 "connectorOriginalReserve": "3683768213373321235064751",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "254285356956662281",
+"smartTokeninUSD": "33314048361710050415",
 "tokenDecimals": 18,
-"converterVersion": "13",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0xDf6Ef343350780BF8C3410BF062e0C015B1DD671",
-"symbol": "BMC",
-"smartTokenSymbol": "BMCBNT",
-"converterAddress": "0x77fEB788c747a701eb65B8d3B522302AaF26b1E2",
-"smartTokenAddress": "0x1bce0e684A1607fd86407909073Eea2336042bf7",
-"owner": "0xf0f8C14a1A6202e89e61F514bB958433fC227F53",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "262480657222632261633117",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 8,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "13"
 },
 {
 "tokenAddress": "0xC5bBaE50781Be1669306b9e001EFF57a2957b09d",
@@ -1612,11 +1393,11 @@ const officialTokens = [{
 "smartTokenSupply": "186276000000000000000000",
 "connectorBancorReserve": "87131627123654787130622",
 "connectorOriginalReserve": "205175974488",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "142745038142581144455",
+"smartTokeninUSD": "15382471543644735187159",
 "tokenDecimals": 5,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xa704fCe7b309Ec09DF16e2F5Ab8cAf6Fe8A4BAA9",
@@ -1632,11 +1413,11 @@ const officialTokens = [{
 "smartTokenSupply": "148928650065872747129064",
 "connectorBancorReserve": "77129835518767562540479",
 "connectorOriginalReserve": "1328850194516351672567122",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "126519484744678289239",
+"smartTokeninUSD": "13915160687213181954109",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x39Bb259F66E1C59d5ABEF88375979b4D20D98022",
@@ -1652,11 +1433,11 @@ const officialTokens = [{
 "smartTokenSupply": "29638610216587737969228",
 "connectorBancorReserve": "18805657745194642831029",
 "connectorOriginalReserve": "14076517371706",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "31077325635060506168",
+"smartTokeninUSD": "3889920050448044118263",
 "tokenDecimals": 8,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xc72fe8e3Dd5BeF0F9f31f259399F301272eF2a2D",
@@ -1672,11 +1453,11 @@ const officialTokens = [{
 "smartTokenSupply": "80847030856350797037980",
 "connectorBancorReserve": "11978764314595854594611",
 "connectorOriginalReserve": "605307731690989746122159",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "19812788882937904921",
+"smartTokeninUSD": "2521028140188524255632",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x4162178B78D6985480A308B2190EE5517460406D",
@@ -1692,15 +1473,15 @@ const officialTokens = [{
 "smartTokenSupply": "10001487319409",
 "connectorBancorReserve": "8106363496527",
 "connectorOriginalReserve": "326050273078205",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "13428409093",
+"smartTokeninUSD": "1759939996596",
 "tokenDecimals": 18,
-"converterVersion": "13",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "13"
 },
 {
-"tokenAddress": "0x0e2145A23f7810431Ba0f2e19676530b3F1Fb0EC",
-"symbol": "AMPLBNT",
+"tokenAddress": "0xD46bA6D942050d489DBd938a2C909A5d5039A161",
+"symbol": "AMPL",
 "smartTokenSymbol": "AMPLBNT",
 "converterAddress": "0x7f913E9DeeF8eFE8d09A2e67d18cEd9BE4Ad1dc7",
 "smartTokenAddress": "0x0e2145A23f7810431Ba0f2e19676530b3F1Fb0EC",
@@ -1712,11 +1493,11 @@ const officialTokens = [{
 "smartTokenSupply": "53056000000000000000000",
 "connectorBancorReserve": "16137962561779490936257",
 "connectorOriginalReserve": "3461683966802",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "14",
-"conversionFee": "0.1"
+"smartTokenInETH": "26677901901410638853",
+"smartTokeninUSD": "3360635442426361694317",
+"tokenDecimals": 9,
+"conversionFee": "0.1",
+"converterVersion": "14"
 },
 {
 "tokenAddress": "0xd559f20296FF4895da39b5bd9ADd54b442596a61",
@@ -1732,11 +1513,11 @@ const officialTokens = [{
 "smartTokenSupply": "29811721065186238380876",
 "connectorBancorReserve": "25115517799661025501011",
 "connectorOriginalReserve": "722810818553519791736995",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "41471307025751625571",
+"smartTokeninUSD": "5114032944434113453367",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xA4e8C3Ec456107eA67d3075bF9e3DF3A75823DB0",
@@ -1752,31 +1533,11 @@ const officialTokens = [{
 "smartTokenSupply": "238960717911154660000",
 "connectorBancorReserve": "119480358955577332458",
 "connectorOriginalReserve": "7156000000000000000000",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "883155439095976007",
+"smartTokeninUSD": "115592562150613903577",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.15"
-},
-{
-"tokenAddress": "0x2023DCf7c438c8C8C0B0F28dBaE15520B4f3Ee20",
-"symbol": "FTR",
-"smartTokenSymbol": "FTRBNT",
-"converterAddress": "0x8515B0625D9a89b910FEEDE8895a72D92B713392",
-"smartTokenAddress": "0x2DA44dA464d6b1F4957A221007F9F0A0759Cbb3a",
-"owner": "0xBf89A420535ba05D05f0375A5eAfb5A5146F48f5",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "0",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "17",
-"conversionFee": "0.1"
+"conversionFee": "0.15",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x6Ba460AB75Cd2c56343b3517ffeBA60748654D26",
@@ -1792,11 +1553,11 @@ const officialTokens = [{
 "smartTokenSupply": "90724000000000000000000",
 "connectorBancorReserve": "36468782537522307014173",
 "connectorOriginalReserve": "262363322170061",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "60131032997528605121",
+"smartTokeninUSD": "7222978853662624078471",
 "tokenDecimals": 8,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x0Cf0Ee63788A0849fE5297F3407f701E122cC023",
@@ -1812,36 +1573,16 @@ const officialTokens = [{
 "smartTokenSupply": "41429120369751021821212",
 "connectorBancorReserve": "39566668845760919131894",
 "connectorOriginalReserve": "656430226215268471882287",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "65213218738052284066",
+"smartTokeninUSD": "7778575133232429999841",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0xdf1338FbAfe7aF1789151627B886781ba556eF9a",
-"symbol": "KUE",
-"smartTokenSymbol": "KUEBNT",
-"converterAddress": "0x867558349Ad467E5c8A883Cb331d53793166160d",
-"smartTokenAddress": "0xFd1be1419FF218C06B90F237A5b66DE43c62010f",
-"owner": "0x083A43f3c6F02820a6fdfC6FB5870c4004C444Aa",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "0",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-"symbol": "USDC(USDB)2",
-"smartTokenSymbol": "USDCUSDB2",
+"symbol": "USDC(USDB)",
+"smartTokenSymbol": "USDCUSDB",
 "converterAddress": "0x868229B43a8BCBDFfb244DDE874f52Ade0B1c132",
 "smartTokenAddress": "0x71c414DaCe65ABff9351E215d25f17F675241c0A",
 "owner": "0xF29C685f9f11A0634EA5bEc83fb2c47e2101FC31",
@@ -1852,11 +1593,11 @@ const officialTokens = [{
 "smartTokenSupply": "240000000000000000000",
 "connectorBancorReserve": "1201427780539533762671",
 "connectorOriginalReserve": "1199818375",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "8429738383902989945",
+"smartTokeninUSD": "1090880992339711469823",
 "tokenDecimals": 6,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xc0829421C1d260BD3cB3E0F06cfE2D52db2cE315",
@@ -1872,11 +1613,11 @@ const officialTokens = [{
 "smartTokenSupply": "27707017542075496930000",
 "connectorBancorReserve": "14205072507816456114270",
 "connectorOriginalReserve": "105063016846007469519",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "61667719613791873894",
+"smartTokeninUSD": "7391798075955018983130",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.15"
+"conversionFee": "0.15",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07",
@@ -1892,11 +1633,11 @@ const officialTokens = [{
 "smartTokenSupply": "237064776598203287112720",
 "connectorBancorReserve": "125509970341716607671557",
 "connectorOriginalReserve": "44553008160966174370878",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "204625685838718731536",
+"smartTokeninUSD": "20473079893844606903989",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x3A92bD396aEf82af98EbC0Aa9030D25a23B11C6b",
@@ -1912,11 +1653,11 @@ const officialTokens = [{
 "smartTokenSupply": "34748000000000000000000",
 "connectorBancorReserve": "7792190145279281205929",
 "connectorOriginalReserve": "346808424585906756473020",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "12895120335403506867",
+"smartTokeninUSD": "1657669707722103220839",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xefBd6D7deF37ffae990503EcdB1291B2f7E38788",
@@ -1932,11 +1673,11 @@ const officialTokens = [{
 "smartTokenSupply": "5368763953590905815470",
 "connectorBancorReserve": "917466895649419112250",
 "connectorOriginalReserve": "3818595728687627661374147",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "1519630253371727626",
+"smartTokeninUSD": "198706812842428354904",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x763186eB8d4856D536eD4478302971214FEbc6A9",
@@ -1952,11 +1693,11 @@ const officialTokens = [{
 "smartTokenSupply": "2331161294961608132697141",
 "connectorBancorReserve": "9494047774641961914649",
 "connectorOriginalReserve": "6947557368123026391942068",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "15708070381089796986",
+"smartTokeninUSD": "2010871406966316654574",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xF01d7939441a3b1B108C70A28DcD99c6A98aD4b4",
@@ -1972,11 +1713,11 @@ const officialTokens = [{
 "smartTokenSupply": "26801025048398062200504",
 "connectorBancorReserve": "521829541294734293213",
 "connectorOriginalReserve": "259750172911005582925025",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "865232148097249694",
+"smartTokeninUSD": "113249727077472000811",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0"
+"conversionFee": "0",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x408e41876cCCDC0F92210600ef50372656052a38",
@@ -1992,31 +1733,11 @@ const officialTokens = [{
 "smartTokenSupply": "220008199397586812666",
 "connectorBancorReserve": "134787288663692202171",
 "connectorOriginalReserve": "2945544479849944983556",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "996033700355463391",
+"smartTokeninUSD": "130344475451309372253",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x0e0989b1f9B8A38983c2BA8053269Ca62Ec9B195",
-"symbol": "POE",
-"smartTokenSymbol": "POEBNT",
-"converterAddress": "0x8C2036ce61648FcdDffB06d6D11fE0b479eD63FE",
-"smartTokenAddress": "0xA5F2A49aAfA052E28A50A575cd9E7488FA598E78",
-"owner": "0x4adC207E73Ff2f8738c7a9E3dbAce389B45D92d2",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "330240364911610659025280",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 8,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x910Dfc18D6EA3D6a7124A6F8B5458F281060fa4c",
@@ -2032,11 +1753,11 @@ const officialTokens = [{
 "smartTokenSupply": "43943631295726786264216",
 "connectorBancorReserve": "24350394658207064150228",
 "connectorOriginalReserve": "1095739862705351752222452",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "40211841196469942869",
+"smartTokeninUSD": "4967638395413627729916",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x2Ef27BF41236bD859a95209e17a43Fbd26851f92",
@@ -2052,31 +1773,11 @@ const officialTokens = [{
 "smartTokenSupply": "110550237910666169393000",
 "connectorBancorReserve": "3002771456412234817",
 "connectorOriginalReserve": "19091325643991161",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "4974169744967198",
+"smartTokeninUSD": "651914479797364449",
 "tokenDecimals": 4,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x09617F6fD6cF8A71278ec86e23bBab29C04353a7",
-"symbol": "ULT",
-"smartTokenSymbol": "ULTBNT",
-"converterAddress": "0x9571C052c01FA73e58334c02a57E421045F7Ab9A",
-"smartTokenAddress": "0x668841f8262dbd3A6F5EDB0Cf47d7799e7822433",
-"owner": "0x977747548511a6350797fae0C294A62A66d4e6fA",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "200849466446024717721046",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xdd974D5C2e2928deA5F71b9825b8b646686BD200",
@@ -2092,11 +1793,11 @@ const officialTokens = [{
 "smartTokenSupply": "230220090792074837619",
 "connectorBancorReserve": "115110045396037418812",
 "connectorOriginalReserve": "607580848307780114936",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "849766061692111979",
+"smartTokeninUSD": "111227982308744793356",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.3"
+"conversionFee": "0.3",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x0F5D2fB29fb7d3CFeE444a200298f468908cC942",
@@ -2112,11 +1813,11 @@ const officialTokens = [{
 "smartTokenSupply": "78593070683782889823296",
 "connectorBancorReserve": "149356646935397919666340",
 "connectorOriginalReserve": "974262249278044848605309",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "242775413379379606412",
+"smartTokeninUSD": "23263806191965323906292",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xB62132e35a6c13ee1EE0f84dC5d40bad8d815206",
@@ -2132,11 +1833,11 @@ const officialTokens = [{
 "smartTokenSupply": "230000000000000000000",
 "connectorBancorReserve": "120327868449361046523",
 "connectorOriginalReserve": "1200266085404287763778",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "877428827411775277",
+"smartTokeninUSD": "114844024441708611209",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "1.5"
+"conversionFee": "1.5",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x83984d6142934bb535793A82ADB0a46EF0F66B6d",
@@ -2150,13 +1851,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "153403248196719952705853",
-"connectorBancorReserve": "129324196748609912794751",
-"connectorOriginalReserve": "79019265535",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "130525355983008893222437",
+"connectorOriginalReserve": "78293541229",
+"smartTokenInETH": "212668269258555815699",
+"smartTokeninUSD": "21081702808729559509036",
 "tokenDecimals": 4,
-"converterVersion": "0",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x84F7c44B6Fed1080f647E354D552595be2Cc602F",
@@ -2172,11 +1873,11 @@ const officialTokens = [{
 "smartTokenSupply": "59815028200000000000000",
 "connectorBancorReserve": "16252092216264740985",
 "connectorOriginalReserve": "9331691253482171644087",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "26921971775150507",
+"smartTokeninUSD": "3528275210100922252",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x9AF4f26941677C706cfEcf6D3379FF01bB85D5Ab",
@@ -2192,31 +1893,11 @@ const officialTokens = [{
 "smartTokenSupply": "35176000000000000000000",
 "connectorBancorReserve": "11880696701323521964588",
 "connectorOriginalReserve": "372451380726305",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "19650831877164801345",
+"smartTokeninUSD": "2501015976399520864272",
 "tokenDecimals": 8,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C",
-"symbol": "BNT",
-"smartTokenSymbol": "BNT",
-"converterAddress": "0x9c248517b92Ae226B88a0a0C28dE02B9B7b039D3",
-"smartTokenAddress": "0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C",
-"owner": "0x51A3ac2399c89FFA893B0f627c740C05193875A6",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "67749929767006042979998222",
-"connectorBancorReserve": "11926726590831860294234",
-"connectorOriginalReserve": null,
-"smartTokenInETH": "11926726590831860294234",
-"smartTokeninUSD": "99867050968923028774215",
-"tokenDecimals": 18,
-"converterVersion": null,
-"conversionFee": "0"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x5d60d8d7eF6d37E16EBABc324de3bE57f135e0BC",
@@ -2232,11 +1913,11 @@ const officialTokens = [{
 "smartTokenSupply": "139710000000000000000000",
 "connectorBancorReserve": "25328533176436520822493",
 "connectorOriginalReserve": "12243844131924740034176452",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "41821906970853072743",
+"smartTokeninUSD": "5154691617532525656361",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x744d70FDBE2Ba4CF95131626614a1763DF805B9E",
@@ -2252,31 +1933,11 @@ const officialTokens = [{
 "smartTokenSupply": "66084474979503534365456",
 "connectorBancorReserve": "42403492924817077563181",
 "connectorOriginalReserve": "1017410806136914356070535",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "69863609537182606400",
+"smartTokeninUSD": "8280189324368581758988",
 "tokenDecimals": 18,
-"converterVersion": "13",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-"symbol": "USDC(USDB)",
-"smartTokenSymbol": "USDC(USDB)",
-"converterAddress": "0x9e7aDdaEcA0069f1539b03f104D8A1846D722B93",
-"smartTokenAddress": "0x976a003d2E8Ba230e9c7Fb65DA5de448A4Bc2d0d",
-"owner": "0x24eE03D1fdA6F4a6fEa0f629e960e64f8f50db76",
-"isOfficial": 0,
-"isCoTraderVerified": 1,
-"isBlacklisted": 0,
-"connectorType": "USDB",
-"smartTokenSupply": "1016000000000000000000",
-"connectorBancorReserve": "4064000000000000000000",
-"connectorOriginalReserve": "4064000000",
-"smartTokenInETH": "19682320328699445609",
-"smartTokeninUSD": "2807003165522137005793",
-"tokenDecimals": 6,
-"converterVersion": null,
-"conversionFee": "0.2"
+"conversionFee": "0.1",
+"converterVersion": "13"
 },
 {
 "tokenAddress": "0xF629cBd94d3791C9250152BD8dfBDF380E2a3B9c",
@@ -2290,13 +1951,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "8388676810664091739555522",
-"connectorBancorReserve": "354143528974071939493685",
-"connectorOriginalReserve": "998289551385102179602676",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "354863826937494040979531",
+"connectorOriginalReserve": "996267530785686347548647",
+"smartTokenInETH": "562318281213224079638",
+"smartTokeninUSD": "39799818599473812449843",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x009e864923b49263c7F10D19B7f8Ab7a9A5AAd33",
@@ -2312,11 +1973,11 @@ const officialTokens = [{
 "smartTokenSupply": "107098994901810345036752",
 "connectorBancorReserve": "37636182479363587547786",
 "connectorOriginalReserve": "4171831313559513507908791",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "62046662138304337188",
+"smartTokeninUSD": "7433317999111102626300",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x2dAEE1AA61D60A252DC80564499A69802853583A",
@@ -2332,11 +1993,11 @@ const officialTokens = [{
 "smartTokenSupply": "63921728304626929127596",
 "connectorBancorReserve": "728938328083258727581",
 "connectorOriginalReserve": "26966255896",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "1207393367951832218",
+"smartTokeninUSD": "157953255025800097073",
 "tokenDecimals": 4,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x960b236A07cf122663c4303350609A66A7B288C0",
@@ -2352,11 +2013,11 @@ const officialTokens = [{
 "smartTokenSupply": "101987959959959959960089",
 "connectorBancorReserve": "92691048488385894251408",
 "connectorOriginalReserve": "51645486855528804145373",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "151145649277555056605",
+"smartTokeninUSD": "16119098809913514121731",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.5"
+"conversionFee": "0.5",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0xe3818504c1B32bF1557b16C238B2E01Fd3149C17",
@@ -2372,36 +2033,16 @@ const officialTokens = [{
 "smartTokenSupply": "86243959178489864060000",
 "connectorBancorReserve": "44341094080632638395695",
 "connectorOriginalReserve": "477948680640661953487027",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "73037980169122911062",
+"smartTokeninUSD": "8618938794055942074379",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0xB62132e35a6c13ee1EE0f84dC5d40bad8d815206",
-"symbol": "NEXO",
-"smartTokenSymbol": "NEXOBNT",
-"converterAddress": "0xa2630FC0233940779F25DFDCff3aBbDc85682a4c",
-"smartTokenAddress": "0x7081bCa18fA05e8c9AA25320e3B7493d92B4e73C",
-"owner": "0x48BdF6D07896026dF2A6F5b0F0BF6c74B77D9bcE",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "200001831967487839222066",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x89d24A6b4CcB1B6fAA2625fE562bDD9a23260359",
-"symbol": "SAI",
-"smartTokenSymbol": "SAIBNT",
+"symbol": "DAI",
+"smartTokenSymbol": "DAIBNT",
 "converterAddress": "0xA2cAF0d7495360CFa58DeC48FaF6B4977cA3DF93",
 "smartTokenAddress": "0xee01b3AB5F6728adc137Be101d99c678938E6E72",
 "owner": "0x20412bD6d146309c55cC607d30c5aAd07fbF6148",
@@ -2410,33 +2051,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "93902945930281785743052",
-"connectorBancorReserve": "378553015545627941711190",
-"connectorOriginalReserve": "82715941265142709836505",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "378844381252722387179543",
+"connectorOriginalReserve": "82662030100584772716206",
+"smartTokenInETH": "597990214375959977017",
+"smartTokeninUSD": "41124649250773889035286",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.2"
-},
-{
-"tokenAddress": "0x57Ab1E02fEE23774580C119740129eAC7081e9D3",
-"symbol": "sUSD(USDB)2",
-"smartTokenSymbol": "sUSDUSDB2",
-"converterAddress": "0xA3D7Fcd2210159BC8c75Dfeec3d3996A44e104c1",
-"smartTokenAddress": "0x78B8FA1A6eA77F44Fbd6fDf452E803C5D5f2D23F",
-"owner": "0x43963E218DCdb78D8c23F74824f1298F2d748395",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "USDB",
-"smartTokenSupply": "0",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.2",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x607F4C5BB672230e8672085532f7e901544a7375",
@@ -2452,11 +2073,11 @@ const officialTokens = [{
 "smartTokenSupply": "38780357083133059356954",
 "connectorBancorReserve": "66223653259399936932649",
 "connectorOriginalReserve": "37157086225875",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "108779852882300362994",
+"smartTokeninUSD": "12240072623631333543254",
 "tokenDecimals": 9,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x737F98AC8cA59f2C68aD658E3C3d8C8963E40a4c",
@@ -2470,13 +2091,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "43396644964566315029220",
-"connectorBancorReserve": "21020115652270463383855",
-"connectorOriginalReserve": "4217994126963802088142742",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "20711470941639726120592",
+"connectorOriginalReserve": "4281224450023021267672899",
+"smartTokenInETH": "34218459626804843844",
+"smartTokeninUSD": "4263719230599812463781",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xA207Ef81C35848A60A732005A42fAe0BA89A9bE2",
@@ -2492,11 +2113,11 @@ const officialTokens = [{
 "smartTokenSupply": "3987916989264340500",
 "connectorBancorReserve": "2513416185865116528",
 "connectorOriginalReserve": "3970",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "4163540153571127",
+"smartTokeninUSD": "545674069264883402",
 "tokenDecimals": 4,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x5B09A0371C1DA44A8E24D36Bf5DEb1141a84d875",
@@ -2512,11 +2133,11 @@ const officialTokens = [{
 "smartTokenSupply": "160887520291069827586000",
 "connectorBancorReserve": "50888627184254219680364",
 "connectorOriginalReserve": "2058273833108375794823399",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "83753232590576564028",
+"smartTokeninUSD": "9741057141047197475147",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xf8e386EDa857484f5a12e4B5DAa9984E06E73705",
@@ -2532,14 +2153,14 @@ const officialTokens = [{
 "smartTokenSupply": "37005256663767539697372",
 "connectorBancorReserve": "13168904073511094543017",
 "connectorOriginalReserve": "1030270127517751096238417",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "21777961269811461499",
+"smartTokeninUSD": "2763096647190082053929",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
-"tokenAddress": "0x9A07fD8a116b7E3Be9e6185861496AF7a2041460",
+"tokenAddress": "0xD97E471695f73d8186dEABc1AB5B8765e667Cd96",
 "symbol": "EMCO",
 "smartTokenSymbol": "EMCOBNT",
 "converterAddress": "0xB117b0216e247AF88e13b0D6a0c2a08463f01FC7",
@@ -2552,31 +2173,11 @@ const officialTokens = [{
 "smartTokenSupply": "848031280715632252",
 "connectorBancorReserve": "396168838826651398",
 "connectorOriginalReserve": "491418240676750686",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "656264300363004",
+"smartTokeninUSD": "86010534413121154",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0xEcE83617Db208Ad255Ad4f45Daf81E25137535bb",
-"symbol": "INV",
-"smartTokenSymbol": "INVBNT",
-"converterAddress": "0xb19710f3BDb4dF4c781B9dC3Cd62979921878280",
-"smartTokenAddress": "0x9da52B3b37bdBe8b851d882DC55bd823B4B66Bf4",
-"owner": "0xD5483f02d8bEd6A1D9deAb9B425aDa80cd1ed645",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "42794999878195617016359",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 8,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x08711D3B02C8758F2FB3ab4e80228418a7F8e39c",
@@ -2592,11 +2193,11 @@ const officialTokens = [{
 "smartTokenSupply": "24230000020730942400358",
 "connectorBancorReserve": "5628536714155029376446",
 "connectorOriginalReserve": "156739",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "9317114793417585557",
+"smartTokeninUSD": "1204117158800547928370",
 "tokenDecimals": 0,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x86D17e2eF332293391303F188F6a467dc0D1fd0d",
@@ -2612,11 +2213,11 @@ const officialTokens = [{
 "smartTokenSupply": "239578586486197530055442",
 "connectorBancorReserve": "8756683945011890457444",
 "connectorOriginalReserve": "11053868781594229450263",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "14503941456027873425",
+"smartTokeninUSD": "1860038196153560230591",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0"
+"conversionFee": "0",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0xDF2C7238198Ad8B389666574f2d8bc411A4b7428",
@@ -2632,11 +2233,11 @@ const officialTokens = [{
 "smartTokenSupply": "194800000000000000000000",
 "connectorBancorReserve": "81145418821294655751049",
 "connectorOriginalReserve": "20983262756326300686046656",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "133038760373185306504",
+"smartTokeninUSD": "14511926215431591708885",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x255Aa6DF07540Cb5d3d297f0D0D4D84cb52bc8e6",
@@ -2652,11 +2253,11 @@ const officialTokens = [{
 "smartTokenSupply": "102075883104556984719528",
 "connectorBancorReserve": "63745696985443607688494",
 "connectorOriginalReserve": "121419047599010240783013",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "104326436959460736072",
+"smartTokeninUSD": "11807346205858748529840",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.5"
+"conversionFee": "0.5",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x37E8789bB9996CaC9156cD5F5Fd32599E6b91289",
@@ -2672,11 +2273,11 @@ const officialTokens = [{
 "smartTokenSupply": "38401286811528004694186",
 "connectorBancorReserve": "16547505004369613548969",
 "connectorOriginalReserve": "532445659001678372254704",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "27353492597097693844",
+"smartTokeninUSD": "3442354413414310500864",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x1063ce524265d5a3A624f4914acd573dD89ce988",
@@ -2692,11 +2293,11 @@ const officialTokens = [{
 "smartTokenSupply": "15284755394631549809087",
 "connectorBancorReserve": "622204262108430226601",
 "connectorOriginalReserve": "551606540903396653319861",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "1030616069659725690",
+"smartTokeninUSD": "134862992493554028350",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x28dee01D53FED0Edf5f6E310BF8Ef9311513Ae40",
@@ -2712,31 +2313,11 @@ const officialTokens = [{
 "smartTokenSupply": "51077281545158970491142",
 "connectorBancorReserve": "28454475185773161722820",
 "connectorOriginalReserve": "23386802903103728373817622",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "46964675338845696689",
+"smartTokeninUSD": "5746459740330220584161",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x57Ab1E02fEE23774580C119740129eAC7081e9D3",
-"symbol": "sUSD(USDB)2",
-"smartTokenSymbol": "sUSDUSDB2",
-"converterAddress": "0xbA65F8c9F73b0a6d780aE47E184Df82bC6943c0e",
-"smartTokenAddress": "0xB2E2DE593fde3D6ab3F7Fe93A1ABFEA3D4DD19Ba",
-"owner": "0xb6Dfd981D9Dee4AFBE498f3d7445462fB8E5157f",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "USDB",
-"smartTokenSupply": "0",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x7C5A0CE9267ED19B22F8cae653F198e3E8daf098",
@@ -2752,31 +2333,11 @@ const officialTokens = [{
 "smartTokenSupply": "53912356294544136597085",
 "connectorBancorReserve": "67802233732830620869268",
 "connectorOriginalReserve": "74717659441748156051940",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "111350556198146302453",
+"smartTokeninUSD": "12487586938712092552164",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x9e88613418cF03dCa54D6a2cf6Ad934A78C7A17A",
-"symbol": "SWM",
-"smartTokenSymbol": "SWMBNT",
-"converterAddress": "0xBb9859dCA5B269e787e9DD6042Db46B07515fc4b",
-"smartTokenAddress": "0xF251523C1614Ec3F449A93b7bE547882EbC682Ca",
-"owner": "0xB599ff1910A23ED2e520259C360A4A6D4986F00c",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "27808000000000000000000",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "816351219085820762",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0xb0280743b44bF7db4B6bE482b2Ba7b75E5dA096C",
@@ -2792,11 +2353,11 @@ const officialTokens = [{
 "smartTokenSupply": "45375005443695364832302",
 "connectorBancorReserve": "5617996609865748465817",
 "connectorOriginalReserve": "951795890883277866115598",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "9299679916342078647",
+"smartTokeninUSD": "1201895223038596576113",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF",
@@ -2810,13 +2371,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "186237926393719193477294",
-"connectorBancorReserve": "395527623667143203516670",
-"connectorOriginalReserve": "458917825528492388576065",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "396126476039964288752714",
+"connectorOriginalReserve": "458225433900808070350061",
+"smartTokenInETH": "624550100979150761535",
+"smartTokeninUSD": "42063284693323265082561",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x3166C570935a7D8554c8f4eA792ff965D2EFe1f2",
@@ -2830,13 +2391,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "27783706580183414382638",
-"connectorBancorReserve": "14854947729781290283494",
-"connectorOriginalReserve": "178710367214170664727",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "14250435774001808380640",
+"connectorOriginalReserve": "186291367214170664727",
+"smartTokenInETH": "23586824749130778082",
+"smartTokeninUSD": "2984681385136248124551",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0"
+"conversionFee": "0",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x2C974B2d0BA1716E644c1FC59982a89DDD2fF724",
@@ -2852,31 +2413,11 @@ const officialTokens = [{
 "smartTokenSupply": "180802088539980000000000",
 "connectorBancorReserve": "128018887532861656071668",
 "connectorOriginalReserve": "1483022857347975302064520",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "208650209972704320664",
+"smartTokeninUSD": "20779044377137045296884",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x6745fAB6801e376cD24F03572B9C9B0D4EdDDCcf",
-"symbol": "SENSE",
-"smartTokenSymbol": "SENSEBNT",
-"converterAddress": "0xbf3ab01757bE47390fA19e040FA01c803A124Db3",
-"smartTokenAddress": "0x47244bC49D90F25473eBf8aD0A14Ea6d4232A4c7",
-"owner": "0x7e33009c42399F05fc4B16aeB3ACc6A60dF88058",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "0",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 8,
-"converterVersion": "13",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x419c4dB4B9e25d6Db2AD9691ccb832C8D9fDA05E",
@@ -2890,13 +2431,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "89201088693227960652696",
-"connectorBancorReserve": "28362891097485661286898",
-"connectorOriginalReserve": "216127370064439084498528",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "28090243932285262351122",
+"connectorOriginalReserve": "218229370064439084498528",
+"smartTokenInETH": "46365656656043105265",
+"smartTokeninUSD": "5677975099454518281712",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xaAAf91D9b90dF800Df4F55c205fd6989c977E73a",
@@ -2912,31 +2453,11 @@ const officialTokens = [{
 "smartTokenSupply": "145129031808753522136591",
 "connectorBancorReserve": "154593956137904110656705",
 "connectorOriginalReserve": "16169870971028",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "251123455664806320410",
+"smartTokeninUSD": "23843324200655229443844",
 "tokenDecimals": 8,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-"symbol": "DAI(USDB)",
-"smartTokenSymbol": "DAIUSDB",
-"converterAddress": "0xC08EF99FbE35d03D74c184bB5bCa952B1f940A12",
-"smartTokenAddress": "0x02e4e0d71eEDcc6370b5C8908B44266Ea68bDF41",
-"owner": "0xb075e61dF30854966d64e222CB67C487D01efe43",
-"isOfficial": 0,
-"isCoTraderVerified": 1,
-"isBlacklisted": 0,
-"connectorType": "USDB",
-"smartTokenSupply": "603000000000000000000",
-"connectorBancorReserve": "300506293625206611572",
-"connectorOriginalReserve": "302500000000000000000",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "13",
-"conversionFee": "0.15"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xF6B55acBBC49f4524Aa48D19281A9A77c54DE10f",
@@ -2952,36 +2473,16 @@ const officialTokens = [{
 "smartTokenSupply": "28714459286595063931445",
 "connectorBancorReserve": "4248193593194764318278",
 "connectorOriginalReserve": "351707796606065788144666",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "7033425162433838474",
+"smartTokeninUSD": "912090681811133203400",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0xc7C03B8a3FC5719066E185ea616e87B88eba44a3",
-"symbol": "ELI",
-"smartTokenSymbol": "ELIBNT",
-"converterAddress": "0xC1b0101091db259A5E221C3B45eBedd0eE8F5BB3",
-"smartTokenAddress": "0x9ad9bA0bb0001e9571073b595562af9645273Ab1",
-"owner": "0x20412bD6d146309c55cC607d30c5aAd07fbF6148",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "0",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x627974847450C45b60B3Fe3598f4e6E4cf945B9a",
-"symbol": "TBC2",
-"smartTokenSymbol": "TBCBNT2",
+"symbol": "TBC",
+"smartTokenSymbol": "TBCBNT",
 "converterAddress": "0xc289FFB78aB59109A9D24E2B5e63cD66C0369fdb",
 "smartTokenAddress": "0xb13819374575Be7Ced2b0896c645612164ebE772",
 "owner": "0x44FF90C9187F1A1dcE978E7bCB714505BBf23D76",
@@ -2992,11 +2493,11 @@ const officialTokens = [{
 "smartTokenSupply": "6620000000000000000000",
 "connectorBancorReserve": "31745509998356938390",
 "connectorOriginalReserve": "33792174240299228369869480",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "52586550956795801",
+"smartTokeninUSD": "6891494195917222584",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.101"
+"conversionFee": "0.101",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x1776e1F26f98b1A5dF9cD347953a26dd3Cb46671",
@@ -3012,16 +2513,16 @@ const officialTokens = [{
 "smartTokenSupply": "219998651854727340000",
 "connectorBancorReserve": "109999325927363675650",
 "connectorOriginalReserve": "17025753622488854013",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "806572714911144740",
+"smartTokeninUSD": "105581196824152538272",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "1"
+"conversionFee": "1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x57Ab1ec28D129707052df4dF418D58a2D46d5f51",
-"symbol": "sUSD(USDB)2",
-"smartTokenSymbol": "sUSDUSDB2",
+"symbol": "sUSD(USDB)",
+"smartTokenSymbol": "sUSDUSDB",
 "converterAddress": "0xc89bC9cBB8237C58587b5F907ed6B3163BFDD1B9",
 "smartTokenAddress": "0x9B6678c766003aD69A15f795f433C0F62c10D4d5",
 "owner": "0x43963E218DCdb78D8c23F74824f1298F2d748395",
@@ -3032,11 +2533,11 @@ const officialTokens = [{
 "smartTokenSupply": "15005835228253907595291",
 "connectorBancorReserve": "75466898968474687526236",
 "connectorOriginalReserve": "76042247810937836456277",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "117234890362265816797",
+"smartTokeninUSD": "13047985144477458204725",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xF970b8E36e23F7fC3FD752EeA86f8Be8D83375A6",
@@ -3052,11 +2553,11 @@ const officialTokens = [{
 "smartTokenSupply": "112582648471498466029486",
 "connectorBancorReserve": "173792390113887829050730",
 "connectorOriginalReserve": "796289525842339928362264",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "281631357120445303993",
+"smartTokeninUSD": "25873799763387943322142",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xd7631787B4dCc87b1254cfd1e5cE48e96823dEe8",
@@ -3072,11 +2573,11 @@ const officialTokens = [{
 "smartTokenSupply": "41001000036480056069513",
 "connectorBancorReserve": "14063502126209771894052",
 "connectorOriginalReserve": "65250246542899",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "23254738628892877291",
+"smartTokeninUSD": "2944088923948257755625",
 "tokenDecimals": 8,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xc0829421C1d260BD3cB3E0F06cfE2D52db2cE315",
@@ -3090,13 +2591,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "13832016094287658859258865",
-"connectorBancorReserve": "7799400674993521784844346",
-"connectorOriginalReserve": "12995278805913018506460",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "7810421575795485688311278",
+"connectorOriginalReserve": "12977065623864914772407",
+"smartTokenInETH": "6472322834023574786877",
+"smartTokeninUSD": "78519321716574276840319",
 "tokenDecimals": 18,
-"converterVersion": "23",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "23"
 },
 {
 "tokenAddress": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF",
@@ -3112,11 +2613,11 @@ const officialTokens = [{
 "smartTokenSupply": "232812545191794200000",
 "connectorBancorReserve": "121741557743994434334",
 "connectorOriginalReserve": "670260367767712327560",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "898424423104505160",
+"smartTokeninUSD": "117588340451029974236",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.3"
+"conversionFee": "0.3",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xCb94be6f13A1182E4A4B6140cb7bf2025d28e41B",
@@ -3132,11 +2633,11 @@ const officialTokens = [{
 "smartTokenSupply": "21708462817254254045764",
 "connectorBancorReserve": "8798672951411301576558",
 "connectorOriginalReserve": "161839789461",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "14558853738649163309",
+"smartTokeninUSD": "1866928406885483182038",
 "tokenDecimals": 6,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x595832F8FC6BF59c85C527fEC3740A1b7a361269",
@@ -3152,11 +2653,11 @@ const officialTokens = [{
 "smartTokenSupply": "100000000000000000000",
 "connectorBancorReserve": "400000000000000000",
 "connectorOriginalReserve": "1000000",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "2978791163609763",
+"smartTokeninUSD": "390401425855926520",
 "tokenDecimals": 6,
-"converterVersion": "22",
-"conversionFee": "0"
+"conversionFee": "0",
+"converterVersion": "22"
 },
 {
 "tokenAddress": "0xE7775A6e9Bcf904eb39DA2b68c5efb4F9360e08C",
@@ -3172,11 +2673,11 @@ const officialTokens = [{
 "smartTokenSupply": "32947226728832673740864",
 "connectorBancorReserve": "28666993185294289213392",
 "connectorOriginalReserve": "12506295833",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "47314159064320905270",
+"smartTokeninUSD": "5786361971013313734476",
 "tokenDecimals": 6,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x5e3346444010135322268a4630d2ED5F8D09446c",
@@ -3190,33 +2691,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "590214200221453301152645",
-"connectorBancorReserve": "330705866073837269219672",
-"connectorOriginalReserve": "167642861779114854289071",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "329195577193958493616265",
+"connectorOriginalReserve": "168578810828831938189557",
+"smartTokenInETH": "518762250014343711667",
+"smartTokeninUSD": "38073471938344164393932",
 "tokenDecimals": 18,
-"converterVersion": "23",
-"conversionFee": "1"
-},
-{
-"tokenAddress": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-"symbol": "USDT(USDB)",
-"smartTokenSymbol": "USDTUSDB",
-"converterAddress": "0xdba8f573097B773e9aB2C258EF28841d2f857a7d",
-"smartTokenAddress": "0xf3dbd5581e9feb5Bf3c64Ea1b48aEED52a213E67",
-"owner": "0x4eb4875e79d5d09D766a3757408D42356fB0D14a",
-"isOfficial": 0,
-"isCoTraderVerified": 1,
-"isBlacklisted": 0,
-"connectorType": "USDB",
-"smartTokenSupply": "972361208011010236407",
-"connectorBancorReserve": "2406068750536430318922",
-"connectorOriginalReserve": "2390984892",
-"smartTokenInETH": "13150578575197973881",
-"smartTokeninUSD": "1866052961786409084774",
-"tokenDecimals": 6,
-"converterVersion": null,
-"conversionFee": "0.1"
+"conversionFee": "1",
+"converterVersion": "23"
 },
 {
 "tokenAddress": "0x9c23D67AEA7B95D80942e3836BCDF7E708A747C2",
@@ -3232,11 +2713,11 @@ const officialTokens = [{
 "smartTokenSupply": "108866517272665779539884",
 "connectorBancorReserve": "17157402746641107723371",
 "connectorOriginalReserve": "6265955905333446241662666",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "28359463133229683942",
+"smartTokeninUSD": "3563738739457875690367",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xD0a4b8946Cb52f0661273bfbC6fD0E0C75Fc6433",
@@ -3252,11 +2733,11 @@ const officialTokens = [{
 "smartTokenSupply": "20394133844393775909",
 "connectorBancorReserve": "18728676516225465933",
 "connectorOriginalReserve": "3745514111554100527805",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "31024481902211491",
+"smartTokeninUSD": "4065906879311212267",
 "tokenDecimals": 18,
-"converterVersion": "0",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "0"
 },
 {
 "tokenAddress": "0x4CEdA7906a5Ed2179785Cd3A40A69ee8bc99C466",
@@ -3272,15 +2753,15 @@ const officialTokens = [{
 "smartTokenSupply": "103114000000000000000000",
 "connectorBancorReserve": "242811471360495128",
 "connectorOriginalReserve": "72772638",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "402223718478538",
+"smartTokeninUSD": "52715788856068696",
 "tokenDecimals": 8,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
-"tokenAddress": "0xa485bD50228440797Abb4d4595161d7546811160",
-"symbol": "PEG:USD",
+"tokenAddress": "0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C",
+"symbol": "BNT",
 "smartTokenSymbol": "BNT-USD",
 "converterAddress": "0xDdA1BFaF552b0F303d27853a4a13Dd440C7E849f",
 "smartTokenAddress": "0x607108c46bCE4cF6f86698E9B46E3270A734FeFe",
@@ -3290,13 +2771,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "617000000000000000000000",
-"connectorBancorReserve": "7351434460781791533030",
+"connectorBancorReserve": "7351444018129832266027",
 "connectorOriginalReserve": "27696303023519557057837",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "45626510035985755197",
+"smartTokeninUSD": "5593309696085042871564",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.3"
+"conversionFee": "0.3",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x595832F8FC6BF59c85C527fEC3740A1b7a361269",
@@ -3310,17 +2791,17 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "133912060723431734581319",
-"connectorBancorReserve": "103676538239961121154564",
-"connectorOriginalReserve": "600268985576",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "104085291550516725398551",
+"connectorOriginalReserve": "597927653902",
+"smartTokenInETH": "170154790178376247336",
+"smartTokeninUSD": "17730938487700261568363",
 "tokenDecimals": 6,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
-"tokenAddress": "0x309627af60F0926daa6041B8279484312f2bf060",
-"symbol": "USDB(USDB)",
+"tokenAddress": "0x1F573D6Fb3F13d689FF844B4cE37794d79a7FF1C",
+"symbol": "BNT(USDB)",
 "smartTokenSymbol": "USDB / BNT",
 "converterAddress": "0xE03374cAcf4600F56BDDbDC82c07b375f318fc5C",
 "smartTokenAddress": "0xd1146B08e8104EeDBa44a73B7bda1d102c6ceDC9",
@@ -3332,11 +2813,11 @@ const officialTokens = [{
 "smartTokenSupply": "84727836066265331742042",
 "connectorBancorReserve": "20127200203644845496842",
 "connectorOriginalReserve": "90665700882103251201772",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "74458116323704466189",
+"smartTokeninUSD": "8769539311025393243293",
 "tokenDecimals": 18,
-"converterVersion": "14",
-"conversionFee": "0.15"
+"conversionFee": "0.15",
+"converterVersion": "14"
 },
 {
 "tokenAddress": "0x1985365e9f78359a9B6AD760e32412f4a445E862",
@@ -3352,16 +2833,16 @@ const officialTokens = [{
 "smartTokenSupply": "210000000000000000000",
 "connectorBancorReserve": "98701584291003213455",
 "connectorOriginalReserve": "11454555339000957139",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "730687195696307993",
+"smartTokeninUSD": "95658686018931122677",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x26E75307Fc0C021472fEb8F727839531F112f317",
-"symbol": "C202",
-"smartTokenSymbol": "C20BNT2",
+"symbol": "C20",
+"smartTokenSymbol": "C20BNT",
 "converterAddress": "0xE04c8aecb58BC3C918aeDAc958224a632529926e",
 "smartTokenAddress": "0x1EF9e0ac29b3813528FbfdAdf5118AB63e4be015",
 "owner": "0x5972A242B1852b5a76eF78Fc925dbc66fb836E95",
@@ -3372,11 +2853,11 @@ const officialTokens = [{
 "smartTokenSupply": "434216383418091396748",
 "connectorBancorReserve": "239969130928117293996",
 "connectorOriginalReserve": "159649734161415641438",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "395911561441995571",
+"smartTokeninUSD": "51857446451265514963",
 "tokenDecimals": 18,
-"converterVersion": "13",
-"conversionFee": "0.5"
+"conversionFee": "0.5",
+"converterVersion": "13"
 },
 {
 "tokenAddress": "0xF433089366899D83a9f26A773D59ec7eCF30355e",
@@ -3392,16 +2873,16 @@ const officialTokens = [{
 "smartTokenSupply": "66950160000000000000000",
 "connectorBancorReserve": "60531899696301427622872",
 "connectorOriginalReserve": "5969034801914",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "99502333064179657222",
+"smartTokeninUSD": "11332876835042572250763",
 "tokenDecimals": 8,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x3C45B24359fB0E107a4eAA56Bd0F2cE66C99A0E5",
-"symbol": "ANK2",
-"smartTokenSymbol": "ANKBNT2",
+"symbol": "ANK",
+"smartTokenSymbol": "ANKBNT",
 "converterAddress": "0xE1437F404451A00A9C555000b6f3cBA2480291c8",
 "smartTokenAddress": "0x437F7d93540094Da58F337644ba7D6E5Ad823564",
 "owner": "0x6884249C226F1443f2b7040A3d6143C170Df34F6",
@@ -3412,11 +2893,11 @@ const officialTokens = [{
 "smartTokenSupply": "655615854025015532",
 "connectorBancorReserve": "227938518106151249",
 "connectorOriginalReserve": "52016899790473029865689",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "377586272995465",
+"smartTokeninUSD": "49486785762558594",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x4D305c2334c02E44aC592BbEA681bA4cC1576DE3",
@@ -3432,11 +2913,11 @@ const officialTokens = [{
 "smartTokenSupply": "38859159383694539968195",
 "connectorBancorReserve": "120025266214417130566",
 "connectorOriginalReserve": "48822488102841082688516",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "198822028390458709",
+"smartTokeninUSD": "26049958247291770919",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xb056c38f6b7Dc4064367403E26424CD2c60655e1",
@@ -3452,11 +2933,11 @@ const officialTokens = [{
 "smartTokenSupply": "1000000000000000000000",
 "connectorBancorReserve": "1000000000000000000",
 "connectorOriginalReserve": "1000000000000000000",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "7439306974111856",
+"smartTokeninUSD": "974991622054251641",
 "tokenDecimals": 18,
-"converterVersion": "22",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "22"
 },
 {
 "tokenAddress": "0xd26114cd6EE289AccF82350c8d8487fedB8A0C07",
@@ -3472,11 +2953,11 @@ const officialTokens = [{
 "smartTokenSupply": "266000000000000000000",
 "connectorBancorReserve": "122915006434337849941",
 "connectorOriginalReserve": "221820339814194878835",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "907031192346984008",
+"smartTokeninUSD": "118713273383482660871",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.3"
+"conversionFee": "0.3",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xcbee6459728019CB1f2bB971dDe2eE3271BC7617",
@@ -3492,55 +2973,15 @@ const officialTokens = [{
 "smartTokenSupply": "57200000000000000000000",
 "connectorBancorReserve": "21412421296326791970190",
 "connectorOriginalReserve": "13283466260613297670805617",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "35373371806019046172",
+"smartTokeninUSD": "4400306517038216140259",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
-"tokenAddress": "0x80BC5512561c7f85A3A9508c7df7901b370Fa1DF",
-"symbol": "TIO",
-"smartTokenSymbol": "TIOBNT",
-"converterAddress": "0xE93B1e94d6e10694cBa07563d4f6Ff829F7eC733",
-"smartTokenAddress": "0x1B30042b537B30B1254ce84b27B332BE523e974a",
-"owner": "0x58f75dDACFFB183a30F69fE58a67a0d0985fce0F",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "152867999999999999999964",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-"symbol": "DAI(USDB)2",
-"smartTokenSymbol": "DAIUSDB2",
-"converterAddress": "0xEb0802c63aDB90d2d4824406cB68Cfe3257DA44b",
-"smartTokenAddress": "0x109C1AD638DAf89DBb95baDfCA505F1adb09AF2D",
-"owner": "0xb075e61dF30854966d64e222CB67C487D01efe43",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "USDB",
-"smartTokenSupply": "6000000000000000000",
-"connectorBancorReserve": "3008106397724340581",
-"connectorOriginalReserve": "2991939683273826401",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.15"
-},
-{
-"tokenAddress": "0xfB834a1515cbC7f8B04D7Ab4Bd27D6922bee1A93",
-"symbol": "EGXBNT",
+"tokenAddress": "0x5E8f0e658aff673AA635a889c5b4F38f12E2A740",
+"symbol": "EGX",
 "smartTokenSymbol": "EGXBNT",
 "converterAddress": "0xeDD1b505BAe327a3028eF5BCffcbD1F34a75891E",
 "smartTokenAddress": "0xfB834a1515cbC7f8B04D7Ab4Bd27D6922bee1A93",
@@ -3552,11 +2993,11 @@ const officialTokens = [{
 "smartTokenSupply": "154164000000000000000000",
 "connectorBancorReserve": "59142727462045668947701",
 "connectorOriginalReserve": "77000003188831633365",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "97235956315339887214",
+"smartTokeninUSD": "11107883253015913839196",
 "tokenDecimals": 18,
-"converterVersion": "14",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "14"
 },
 {
 "tokenAddress": "0xF629cBd94d3791C9250152BD8dfBDF380E2a3B9c",
@@ -3572,11 +3013,11 @@ const officialTokens = [{
 "smartTokenSupply": "246254213087143339519",
 "connectorBancorReserve": "133900728366134190864",
 "connectorOriginalReserve": "1571949922562303601588",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "986574297697068654",
+"smartTokeninUSD": "129108431768103596646",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.4"
+"conversionFee": "0.4",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xe245286c988eBf5099287749453CF19273436C04",
@@ -3592,11 +3033,11 @@ const officialTokens = [{
 "smartTokenSupply": "328060860275441100000",
 "connectorBancorReserve": "164030430137720540000",
 "connectorOriginalReserve": "1000",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "270627191540187843",
+"smartTokeninUSD": "35454122834172724470",
 "tokenDecimals": 2,
-"converterVersion": "20",
-"conversionFee": "0.5"
+"conversionFee": "0.5",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x0D262e5dC4A06a0F1c90cE79C7a60C09DfC884E4",
@@ -3612,31 +3053,11 @@ const officialTokens = [{
 "smartTokenSupply": "137904000000000000000000",
 "connectorBancorReserve": "47125009810119172588333",
 "connectorOriginalReserve": "4032876044885663",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "77596129516241747078",
+"smartTokeninUSD": "9100258876920961887503",
 "tokenDecimals": 8,
-"converterVersion": "20",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x9b68bFaE21DF5A510931A262CECf63f41338F264",
-"symbol": "DBET",
-"smartTokenSymbol": "DBETBNT",
-"converterAddress": "0xF4327c919854CB099ac574A22f5fba901e2025c4",
-"smartTokenAddress": "0xfE9E6111E45A6066374bF33E831E80B1949a9faA",
-"owner": "0xE74ec575308b44a8E6CFfa793B9141377239D1B9",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "482773000000000000000000",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
@@ -3652,11 +3073,11 @@ const officialTokens = [{
 "smartTokenSupply": "403445934025570000744",
 "connectorBancorReserve": "193856675287025815549",
 "connectorOriginalReserve": "1076881585486439886404",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "1394338041118234368",
+"smartTokeninUSD": "182358133753979186335",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "2.5"
+"conversionFee": "2.5",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x667088b212ce3d06a1b553a7221E1fD19000d9aF",
@@ -3672,11 +3093,11 @@ const officialTokens = [{
 "smartTokenSupply": "46445387080415483185490",
 "connectorBancorReserve": "18579515699948470121658",
 "connectorOriginalReserve": "206152450014480721657900",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "30704500160552197028",
+"smartTokeninUSD": "3845327671731983234356",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x8f8221aFbB33998d8584A2B05749bA73c37a938a",
@@ -3692,31 +3113,11 @@ const officialTokens = [{
 "smartTokenSupply": "150414000000000000000000",
 "connectorBancorReserve": "85402612937119342602841",
 "connectorOriginalReserve": "1611959025490102605703848",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "139943055392998466345",
+"smartTokeninUSD": "15133333240251998633415",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
-},
-{
-"tokenAddress": "0x4f3AfEC4E5a3F2A6a1A411DEF7D7dFe50eE057bF",
-"symbol": "DGX",
-"smartTokenSymbol": "DGXBNT",
-"converterAddress": "0xF5afeb3BD6f162BfC3B305eDCf08f02B4415D41A",
-"smartTokenAddress": "0xCaea8f7774F8BF7093E1133fDb3791EDb7D6D822",
-"owner": "0xE693cD414421237E3a6C613a0C75d41dD1921b61",
-"isOfficial": 1,
-"isCoTraderVerified": 0,
-"isBlacklisted": 0,
-"connectorType": "BNT",
-"smartTokenSupply": "63524999992129083037686",
-"connectorBancorReserve": "0",
-"connectorOriginalReserve": "0",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
-"tokenDecimals": 9,
-"converterVersion": "32",
-"conversionFee": "0"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0xEa1f346faF023F974Eb5adaf088BbCdf02d761F4",
@@ -3732,11 +3133,11 @@ const officialTokens = [{
 "smartTokenSupply": "94101903756941348803501",
 "connectorBancorReserve": "700000000000000000",
 "connectorOriginalReserve": "601581000000000000000000",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "1159568717625893",
+"smartTokeninUSD": "151973905948502203",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0x6758B7d441a9739b98552B373703d8d3d14f9e62",
@@ -3752,11 +3153,11 @@ const officialTokens = [{
 "smartTokenSupply": "390062000000000000000392",
 "connectorBancorReserve": "125328161346977634778352",
 "connectorOriginalReserve": "2314553198092260263369584",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "204333949412838773868",
+"smartTokeninUSD": "20450789899860482022647",
 "tokenDecimals": 18,
-"converterVersion": "20",
-"conversionFee": "0.1"
+"conversionFee": "0.1",
+"converterVersion": "20"
 },
 {
 "tokenAddress": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
@@ -3772,11 +3173,11 @@ const officialTokens = [{
 "smartTokenSupply": "209567945817546557299945",
 "connectorBancorReserve": "153624299559673522815380",
 "connectorOriginalReserve": "79138637711017033133",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"smartTokenInETH": "248598560696995594492",
+"smartTokeninUSD": "23669169996499347140720",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.5"
+"conversionFee": "0.5",
+"converterVersion": "32"
 },
 {
 "tokenAddress": "0xd341d1680Eeee3255b8C4c75bCCE7EB57f144dAe",
@@ -3790,12 +3191,13 @@ const officialTokens = [{
 "isBlacklisted": 0,
 "connectorType": "BNT",
 "smartTokenSupply": "38901482541630736405433",
-"connectorBancorReserve": "14038349618903290927915",
-"connectorOriginalReserve": "804579215952906731380157",
-"smartTokenInETH": null,
-"smartTokeninUSD": null,
+"connectorBancorReserve": "13854957667023051463811",
+"connectorOriginalReserve": "815467604112291378492169",
+"smartTokenInETH": "22910509443784256947",
+"smartTokeninUSD": "2901970501246161778633",
 "tokenDecimals": 18,
-"converterVersion": "32",
-"conversionFee": "0.1"
-}]
+"conversionFee": "0.1",
+"converterVersion": "32"
+}
+]
 export default officialTokens

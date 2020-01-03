@@ -13,7 +13,6 @@ export const BancorRegistryAddress = "0xf6E2D7F616B67E46D708e4410746E9AAb3a4C518
 export const BancorNetwork = "0x0e936B11c2e7b601055e58c7E32417187aF4de4a"
 export const BancorETH = "0xc0829421C1d260BD3cB3E0F06cfE2D52db2cE315"
 export const EtherscanLink = "https://etherscan.io/"
-export const ConvertersRegistryList = "0x7bdb720af9c0da53744aa007984031ceca528ad0"
 export const gasPrice = 2000000000 // 2 gwei low gas price by default
 export const netId = 1
 
@@ -624,70 +623,6 @@ export const BancorRegistryABI = [
 		],
 		"name": "OwnerUpdate",
 		"type": "event"
-	}
-]
-
-export const ConvertersRegistryListABI = [
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_converter",
-				"type": "address"
-			}
-		],
-		"name": "addConverter",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "converters",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getAllConverters",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "totalConverters",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
 	}
 ]
 
