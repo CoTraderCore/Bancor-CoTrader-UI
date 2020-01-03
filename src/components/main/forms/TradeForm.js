@@ -116,7 +116,7 @@ class TradeForm extends Component {
       "value": "0x0",
       "data": tradeData,
       "gasPrice": web3.eth.utils.toHex(gasPrice),
-      "gas": web3.eth.utils.toHex(85000),
+      "gas": web3.eth.utils.toHex(950000),
     }
 
     batch.add(web3.eth.sendTransaction.request(approve, () => console.log("Approve")))
@@ -137,7 +137,7 @@ class TradeForm extends Component {
       path,
       amountSend,
       this.props.MobXStorage.minReturn
-    ).send({from: this.props.MobXStorage.accounts[0], gas:85000, gasPrice})
+    ).send({from: this.props.MobXStorage.accounts[0], gas:950000, gasPrice})
   }
 
   // in case if from === ETH
@@ -149,7 +149,7 @@ class TradeForm extends Component {
     const gasPrice = await getBancorGasLimit()
 
     bancorNetworkContract.methods.convert(path, amount, this.props.MobXStorage.minReturn)
-    .send({from: this.props.MobXStorage.accounts[0], gas:85000, gasPrice, value:amount })
+    .send({from: this.props.MobXStorage.accounts[0], gas:950000, gasPrice, value:amount })
   }
 
   // trade

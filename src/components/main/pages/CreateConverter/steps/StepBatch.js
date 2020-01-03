@@ -113,7 +113,7 @@ class StepBatch extends Component {
      if(fromWei(String(BNTConnectorBalance)) > 0 && fromWei(String(connectorBalance)) > 0){
         // Do Batch request
         const gasPrice = this.props.MobXStorage.GasPrice
-        const gas = 1872732
+        const gas = 130000
 
         let batch = new web3.BatchRequest()
 

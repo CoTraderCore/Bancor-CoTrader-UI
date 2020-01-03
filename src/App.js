@@ -84,7 +84,7 @@ class App extends Component {
 
   initData = async () => {
     this.setState({ isDataLoad:true })
-    // try get data from server for MAINNET case
+    // try get data from server
     try{
       await this.getDataFromServer()
       console.log("Load data from server")
